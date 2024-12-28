@@ -5,7 +5,7 @@ import Separator from "@/public/Separator.png";
 
 export default function Hero() {
     return (
-        <div className=" h-[38rem] lg:px-[120px] w-full pt-[88px] bg-[#111319] flex flex-col items-center justify-between">
+        <div className="min-h-[38rem] lg:px-[120px] w-full pt-[88px] bg-[#111319] flex flex-col items-center justify-between">
             <div className="w-full flex flex-row justify-center place-content-between gap-x-24">
                 <div className="flex flex-col">
                     <p className="flex items-center text-base font-normal text-[#FFFEFE] opacity-85"><Image src={Separator} className="mr-[10px]" alt="separator"/> Welcome to</p>

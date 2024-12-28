@@ -10,7 +10,7 @@ import ServiceCard2 from "./_components/ServiceCard2";
 
 export default function ServicesSection3() {
     return (
-        <div className=" h-[38rem] lg:px-[120px] w-full py-[90px] bg-[#191C26] flex flex-col justify-center place-content-between">
+        <div className="min-h-[38rem] lg:px-[120px] w-full py-[90px] bg-[#191C26] flex flex-col justify-center place-content-between">
             <div className="flex flex-col">
                 <p className="flex items-center text-base font-normal text-[#FFFFFF]"><Image src={Separator} className="mr-[10px]" alt="separator"/> Our Services</p>
                 <span className="mt-5 font-bold text-[64px] leading-[76.8px] text-[#FFFFFF]">Right thing matters to us</span>

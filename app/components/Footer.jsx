@@ -9,9 +9,9 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <div className=" min-h-[38rem] lg:px-[120px] pt-7 w-full bg-[#212121] overflow-hidden flex flex-col justify-between place-content-center">
+        <div className="min-h-[38rem] lg:px-[120px] pt-7 w-full bg-[#212121] overflow-hidden flex flex-col justify-between place-content-center">
             <div className="flex justify-between place-content-center">
-                <div className="text-[#FFFFFF] flex flex-col gap-y-5">
+                <div className="text-[#FFFFFF] flex flex-col gap-y-6">
                     <Image src={Logo} alt="Logo"/>
                     <p className="font-normal text-[14px] leading-[16.8px]">
                         57 Brand House, Coombe Way <br/>Farnborough, Hampshire
@@ -20,22 +20,17 @@ export default function Footer() {
                         <h1 className="font-semibold text-lg leading-[21.6px]">HIT US UP:</h1>
                         <p className="font-medium text-[28px] leading-[33.6px] underline decoration-solid">info@softles.com</p>
                     </div>
-                    <div className="flex flex-col gap-y-4">
+                    <div className="flex flex-col gap-y-2">
                         <h1 className="font-semibold text-lg leading-[21.6px]">WANT TO KNOW MORE?</h1>
                         <form className="">
-                            <div className="flex flex-col gap-1">
-                                <label htmlFor="email" className="font-semibold text-lg leading-[21.6px]">
-                                    Enter your email address:
-                                </label>
-                                <input
-                                    id="email"
-                                    type="email"
-                                    placeholder="info@sofles.com"
-                                    className="p-1 rounded-md"
-                                />
-                            </div>
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="Enter your email address:"
+                                className="w-full bg-transparent border-b-4 border-[#7A7A7A] text-[#FFFFFF] outline-none"
+                            />
                             <button className="py-[13px] px-[27px] rounded-[100px] border-[1px] border-[#7A7A7A] mt-3">
-                                Submit
+                                SUBMIT
                             </button>
                         </form>
                     </div>
