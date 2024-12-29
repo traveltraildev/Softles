@@ -27,7 +27,7 @@ export default function Footer() {
                                 id="email"
                                 type="email"
                                 placeholder="Enter your email address:"
-                                className="w-full bg-transparent border-b-4 border-[#7A7A7A] text-[#FFFFFF] outline-none"
+                                className="w-2/3 bg-transparent border-b-4 border-[#7A7A7A] text-[#FFFFFF] outline-none"
                             />
                             <button className="py-[13px] px-[27px] rounded-[100px] border-[1px] border-[#7A7A7A] mt-3">
                                 SUBMIT
@@ -35,10 +35,13 @@ export default function Footer() {
                         </form>
                     </div>
                 </div>
-                <div>
-                    <p className="font-bold text-sm text-[#FFFFFF] leading-[21px] text-center">
+                <div className="flex flex-col items-center gap-y-[15px]">
+                    <p className="font-bold text-sm text-[#FFFFFF] leading-[21px]">
                         57 Brand House, Coombe Way <br/>Farnborough, Hampshire
                     </p>
+                    <div className="w-[420px] h-[182px]">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4720.924964478238!2d-0.7573350076874479!3d51.29371402076245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48742b842cb7a42d%3A0x1b1fd25cfaeb0a02!2sBrand%20House%2C%20Coombe%20way!5e0!3m2!1sen!2sin!4v1735461568255!5m2!1sen!2sin" className="border-none h-full w-full rounded-[20px]" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
                 <div className="flex flex-col gap-[60px]">
                     <Image src={Logo} alt="Logo"/>
