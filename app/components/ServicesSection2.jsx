@@ -14,15 +14,15 @@ export default function ServicesSection2() {
     let [tab, setTab] = useState("Travel");
     let [activeTab, setActiveTab] = useState("Travel");
     return (
-        <div className="min-h-[38rem] lg:px-[120px] w-full py-[90px] bg-[#111319] text-[#FFFFFF] flex flex-col justify-center place-content-between">
+        <div className="min-h-[38rem] px-[10px] lg:px-[120px] w-full py-[90px] bg-[#111319] text-[#FFFFFF] flex flex-col justify-center place-content-between">
             <div className="flex flex-col">
                 <p className="flex items-center text-base font-normal"><Image src={Separator} className="mr-[10px]" alt="separator"/> Our Services</p>
-                <span className="mt-5 font-bold text-[64px] leading-[76.8px]">We are more than our words</span>
+                <span className="mt-2 lg:mt-5 mb-4 lg:mb-0 font-bold text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px]">We are more than our words</span>
             </div>
-            <div className="flex flex-row justify-center place-content-between gap-x-10 mt-9">
-                <div className="bg-[#191C26] min-h-[387px] w-[357px] p-[26px]">
+            <div className="flex flex-col lg:flex-row justify-center place-content-between lg:gap-x-10 mt-9">
+                <div className="bg-[#191C26] min-h-[387px] w-full lg:w-[357px] p-[26px]">
                     <h2 className="font-normal text-lg leading-[32.22px] mb-[26px]">Industry  or Domain</h2>
-                    <ul className="flex flex-col gap-y-[60px]">
+                    <ul className="flex flex-col gap-[10px] md:gap-5 gap-y-[60px]">
                         <li className={`cursor-pointer font-normal text-base inline-flex items-center gap-x-5 ${activeTab === 'Travel' ? ' bg-opacity-70' : ''}`}
                             onClick={()=>{
                                 setTab("Travel");
@@ -55,7 +55,7 @@ export default function ServicesSection2() {
                         </li>
                     </ul>
                 </div>
-                <div className="w-[807px] bg-[#191C26] min-h-[387px] p-[26px]">
+                <div className="w-full lg:w-[807px] bg-[#191C26] min-h-[387px] p-[26px]">
                     {
                         tab == "Travel" &&
                             <div className="flex flex-col items-center gap-y-6">

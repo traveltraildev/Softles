@@ -9,8 +9,8 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <div className="min-h-[38rem] lg:px-[120px] pt-7 w-full bg-[#212121] overflow-hidden flex flex-col justify-between place-content-center">
-            <div className="flex justify-between place-content-center">
+        <div className="min-h-[38rem] p-[10px] py-96 lg:px-[120px] pt-7 w-full bg-[#212121] overflow-hidden flex flex-col justify-between place-content-center">
+            <div className="flex flex-col lg:flex-row justify-between place-content-center gap-y-10">
                 <div className="text-[#FFFFFF] flex flex-col gap-y-6">
                     <Image src={Logo} alt="Logo"/>
                     <p className="font-normal text-[14px] leading-[16.8px]">
@@ -35,15 +35,15 @@ export default function Footer() {
                         </form>
                     </div>
                 </div>
-                <div className="flex flex-col items-center gap-y-[15px]">
+                <div className="flex flex-col items-start lg:items-center gap-y-[15px]">
                     <p className="font-bold text-sm text-[#FFFFFF] leading-[21px]">
                         57 Brand House, Coombe Way <br/>Farnborough, Hampshire
                     </p>
-                    <div className="w-[420px] h-[182px]">
+                    <div className="w-full lg:w-[420px] h-[182px]">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4720.924964478238!2d-0.7573350076874479!3d51.29371402076245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48742b842cb7a42d%3A0x1b1fd25cfaeb0a02!2sBrand%20House%2C%20Coombe%20way!5e0!3m2!1sen!2sin!4v1735461568255!5m2!1sen!2sin" className="border-none h-full w-full rounded-[20px]" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
-                <div className="flex flex-col gap-[60px]">
+                <div className="flex flex-col gap-5 lg:gap-[60px]">
                     <Image src={Logo} alt="Logo"/>
                     <ul className="flex flex-col items-start justify-between font-medium gap-y-4 text-[#FFFFFF] underline decoration-solid text-lg leading-[21.6px]">
                     <li>
@@ -61,7 +61,7 @@ export default function Footer() {
                 </ul>
                 </div>
             </div>
-            <div className="flex flex-col items-center justify-center gap-4 py-[13px]">
+            <div className="flex flex-col items-center justify-center text-center lg:text-justify gap-4 py-[13px]">
                 <p className="text-[#FFFFFF] font-normal text-[14px] leading-[16.8px]">
                     &quot;Do something today that your future self will thank you for.&quot;
                 </p>

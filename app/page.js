@@ -1,6 +1,5 @@
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
 import ServicesSection1 from "./components/ServicesSection1";
 import ServicesSection2 from "./components/ServicesSection2";
 import ServicesSection3 from "./components/ServicesSection3";
