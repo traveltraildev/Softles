@@ -1,6 +1,9 @@
 "use client";
 import Image from "next/image";
 import Separator from "@/public/Separator.png";
+import C1 from "@/public/C1.jpg";
+import C2 from "@/public/C2.jpg";
+import C3 from "@/public/C3.png";
 
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -20,19 +23,36 @@ export default function ServicesSection4() {
                     spaceBetween={30}
                     pagination={{
                         dynamicBullets: true,
-                        pagination: true,
                     }}
                     modules={[Pagination]}
-                    className="w-full text-white min-h-[387px] bg-[#191C26]"
+                    className="w-full text-white min-h-[387px] bg-[#191C26] font-normal text-[17.98px] leading-[26.97px]"
                 >
-                    <SwiperSlide className="flex justify-center items-center">
-                        1
+                    <SwiperSlide>
+                        <div className="flex flex-col-reverse lg:flex-row justify-center items-center place-content-between gap-10 p-10">
+                            <div className="flex flex-col gap-10 md:p-10">
+                                <p>Worked into the early hours and turn around great work ahead of a large sales webinar. Unusually (I think) for market agencies based in India can receive a directional brief and with light touch supervision produce creative and professional work. Particularly adept at anything wordpress.</p>
+                                <span className="text-center">Shakti Singh</span>
+                            </div>
+                            <Image src={C1} className="w-[340px] h-auto" alt="Pic" />
+                        </div>
                     </SwiperSlide>
-                    <SwiperSlide className="flex justify-center items-center">
-                        2
+                    <SwiperSlide>
+                        <div className="flex flex-col-reverse lg:flex-row justify-center  items-center place-content-between gap-10 p-10">
+                            <div className="flex flex-col gap-10 md:p-10">
+                                <p>Worked into the early hours and turn around great work ahead of a large sales webinar. Unusually (I think) for market agencies based in India can receive a directional brief and with light touch supervision produce creative and professional work. Particularly adept at anything wordpress.</p>
+                                <span className="text-center">Tanmay Sharma</span>
+                            </div>
+                            <Image src={C2} className="w-[340px] h-auto" alt="Pic" />
+                        </div>
                     </SwiperSlide>
-                    <SwiperSlide className="flex justify-center items-center">
-                        3
+                    <SwiperSlide>
+                        <div className="flex flex-col-reverse lg:flex-row justify-center items-center lg:place-content-between gap-10 p-10">
+                            <div className="flex flex-col gap-10 md:p-10">
+                                <p>Worked into the early hours and turn around great work ahead of a large sales webinar. Unusually (I think) for market agencies based in India can receive a directional brief and with light touch supervision produce creative and professional work. Particularly adept at anything wordpress.</p>
+                                <span className="text-center">Manish Rana</span>
+                            </div>
+                            <Image src={C3} className="w-[340px] h-auto" alt="Pic" />
+                        </div>
                     </SwiperSlide>
                 </Swiper>
             </div>
