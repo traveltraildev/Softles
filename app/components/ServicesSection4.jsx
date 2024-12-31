@@ -19,25 +19,20 @@ export default function ServicesSection4() {
                 <Swiper
                     spaceBetween={30}
                     pagination={{
-                        clickable: true,
+                        dynamicBullets: true,
+                        pagination: true,
                     }}
                     modules={[Pagination]}
                     className="w-full text-white min-h-[387px] bg-[#191C26]"
                 >
-                    <SwiperSlide>
-                        <div className="flex justify-center items-center">
-                        Slide 1
-                        </div>
+                    <SwiperSlide className="flex justify-center items-center">
+                        1
                     </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="flex justify-center items-center">
-                        Slide 2
-                        </div>
+                    <SwiperSlide className="flex justify-center items-center">
+                        2
                     </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="flex justify-center items-center">
-                        Slide 3
-                        </div>
+                    <SwiperSlide className="flex justify-center items-center">
+                        3
                     </SwiperSlide>
                 </Swiper>
             </div>

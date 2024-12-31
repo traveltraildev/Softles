@@ -9,7 +9,7 @@ module.exports = {
   theme: {
   	extend: {
 		animation: {
-            scroll: "scroll var(--animation-duration, 5s) var(--animation-direction, forwards) linear infinite",
+            scroll: "scroll var(--animation-duration, 8s) var(--animation-direction, forwards) linear infinite",
         },
         keyframes: {
             scroll: {
