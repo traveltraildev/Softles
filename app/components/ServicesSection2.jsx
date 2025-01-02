@@ -6,7 +6,9 @@ import Separator from "@/public/Separator.png";
 import Travel from "@/public/Travel.png";
 import Agritech from "@/public/Agritech.png";
 import Education from "@/public/Education.png";
+import TravelImg from "@/public/TravelImg.png";
 import AgriTechImg from "@/public/AgriTechImg.png";
+import EducationImg from "@/public/EducationImg.png";
 
 
 
@@ -59,7 +61,7 @@ export default function ServicesSection2() {
                     {
                         tab == "Travel" &&
                             <div className="flex flex-col items-center gap-y-6">
-                                <Image src={AgriTechImg} alt="Image" className="opacity-30"/>
+                                <Image src={TravelImg} alt="Image"/>
                                 <div className="flex justify-center gap-x-[2.5px]">
                                     <div className={`rounded-full ${activeTab === "Travel" ? "bg-[#b12828] w-[12px] h-[12px]" : "bg-[#D9D9D9] w-[11px] h-[11px]"}`}></div>
                                     <div className={`rounded-full ${activeTab === "Agritech" ? "bg-[#b12828] w-[12px] h-[12px]" : "bg-[#D9D9D9] w-[11px] h-[11px]"}`}></div>
@@ -81,7 +83,7 @@ export default function ServicesSection2() {
                     {
                         tab == "Education" &&
                             <div className="flex flex-col items-center gap-y-6">
-                                <Image src={AgriTechImg} alt="Image" className="opacity-70"/>
+                                <Image src={EducationImg} alt="Image"/>
                                 <div className="flex justify-center gap-x-[2.5px]">
                                     <div className={`rounded-full ${activeTab === "Travel" ? "bg-[#b12828] w-[12px] h-[12px]" : "bg-[#D9D9D9] w-[11px] h-[11px]"}`}></div>
                                     <div className={`rounded-full ${activeTab === "Agritech" ? "bg-[#b12828] w-[12px] h-[12px]" : "bg-[#D9D9D9] w-[11px] h-[11px]"}`}></div>

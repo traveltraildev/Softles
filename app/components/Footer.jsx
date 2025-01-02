@@ -11,7 +11,7 @@ export default function Footer() {
     return (
         <div className="min-h-[38rem] p-[10px] lg:px-[120px] pt-7 w-full bg-[#212121] overflow-hidden flex flex-col justify-between place-content-center">
             <div className="flex flex-col lg:flex-row justify-between place-content-center gap-y-10">
-                <div className="text-[#FFFFFF] flex flex-col gap-y-6">
+                <div className="text-[#FFFFFF] flex flex-col gap-y-6 max-w-[230px]">
                     <Image src={Logo} alt="Logo"/>
                     <p className="font-normal text-[14px] leading-[16.8px]">
                         57 Brand House, Coombe Way <br/>Farnborough, Hampshire
@@ -27,7 +27,7 @@ export default function Footer() {
                                 id="email"
                                 type="email"
                                 placeholder="Enter your email address:"
-                                className="w-1/3 lg:w-2/3 bg-transparent border-b-4 border-[#7A7A7A] text-[#FFFFFF] outline-none"
+                                className="w-4/5 md:w-2/3 bg-transparent border-b-4 border-[#7A7A7A] text-[#FFFFFF] outline-none"
                             />
                             <button className="py-[13px] px-[27px] rounded-[100px] border-[1px] border-[#7A7A7A] mt-3">
                                 SUBMIT

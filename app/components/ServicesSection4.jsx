@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Separator from "@/public/Separator.png";
 import C1 from "@/public/C1.jpg";
@@ -23,6 +24,7 @@ export default function ServicesSection4() {
                     spaceBetween={30}
                     pagination={{
                         dynamicBullets: true,
+                        clickable: true,
                     }}
                     modules={[Pagination]}
                     className="w-full text-white min-h-[387px] bg-[#191C26] font-normal text-[17.98px] leading-[26.97px]"
