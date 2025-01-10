@@ -5,7 +5,7 @@ import Separator from "@/public/Separator.png";
 
 export default function Hero() {
     return (
-        <div className="min-h-[38rem] w-full pt-[88px] bg-[#111319] flex flex-col items-center justify-between">
+        <div className="min-h-[38rem] w-full pt-[176px] bg-[#111319] flex flex-col items-center justify-between">
             <div className="w-full px-[10px] lg:px-[120px] flex flex-col-reverse md:flex-row justify-center place-content-between lg:gap-x-24 ">
                 <div className="flex flex-col md:w-1/2 py-10 lg:py-0">
                     <p className="flex items-center text-base font-normal text-[#FFFEFE] opacity-85"><Image src={Separator} className="mr-[10px]" alt="separator"/> Welcome to</p>
@@ -14,7 +14,7 @@ export default function Hero() {
                 </div>
                 <Image src={HeroImage} alt="Hero Image"/>
             </div>
-            <div className="w-full z-50 mb-[50px] flex items-center overflow-hidden relative">
+            <div className="w-full z-40 mb-[50px] flex items-center overflow-hidden relative">
                 <div className="flex whitespace-nowrap animate-scroll">
                     <span className="px-8 text-[#FFFEFE] opacity-85 text-xl leading-6 font-normal">
                         Business Website

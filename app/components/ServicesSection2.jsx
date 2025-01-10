@@ -25,7 +25,7 @@ export default function ServicesSection2() {
                 <div className="bg-[#191C26] min-h-fit lg:min-h-[387px] w-full lg:w-[357px] p-[15px] lg:p-[26px]">
                     <h2 className="font-normal text-lg leading-[32.22px] mb-[26px]">Industry  or Domain</h2>
                     <ul className="flex flex-col gap-[10px] md:gap-5 lg:gap-y-[60px]">
-                        <li className={`cursor-pointer font-normal text-base inline-flex items-center gap-x-5 ${activeTab === 'Travel' ? ' bg-opacity-70' : ''}`}
+                        <li className={`cursor-pointer font-normal text-base inline-flex items-center gap-x-5 hover:text-[#DC4242] ${activeTab === 'Travel' ? ' text-[#DC4242] font-semibold' : ''}`}
                             onClick={()=>{
                                 setTab("Travel");
                                 setActiveTab("Travel")
@@ -35,7 +35,7 @@ export default function ServicesSection2() {
                             <Image src={Travel} alt="Travel" />
                             Travel
                         </li>
-                        <li className={`cursor-pointer font-normal text-base inline-flex items-center gap-x-5 ${activeTab === 'Agritech' ? 'bg-opacity-70' : ''}`}
+                        <li className={`cursor-pointer font-normal text-base inline-flex items-center gap-x-5 hover:text-[#DC4242] ${activeTab === 'Agritech' ? 'text-[#DC4242] font-semibold' : ''}`}
                             onClick={()=>{
                                 setTab("Agritech");
                                 setActiveTab("Agritech")
@@ -45,7 +45,7 @@ export default function ServicesSection2() {
                             <Image src={Agritech} alt="Agritech" />
                             Agritech, Oil & Gas, NGO
                         </li>
-                        <li className={`cursor-pointer font-normal text-base inline-flex items-center gap-x-5 ${activeTab === 'Education' ? 'bg-opacity-70' : ''}`}
+                        <li className={`cursor-pointer font-normal text-base inline-flex items-center gap-x-5 hover:text-[#DC4242] ${activeTab === 'Education' ? 'text-[#DC4242] font-semibold' : ''}`}
                             onClick={()=>{
                                 setTab("Education");
                                 setActiveTab("Education")
@@ -62,10 +62,10 @@ export default function ServicesSection2() {
                         tab == "Travel" &&
                             <div className="flex flex-col items-center gap-y-6">
                                 <Image src={TravelImg} alt="Image"/>
-                                <div className="flex justify-center gap-x-[2.5px]">
-                                    <div className={`rounded-full ${activeTab === "Travel" ? "bg-[#b12828] w-[12px] h-[12px]" : "bg-[#D9D9D9] w-[11px] h-[11px]"}`}></div>
-                                    <div className={`rounded-full ${activeTab === "Agritech" ? "bg-[#b12828] w-[12px] h-[12px]" : "bg-[#D9D9D9] w-[11px] h-[11px]"}`}></div>
-                                    <div className={`rounded-full ${activeTab === "Education" ? "bg-[#b12828] w-[12px] h-[12px]" : "bg-[#D9D9D9] w-[11px] h-[11px]"}`}></div>
+                                <div className="flex justify-center items-center gap-x-[2.5px]">
+                                    <div className={`rounded-full ${activeTab === "Travel" ? "bg-[#DC4242] w-[9px] h-[9px]" : "bg-[#D9D9D9] w-[8px] h-[8px]"}`}></div>
+                                    <div className={`rounded-full ${activeTab === "Agritech" ? "bg-[#DC4242] w-[9px] h-[9px]" : "bg-[#D9D9D9] w-[8px] h-[8px]"}`}></div>
+                                    <div className={`rounded-full ${activeTab === "Education" ? "bg-[#DC4242] w-[9px] h-[9px]" : "bg-[#D9D9D9] w-[8px] h-[8px]"}`}></div>
                                 </div>
                             </div>
                     }
@@ -73,10 +73,10 @@ export default function ServicesSection2() {
                         tab == "Agritech" &&
                             <div className="flex flex-col items-center gap-y-6">
                                 <Image src={AgriTechImg} alt="Image"/>
-                                <div className="flex justify-center gap-x-[2.5px]">
-                                    <div className={`rounded-full ${activeTab === "Travel" ? "bg-[#b12828] w-[12px] h-[12px]" : "bg-[#D9D9D9] w-[11px] h-[11px]"}`}></div>
-                                    <div className={`rounded-full ${activeTab === "Agritech" ? "bg-[#b12828] w-[12px] h-[12px]" : "bg-[#D9D9D9] w-[11px] h-[11px]"}`}></div>
-                                    <div className={`rounded-full ${activeTab === "Education" ? "bg-[#b12828] w-[12px] h-[12px]" : "bg-[#D9D9D9] w-[11px] h-[11px]"}`}></div>
+                                <div className="flex justify-center items-center gap-x-[2.5px]">
+                                    <div className={`rounded-full ${activeTab === "Travel" ? "bg-[#DC4242] w-[9px] h-[9px]" : "bg-[#D9D9D9] w-[8px] h-[8px]"}`}></div>
+                                    <div className={`rounded-full ${activeTab === "Agritech" ? "bg-[#DC4242] w-[9px] h-[9px]" : "bg-[#D9D9D9] w-[8px] h-[8px]"}`}></div>
+                                    <div className={`rounded-full ${activeTab === "Education" ? "bg-[#DC4242] w-[9px] h-[9px]" : "bg-[#D9D9D9] w-[8px] h-[8px]"}`}></div>
                                 </div>
                             </div>
                     }
@@ -84,10 +84,10 @@ export default function ServicesSection2() {
                         tab == "Education" &&
                             <div className="flex flex-col items-center gap-y-6">
                                 <Image src={EducationImg} alt="Image"/>
-                                <div className="flex justify-center gap-x-[2.5px]">
-                                    <div className={`rounded-full ${activeTab === "Travel" ? "bg-[#b12828] w-[12px] h-[12px]" : "bg-[#D9D9D9] w-[11px] h-[11px]"}`}></div>
-                                    <div className={`rounded-full ${activeTab === "Agritech" ? "bg-[#b12828] w-[12px] h-[12px]" : "bg-[#D9D9D9] w-[11px] h-[11px]"}`}></div>
-                                    <div className={`rounded-full ${activeTab === "Education" ? "bg-[#b12828] w-[12px] h-[12px]" : "bg-[#D9D9D9] w-[11px] h-[11px]"}`}></div>
+                                <div className="flex justify-center items-center gap-x-[2.5px]">
+                                    <div className={`rounded-full ${activeTab === "Travel" ? "bg-[#DC4242] w-[9px] h-[9px]" : "bg-[#D9D9D9] w-[8px] h-[8px]"}`}></div>
+                                    <div className={`rounded-full ${activeTab === "Agritech" ? "bg-[#DC4242] w-[9px] h-[9px]" : "bg-[#D9D9D9] w-[8px] h-[8px]"}`}></div>
+                                    <div className={`rounded-full ${activeTab === "Education" ? "bg-[#DC4242] w-[9px] h-[9px]" : "bg-[#D9D9D9] w-[8px] h-[8px]"}`}></div>
                                 </div>
                             </div>
                     }

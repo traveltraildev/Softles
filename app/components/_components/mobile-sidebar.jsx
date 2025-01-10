@@ -21,7 +21,7 @@ export const MobileSidebar = () => {
                         <Image src={Logo} alt="logo"/>
                     </Link>
                     <div className="w-full flex flex-col items-center justify-between text-base leading-5 gap-10 mt-14 font-semibold" >
-                        <ul className="flex flex-col items-center justify-between gap-10">
+                        <ul className="hidden flex-col items-center justify-between gap-10">
                             <li>
                                 About Us
                             </li>
