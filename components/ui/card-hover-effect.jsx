@@ -18,14 +18,14 @@ export const HoverEffect = ({
                 {items.map((item, idx) => (
                     <div
                         key={idx}
-                        className="relative group block p-2 h-full w-full"
+                        className="relative group block p-2 w-[201px] h-[266px]"
                         onMouseEnter={() => setHoveredIndex(idx)}
                         onMouseLeave={() => setHoveredIndex(null)}
                     >
                         <AnimatePresence>
                             {hoveredIndex === idx && (
                                 <motion.span
-                                    className="absolute inset-0 h-full w-full bg-slate-800/[0.8] block rounded-lg"
+                                    className="absolute inset-0 w-[201px] h-[266px] bg-slate-800/[0.8] block rounded-lg"
                                     layoutId="hoverBackground"
                                     initial={{ opacity: 0 }}
                                     animate={{
