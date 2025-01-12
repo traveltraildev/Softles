@@ -1,4 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from "tailwindcss/defaultTheme";
+import colors from "tailwindcss/colors";
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
+
 module.exports = {
     darkMode: ["class"],
     content: [
@@ -8,6 +12,9 @@ module.exports = {
   ],
   theme: {
   	extend: {
+        boxShadow: {
+            input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
+        },
 		animation: {
             scroll: "scroll var(--animation-duration, 8s) var(--animation-direction, forwards) linear infinite",
         },
@@ -28,5 +35,17 @@ module.exports = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), addVariablesForColors],
 };
+
+
+function addVariablesForColors({ addBase, theme }) {
+    const allColors = flattenColorPalette(theme("colors"));
+    const newVars = Object.fromEntries(
+      Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    );
+  
+    addBase({
+      ":root": newVars,
+    });
+  }
