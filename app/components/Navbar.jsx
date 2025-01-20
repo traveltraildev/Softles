@@ -30,7 +30,7 @@ export default function Navbar() {
     }, []);
 
     return (
-        <div className={`h-[88px] w-full z-50 fixed top-0 transition-all duration-300 ease-in-out bg-[#191C26] text-[#FFFFFF] flex items-center justify-between lg:justify-normal p-[10px] lg:px-[120px] ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+        <div className={`h-[55px] w-full z-50 fixed top-0 transition-all duration-300 ease-in-out bg-[#191C26] text-[#FFFFFF] flex items-center justify-between lg:justify-normal p-[10px] lg:px-[120px] ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
             <Link href="/">
                 <Image src={Logo} alt="logo"/>
             </Link>
@@ -47,7 +47,7 @@ export default function Navbar() {
                         Our Work
                     </li>
                 </ul>
-                <button className="bg-transparent border-[3px] border-solid border-[#DC4242] hover:bg-[#DC4242] transition-all duration-300 ease-linear px-[40px] py-[10px]">
+                <button className="bg-transparent border-[2px] border-solid border-[#DC4242] hover:bg-[#DC4242] transition-all duration-300 ease-linear px-[20px] py-[5px]">
                     Book a Discovery Call
                 </button>
             </div>
