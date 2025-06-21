@@ -27,7 +27,9 @@ module.exports = {
         },
   	colors: {
   			background: 'var(--background)',
-  			foreground: 'var(--foreground)'
+			foreground: 'var(--foreground)',
+            'brand-red': '#DC4242',
+            'brand-red-darker': '#C03636', // Darker red for better contrast with white text
   	},
   	borderRadius: {
   			lg: 'var(--radius)',

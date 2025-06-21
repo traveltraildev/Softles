@@ -16,4 +16,9 @@ body {
     :root {
         --radius: 0.5rem;
     }
+    .cursor-default-hidden, .cursor-default-hidden * {
+        cursor: none !important; /* Hide default cursor globally */
+    }
+    /* Optional: Restore cursor for specific elements if needed, though the custom cursor should handle this */
+    /* input, textarea, iframe, [data-cursor-default="true"] { cursor: auto !important; } */
 }
