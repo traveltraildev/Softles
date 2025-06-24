@@ -3,7 +3,7 @@
 import Image from "next/image"; // Keep for Separator if still used by title
 import Separator from "@/public/Separator.png";
 import AmeetPic from "@/public/Ameet.png"; // Renamed for clarity
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";

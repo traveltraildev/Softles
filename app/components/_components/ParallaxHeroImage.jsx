@@ -6,6 +6,9 @@ import { Image as DreiImage, PerspectiveCamera } from '@react-three/drei';
 import * as THREE from 'three';
 import { useReducedMotion } from 'framer-motion'; // Import useReducedMotion
 
+console.log("React version in ParallaxHeroImage:", React.version);
+
+
 function Scene({ src }) {
   const meshRef = useRef();
   const { size } = useThree();
@@ -47,8 +50,7 @@ function Scene({ src }) {
   // We want the image to roughly cover a certain area.
   // Let's say we want its height to be around 5 units in 3D space.
   const displayHeight = 5;
-  constdisplayWidth = displayHeight * imageAspectRatio;
-
+  const displayWidth = displayHeight * imageAspectRatio;
   return (
     <>
       <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={25} />

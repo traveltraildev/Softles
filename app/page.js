@@ -1,3 +1,4 @@
+"use client";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import ServicesSection1 from "./components/ServicesSection1";
@@ -26,7 +27,7 @@ export default function Home() {
   return (
     <div>
       {sections.map(({ id, Component }) => (
-        <motion.section
+        <motion.div
           key={id}
           variants={sectionReveal}
           initial="hidden"
@@ -34,7 +35,7 @@ export default function Home() {
           viewport={viewportConfig}
         >
           <Component />
-        </motion.section>
+        </motion.div>
       ))}
     </div>
   );

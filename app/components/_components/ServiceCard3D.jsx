@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Image as DreiImage, Text as DreiText, Html, Plane } from '@react-three/drei';
-import { motion } from 'framer-motion-3d'; // For 3D motion components
+import { motion } from 'framer-motion'; // For 3D motion components
 import * as THREE from 'three';
 import { useMemo } from 'react'; // Added for useMemo
 
@@ -59,7 +59,7 @@ const CardFace = ({ textContent, textColor = "#FFFFFF", backgroundColor = "#191C
   const detailsFontSize = 0.15;
 
   return (
-    <motion.group rotation-y={isFront ? 0 : Math.PI}>
+    <group rotation-y={isFront ? 0 : Math.PI}>
       <mesh name="card-base">
         <boxGeometry args={[cardWidth, cardHeight, cardDepth]} />
         <meshStandardMaterial color={backgroundColor} side={THREE.FrontSide} />
@@ -116,7 +116,7 @@ const CardFace = ({ textContent, textColor = "#FFFFFF", backgroundColor = "#191C
             {textContent}
         </DreiText>
       )}
-    </motion.group>
+    </group>
   );
 };
 
@@ -201,7 +201,7 @@ const FlippableCard = ({ icon, title, details }) => {
   const iconPosition = [0, 0.8, 0.07]; // Match icon position in CardFace, z slightly more front
 
   return (
-    <motion.group
+    <group
       whileHover={{ scale: 1.05, z: 0.1 }} // Apply physics-based hover effect: slight scale and lift
       transition={{ type: "spring", stiffness: 300, damping: 15 }} // Use physicsTransition from lib or define here
       animate={{ rotateY: isFlipped ? Math.PI : 0 }}
@@ -226,7 +226,7 @@ const FlippableCard = ({ icon, title, details }) => {
       />
       {/* Conditionally render particles on the front face context */}
       {!isFlipped && <ParticleBurst active={showParticles} iconPosition={iconPosition} color="#DC4242" />}
-    </motion.group>
+    </group>
   );
 };
 

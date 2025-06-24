@@ -8,8 +8,7 @@ import C3 from "@/public/C3.png";
 
 import React from 'react';
 import dynamic from 'next/dynamic'; // Import dynamic
-import Image from "next/image"; // Keep for Separator
-import Separator from "@/public/Separator.png"; // Keep for Separator
+
 
 // Dynamically import TestimonialCarousel3D
 const TestimonialCarousel3D = dynamic(() => import('./_components/TestimonialCarousel3D'), {

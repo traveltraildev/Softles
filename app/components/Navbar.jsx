@@ -65,7 +65,7 @@ export default function Navbar() {
                 <Image src={Logo} alt="logo" className={`transition-transform duration-300 ${isScrolled ? 'scale-90' : 'scale-100'}`} /> {/* Example: Logo scales too */}
             </Link>
             <MobileSidebar/>
-            <div className="w-full ml-16 hidden lg:flex items-center justify-between text-base leading-5 font-semibold" >
+                  <div className="w-full ml-16 hidden lg:flex items-center justify-between text-base leading-5 font-semibold" >
                 <ul className="flex items-center justify-between gap-x-10 invisible">
                     <li>
                         About Us
@@ -86,6 +86,6 @@ export default function Navbar() {
                     Book a Discovery Call
                 </motion.button>
             </div>
-        </div>
+        </motion.div>
     )
 }

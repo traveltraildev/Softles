@@ -5,14 +5,11 @@ import DesignSystem from "@/public/DesignSystem.png";
 import Prototyping from "@/public/Prototyping.png";
 import AuditingTesting from "@/public/AuditingTesting.png";
 import Separator from "@/public/Separator.png";
-import dynamic from 'next/dynamic'; // Import dynamic
 import IsometricGridBackground from "./_components/IsometricGridBackground";
+import ServiceCard3D from "./_components/ServiceCard3DWrapper";
+// ...do NOT redeclare ServiceCard3D with dynamic() again...
 
-// Dynamically import ServiceCard3D
-const ServiceCard3D = dynamic(() => import('./_components/ServiceCard3D'), {
-    ssr: false,
-    loading: () => <div style={{ width: '220px', height: '300px' }} className="bg-zinc-800 rounded-lg animate-pulse" />
-});
+
 
 // Augment projects data with details and ensure image paths are strings
 export const projects = [

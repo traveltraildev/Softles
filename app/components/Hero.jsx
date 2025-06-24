@@ -5,13 +5,15 @@ import Separator from "@/public/Separator.png";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import dynamic from 'next/dynamic'; // Import dynamic
 import FloatingParticles from "./_components/FloatingParticles";
-// import Infinite3DCarousel from "./_components/Infinite3DCarousel"; // Import directly then make dynamic
 
-// Dynamically import R3F components
+
 const ParallaxHeroImage = dynamic(() => import('./_components/ParallaxHeroImage'), {
     ssr: false,
     loading: () => <div className="md:w-1/2 w-full max-w-[592px] aspect-[592/512] bg-zinc-800 rounded-lg" />
 });
+
+
+// Dynamically import R3F components
 const Infinite3DCarousel = dynamic(() => import('./_components/Infinite3DCarousel'), {
     ssr: false,
     loading: () => <div style={{ height: '80px', width: '100%' }} className="bg-zinc-800/50" />
@@ -56,7 +58,7 @@ export default function Hero() {
                     <p className="text-[23px] mt-5 leading-7 lg:leading-[34px] font-normal text-[#FFFEFE] max-w opacity-85">We are specialize in breaking down complexity to design seamless and engaging digital products.</p>
                 </div>
                 <div className="md:w-1/2 w-full max-w-[592px] aspect-[592/512]"> {/* Container for the 3D image, maintaining aspect ratio */}
-                    <ParallaxHeroImage src="/Container.png" />
+                    <ParallaxHeroImage src="./Container.png" />
                 </div>
             </div>
             {/* Replace old marquee with the new 3D Carousel */}
