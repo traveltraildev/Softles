@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 import * as THREE from 'three';
 import { useReducedMotion } from 'framer-motion'; // Import useReducedMotion
+import ErrorBoundary from './ErrorBoundary'; // Import the ErrorBoundary
 
 const CarouselItem = ({ text, position, rotationY }) => {
   return (
@@ -78,16 +79,32 @@ export default function Infinite3DCarousel({ texts }) {
   const itemSpacing = 5; // Adjusted spacing slightly for longer texts like "Business Website"
   // Font size in CarouselItem is 0.5. Text component's size is in world units.
   // "Business Website" is long. Max width of text can be estimated to adjust itemSpacing or scale.
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // Small delay to ensure DOM is ready, especially for canvas sizing.
+    // This can help with R3F components that are dynamically loaded or in complex layouts.
+    const timer = setTimeout(() => setMounted(true), 50);
+    return () => clearTimeout(timer);
+  }, []);
 
   if (!texts || texts.length === 0) {
     return null; // Don't render if no texts are provided
   }
 
+  if (!mounted) {
+    // You can return the loading fallback from dynamic import here too, or a specific placeholder
+    // For now, returning null will keep the dynamic import's loader active if not mounted.
+    return null;
+  }
+
   return (
-    <div style={{ height: '80px', width: '100%', overflow: 'hidden', background: 'transparent' }}> {/* Adjusted height */}
-      <Canvas camera={{ position: [0, 0.3, 7], fov: 50 }}> {/* Adjusted camera for better view: closer, wider fov */}
-        <Scene items={texts} itemSpacing={itemSpacing} baseSpeed={0.8} /> {/* Increased baseSpeed slightly */}
-      </Canvas>
+    <div style={{ height: '80px', width: '100%', overflow: 'hidden', background: 'transparent', display: 'block' }}> {/* Adjusted height, added display: block */}
+      <ErrorBoundary errorMessage="Infinite3DCarousel failed to render." fallbackHeight="80px">
+        <Canvas style={{ display: 'block' }} camera={{ position: [0, 0.3, 7], fov: 50 }}> {/* Added display: block to Canvas */}
+          <Scene items={texts} itemSpacing={itemSpacing} baseSpeed={0.8} /> {/* Increased baseSpeed slightly */}
+        </Canvas>
+      </ErrorBoundary>
     </div>
   );
 }

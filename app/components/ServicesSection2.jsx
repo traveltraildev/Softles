@@ -42,7 +42,7 @@ export default function ServicesSection2() {
     // Store refs for focusing
     useEffect(() => {
         tabRefs.current = tabRefs.current.slice(0, tabsData.length);
-     }, [tabsData.length]);
+     }, []); // tabsData is constant, so run once on mount
 
 
     return (

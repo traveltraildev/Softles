@@ -48,7 +48,7 @@ export default function Hero() {
 
     return (
         <div className="min-h-[38rem] w-full pt-[176px] bg-[#111319] bg-grid-white flex flex-col items-center justify-between relative"> {/* Added relative positioning */}
-            <FloatingParticles count={25} /> {/* Add particles here */}
+            <FloatingParticles count={10} /> {/* Reduced particle count */}
             <div className="w-full px-[10px] lg:px-[120px] flex flex-col-reverse md:flex-row justify-center items-center place-content-between lg:gap-x-24 z-10"> {/* Ensure content is above particles */}
                 <div className="flex flex-col md:w-1/2 py-10 lg:py-0">
                     <p className="flex items-center text-base font-normal text-[#FFFEFE] opacity-85"><Image src={Separator} className="mr-[10px]" alt="separator"/> Welcome to</p>

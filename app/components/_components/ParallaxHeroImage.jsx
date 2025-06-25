@@ -14,8 +14,8 @@ function Scene({ src }) {
   const { size } = useThree();
   const shouldReduceMotion = useReducedMotion();
 
-  // State for mouse position
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  // Ref for mouse position
+  const mousePositionRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     if (shouldReduceMotion) return; // Don't attach listener if motion is reduced
@@ -23,7 +23,7 @@ function Scene({ src }) {
     const handleMouseMove = (event) => {
       const x = (event.clientX / window.innerWidth) * 2 - 1;
       const y = -(event.clientY / window.innerHeight) * 2 + 1;
-      setMousePosition({ x, y });
+      mousePositionRef.current = { x, y };
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -32,11 +32,11 @@ function Scene({ src }) {
 
   useFrame(({ camera }) => {
     if (meshRef.current && !shouldReduceMotion) {
-      meshRef.current.rotation.y = mousePosition.x * 0.05;
-      meshRef.current.rotation.x = mousePosition.y * 0.05;
+      meshRef.current.rotation.y = mousePositionRef.current.x * 0.05;
+      meshRef.current.rotation.x = mousePositionRef.current.y * 0.05;
 
       // Optional: Move camera slightly
-      // camera.position.y = THREE.MathUtils.lerp(camera.position.y, mousePosition.y * 0.1, 0.1);
+      // camera.position.y = THREE.MathUtils.lerp(camera.position.y, mousePositionRef.current.y * 0.1, 0.1);
       // camera.lookAt(0,0,0); // Ensure camera always looks at the center of the scene
     }
   });

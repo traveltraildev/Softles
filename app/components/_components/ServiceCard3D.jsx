@@ -154,9 +154,9 @@ const ParticleBurst = ({ active, count = 20, size = 0.05, color = "#DC4242", ico
       // This is a simple way; a pool would be more performant for frequent effects
       setTimeout(() => setParticles([]), 1000); // Corresponds to motion duration
     }
-  }, [active, count, iconPosition]);
+  }, [active, count, iconPosition, shouldReduceMotion]);
 
-  if (!active || particles.length === 0) return null;
+  if (!active || particles.length === 0 || shouldReduceMotion) return null; // Also check shouldReduceMotion here
 
   return (
     <group>

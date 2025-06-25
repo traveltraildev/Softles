@@ -11,25 +11,26 @@ const Particle = ({ id, areaWidth, areaHeight }) => {
   const [delay, setDelay] = useState(0);
 
   useEffect(() => {
-    setSize(Math.random() * 10 + 5); // Particle size: 5px to 15px
+    setSize(Math.random() * 8 + 4); // Particle size: 4px to 12px
     setInitialX(Math.random() * areaWidth);
-    setInitialY(Math.random() * areaHeight);
-    setDuration(Math.random() * 10 + 10); // Animation duration: 10s to 20s
-    setDelay(Math.random() * 5); // Animation delay: 0s to 5s
+    // Start particles from bottom or slightly off-screen bottom, moving upwards
+    setInitialY(areaHeight + Math.random() * 50);
+    setDuration(Math.random() * 15 + 10); // Animation duration: 10s to 25s
+    setDelay(Math.random() * 8); // Animation delay: 0s to 8s
   }, [areaWidth, areaHeight]);
 
-  // Define multiple animation targets for more randomness
+  // Simplified animation: vertical movement and fade
   const animateProps = {
-    x: [initialX, Math.random() * areaWidth, Math.random() * areaWidth, initialX],
-    y: [initialY, Math.random() * areaHeight, Math.random() * areaHeight, initialY],
-    opacity: [0, 0.8, 0.8, 0],
-    scale: [0.5, 1, 0.8, 0.5],
+    x: initialX, // Keep X constant
+    y: [initialY, -size - 50], // Move from initial Y to off-screen top
+    opacity: [0, 0.7, 0.7, 0], // Fade in, stay, fade out
+    // scale: [0.5, 1, 0.8, 0.5], // Removed scale animation
     transition: {
       duration: duration,
       delay: delay,
       ease: "linear",
       repeat: Infinity,
-      repeatType: "loop", // Loop the animation sequence
+      repeatType: "loop",
     },
   };
 
@@ -38,21 +39,21 @@ const Particle = ({ id, areaWidth, areaHeight }) => {
       key={id}
       style={{
         position: 'absolute',
-        left: 0, // Initial left/top will be controlled by x, y in animate
+        left: 0,
         top: 0,
         width: size,
         height: size,
         borderRadius: '50%',
-        backgroundColor: 'rgba(220, 66, 66, 0.3)', // Using brand-red with some alpha
-        boxShadow: '0 0 8px rgba(220, 66, 66, 0.5)',
+        backgroundColor: 'rgba(220, 66, 66, 0.25)', // Slightly more transparent
+        // boxShadow: '0 0 6px rgba(220, 66, 66, 0.4)', // Reduced shadow
       }}
-      initial={{ x: initialX, y: initialY, opacity: 0, scale: 0.5 }}
+      initial={{ x: initialX, y: initialY, opacity: 0 }} // Removed scale from initial
       animate={animateProps}
     />
   );
 };
 
-const FloatingParticles = ({ count = 20 }) => {
+const FloatingParticles = ({ count = 10 }) => { // Reduced default count
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const parentRef = React.useRef(null);
   const shouldReduceMotion = useReducedMotion();

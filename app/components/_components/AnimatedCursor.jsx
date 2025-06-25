@@ -10,11 +10,29 @@ const AnimatedCursor = () => {
 
   const cursorDotRef = useRef(null);
   const cursorOutlineRef = useRef(null);
+  const lastMoveTimeRef = useRef(0);
+  const animationFrameRef = useRef(null);
+  const latestMousePositionRef = useRef({ x: -100, y: -100});
 
   useEffect(() => {
     const handleMouseMove = (event) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
+      latestMousePositionRef.current = { x: event.clientX, y: event.clientY };
       if (!isVisible) setIsVisible(true);
+
+      const now = Date.now();
+      if (now - lastMoveTimeRef.current < 16) { // Roughly 60 FPS
+        if (!animationFrameRef.current) {
+          animationFrameRef.current = requestAnimationFrame(() => {
+            setMousePosition(latestMousePositionRef.current);
+            lastMoveTimeRef.current = Date.now();
+            animationFrameRef.current = null;
+          });
+        }
+        return;
+      }
+
+      setMousePosition(latestMousePositionRef.current);
+      lastMoveTimeRef.current = now;
     };
 
     const handleMouseOver = (event) => {
@@ -46,6 +64,9 @@ const AnimatedCursor = () => {
       document.removeEventListener('mouseover', handleMouseOver);
       document.documentElement.removeEventListener('mouseout', handleMouseOutWindow);
       document.documentElement.removeEventListener('mouseenter', handleMouseEnterWindow);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
   }, [isVisible]);
 
