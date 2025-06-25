@@ -36,7 +36,7 @@ export default function Navbar() {
             </Link>
             <MobileSidebar/>
             <div className="w-full ml-16 hidden lg:flex items-center justify-between text-base leading-5 font-semibold" >
-                <ul className="flex items-center justify-between gap-x-10 invisible">
+                <ul className="flex items-center gap-x-10"> {/* Removed invisible and justify-between */}
                     <li>
                         About Us
                     </li>
