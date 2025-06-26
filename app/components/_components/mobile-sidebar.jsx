@@ -2,6 +2,7 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/public/SoftLes.png";
+import { useRef, useState } from "react";
 
 import {
     Sheet,
@@ -11,33 +12,45 @@ import {
 
 
 export const MobileSidebar = () => {
+    const [open, setOpen] = useState(false);
+
+    // Smooth scroll handler for navbar links
+    const handleNavClick = (e, sectionId) => {
+        e.preventDefault();
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+        setOpen(false); // Close sidebar after navigation
+    };
+
     return (
-        <Sheet>
-            <SheetTrigger className="lg:hidden pr-4 hover:opacity-75 transition" aria-label="Open navigation menu"> {/* Added aria-label */}
+        <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger className="lg:hidden pr-4 hover:opacity-75 transition" aria-label="Open navigation menu">
                 <Menu/>
             </SheetTrigger>
-            <SheetContent side="left" className="w-full h-full bg-[#191C26] text-[#FFFFFF] flex flex-col items-center p-6"> {/* Added padding to SheetContent */}
-                    <Link href="/">
-                        <Image src={Logo} alt="Softles Logo"/> {/* Improved alt text */}
-                    </Link>
-                    <div className="w-full flex flex-col items-center justify-start text-base leading-5 gap-10 mt-14 font-semibold flex-grow" > {/* Changed justify-between to justify-start and added flex-grow */}
-                        <ul className="flex flex-col items-center justify-start gap-8"> {/* Removed hidden, changed justify, adjusted gap */}
-                            <li className="hover:text-[#DC4242] transition-colors">
-                                <Link href="/#about">About Us</Link> {/* Assuming these link to sections or pages */}
-                            </li>
-                            <li className="hover:text-[#DC4242] transition-colors">
-                                <Link href="/#services">Services</Link>
-                            </li>
-                            <li className="hover:text-[#DC4242] transition-colors">
-                                <Link href="/#work">Our Work</Link>
-                            <li>
-                            </li>
-                        </ul>
-                    {/* Ensure button is part of the flex flow, consider moving it below links or ensure flex-grow on ul pushes it down if it's meant to be at bottom */}
-                    <div className="mt-auto w-full flex justify-center"> {/* Pushes button to bottom */}
-                        <button className="bg-transparent border-[2px] border-solid border-[#DC4242] hover:bg-[#DC4242] transition-all duration-300 ease-linear px-[20px] py-[10px] text-lg w-full max-w-xs"> {/* Matched style from Navbar CTA, added hover, full width for mobile */}
-                            Book a Discovery Call
-                        </button>
+            <SheetContent side="left" className="w-full h-full bg-[#191C26] text-[#FFFFFF] flex flex-col items-center p-6">
+                <Link href="/">
+                    <Image src={Logo} alt="Softles Logo"/>
+                </Link>
+                <div className="w-full flex flex-col items-center justify-start text-base leading-5 gap-10 mt-14 font-semibold flex-grow">
+                    <ul className="flex flex-col items-center justify-start gap-8">
+                        <li className="hover:text-[#DC4242] transition-colors">
+                            <a href="#about" onClick={e => handleNavClick(e, "about")}>About Us</a>
+                        </li>
+                        <li className="hover:text-[#DC4242] transition-colors">
+                            <a href="#services" onClick={e => handleNavClick(e, "services")}>Services</a>
+                        </li>
+                        <li className="hover:text-[#DC4242] transition-colors">
+                            <a href="#work" onClick={e => handleNavClick(e, "work")}>Our Work</a>
+                        </li>
+                    </ul>
+                    <div className="mt-auto w-full flex justify-center">
+                        <a href="#book-call" onClick={e => handleNavClick(e, "book-call")} className="w-full max-w-xs">
+                            <button className="bg-transparent border-[2px] border-solid border-[#DC4242] hover:bg-[#DC4242] transition-all duration-300 ease-linear px-[20px] py-[10px] text-lg w-full max-w-xs">
+                                Book a Discovery Call
+                            </button>
+                        </a>
                     </div>
                 </div>
             </SheetContent>

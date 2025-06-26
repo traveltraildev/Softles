@@ -6,17 +6,23 @@ import ServicesSection3 from "./components/ServicesSection3";
 import ServicesSection4 from "./components/ServicesSection4";
 import ServicesSection5 from "./components/ServicesSection5";
 
-
-
 export default function Home() {
   return (
     <div>
-      <Hero/>
-      <ServicesSection1/>
-      <ServicesSection2/>
-      <ServicesSection3/>
-      <ServicesSection4/>
-      <ServicesSection5/>
+      <section id="about">
+        <Hero/>
+      </section>
+      <section id="services">
+        <ServicesSection1/>
+        <ServicesSection2/>
+        <ServicesSection3/>
+      </section>
+      <section id="work">
+        <ServicesSection4/>
+      </section>
+      <section id="book-call">
+        <ServicesSection5/>
+      </section>
       <Footer/>
     </div>
   );
