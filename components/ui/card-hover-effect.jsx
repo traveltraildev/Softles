@@ -17,11 +17,13 @@ export const HoverEffect = ({
             <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 place-content-center justify-items-center gap-6 mt-9", className)}>
                 {items.map((item, idx) => (
                     <Link
-                        href={item.link || "#"} // Use item.link if provided, otherwise fallback to #
+                        href={item.link || "#"}
                         key={idx}
-                        className="relative group block p-2 w-[201px] h-[266px]"
+                        className="relative group block p-2 w-[201px] h-[266px] focus-visible:ring-2 focus-visible:ring-[#DC4242] rounded-lg transition-all duration-200 hover:shadow-lg hover:ring-2 hover:ring-[#DC4242]/40"
                         onMouseEnter={() => setHoveredIndex(idx)}
                         onMouseLeave={() => setHoveredIndex(null)}
+                        tabIndex={0}
+                        aria-label={item.title}
                     >
                         <AnimatePresence>
                             {hoveredIndex === idx && (

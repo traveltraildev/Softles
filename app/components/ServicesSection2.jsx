@@ -83,6 +83,11 @@ export default function ServicesSection2() {
         setForm({ name: '', company: '', contact: '' });
     };
 
+    // Close modal on backdrop click
+    const handleBackdropClick = (e) => {
+        if (e.target === e.currentTarget) setShowModal(false);
+    };
+
     return (
         <section className="min-h-[30rem] px-2 md:px-8 lg:px-[120px] w-full py-16 bg-[#111319] bg-grid-white text-white flex flex-col justify-center">
             <div className="flex flex-col mb-8">
@@ -90,13 +95,16 @@ export default function ServicesSection2() {
                     <Image src={Separator} className="mr-3" alt="separator" />
                     <span className="uppercase tracking-widest text-[#DC4242]">Industries We Serve</span>
                 </p>
-                <span className="mt-2 lg:mt-5 mb-4 lg:mb-0 font-bold text-3xl md:text-[53px] lg:text-[64px] leading-tight md:leading-[64px] lg:leading-[76.8px]">
+                <span className="mt-2 lg:mt-5 mb-2 lg:mb-0 font-bold text-3xl md:text-[53px] lg:text-[64px] leading-tight md:leading-[64px] lg:leading-[76.8px]">
                     We are more than our words
+                </span>
+                <span className="text-base text-[#BCC1CA] mt-2 max-w-2xl">
+                    We empower businesses across diverse industries with tailored digital solutions. Explore our expertise below.
                 </span>
             </div>
             <div className="flex flex-col lg:flex-row gap-8">
                 {/* Tabs */}
-                <nav className="bg-[#191C26] rounded-2xl shadow-lg min-h-fit lg:min-h-[387px] w-full lg:w-[357px] p-6 flex flex-col">
+                <nav className="bg-[#191C26]/90 rounded-2xl shadow-lg min-h-fit lg:min-h-[387px] w-full lg:w-[357px] p-6 flex flex-col backdrop-blur-md border border-white/10">
                     <h2 className="font-semibold text-lg leading-[32.22px] mb-6 text-[#DC4242]">Industry or Domain</h2>
                     <ul className="flex flex-col gap-4 lg:gap-8" role="tablist">
                         {industries.map((industry, idx) => (
@@ -108,8 +116,8 @@ export default function ServicesSection2() {
                                 className={`
                                     cursor-pointer font-medium text-base flex items-center gap-x-4 px-4 py-3 rounded-xl transition
                                     ${activeTab === industry.key
-                                        ? "bg-[#23263A] text-[#DC4242] shadow-md scale-105"
-                                        : "hover:bg-[#23263A]/70 hover:text-[#DC4242] text-white/80"}
+                                        ? "bg-[#23263A]/90 text-[#DC4242] shadow-md scale-105 border border-[#DC4242]"
+                                        : "hover:bg-[#23263A]/70 hover:text-[#DC4242] text-white/80 border border-transparent"}
                                     outline-none focus:ring-2 focus:ring-[#DC4242]
                                 `}
                                 onClick={() => setActiveTab(industry.key)}
@@ -122,7 +130,7 @@ export default function ServicesSection2() {
                     </ul>
                 </nav>
                 {/* Tab Panel */}
-                <div className="w-full lg:w-[807px] bg-[#191C26] rounded-2xl shadow-lg flex flex-col items-center justify-center p-4 lg:p-10 transition">
+                <div className="w-full lg:w-[807px] bg-[#191C26]/90 rounded-2xl shadow-lg flex flex-col items-center justify-center p-4 lg:p-10 transition backdrop-blur-md border border-white/10">
                     <Image
                         src={activeIndustry.image}
                         alt={activeIndustry.label}
@@ -133,7 +141,7 @@ export default function ServicesSection2() {
                     <p className="text-base text-white/90 mb-6 text-center max-w-xl">{activeIndustry.description}</p>
                     {/* View Case Study Button for all industries */}
                     <button
-                        className="bg-[#DC4242] text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-[#b32e2e] transition mb-4"
+                        className="bg-[#DC4242] text-white px-8 py-3 rounded-lg font-semibold shadow hover:bg-[#b32e2e] transition mb-4 focus:outline-none focus:ring-2 focus:ring-[#DC4242] text-lg"
                         onClick={() => setShowModal(true)}
                     >
                         View Case Study
@@ -153,22 +161,28 @@ export default function ServicesSection2() {
                     </div>
                     {/* Modal */}
                     {showModal && (
-                        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-                            <div className="bg-[#191C26] rounded-2xl p-8 w-[90vw] max-w-md shadow-lg relative">
+                        <div
+                            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fadeIn"
+                            onClick={handleBackdropClick}
+                            aria-modal="true"
+                            role="dialog"
+                        >
+                            <div className="bg-[#191C26]/95 rounded-2xl p-8 w-[90vw] max-w-md shadow-2xl border border-white/10 relative flex flex-col items-center animate-slideUp">
                                 <button
-                                    className="absolute top-3 right-3 text-white text-2xl"
+                                    className="absolute top-3 right-3 text-white text-2xl hover:text-[#DC4242] transition"
                                     onClick={() => setShowModal(false)}
                                     aria-label="Close"
+                                    tabIndex={0}
                                 >&times;</button>
                                 <h4 className="text-xl font-bold mb-4 text-[#DC4242]">Download Brochure</h4>
-                                <form ref={formRef} onSubmit={handleFormSubmit} className="flex flex-col gap-4">
+                                <form ref={formRef} onSubmit={handleFormSubmit} className="flex flex-col gap-4 w-full">
                                     <input
                                         type="text"
                                         name="name"
                                         placeholder="Your Name"
                                         value={form.name}
                                         onChange={handleFormChange}
-                                        className="px-4 py-2 rounded bg-[#23263A] text-white focus:outline-none focus:ring-2 focus:ring-[#DC4242]"
+                                        className="px-4 py-2 rounded bg-[#23263A] text-white focus:outline-none focus:ring-2 focus:ring-[#DC4242] border border-white/10"
                                     />
                                     <input
                                         type="text"
@@ -176,7 +190,7 @@ export default function ServicesSection2() {
                                         placeholder="Company"
                                         value={form.company}
                                         onChange={handleFormChange}
-                                        className="px-4 py-2 rounded bg-[#23263A] text-white focus:outline-none focus:ring-2 focus:ring-[#DC4242]"
+                                        className="px-4 py-2 rounded bg-[#23263A] text-white focus:outline-none focus:ring-2 focus:ring-[#DC4242] border border-white/10"
                                     />
                                     <input
                                         type="text"
@@ -184,17 +198,23 @@ export default function ServicesSection2() {
                                         placeholder="Contact"
                                         value={form.contact}
                                         onChange={handleFormChange}
-                                        className="px-4 py-2 rounded bg-[#23263A] text-white focus:outline-none focus:ring-2 focus:ring-[#DC4242]"
+                                        className="px-4 py-2 rounded bg-[#23263A] text-white focus:outline-none focus:ring-2 focus:ring-[#DC4242] border border-white/10"
                                     />
                                     {formError && <span className="text-red-400 text-sm">{formError}</span>}
                                     <button
                                         type="submit"
-                                        className="bg-[#DC4242] text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-[#b32e2e] transition mt-2"
+                                        className="bg-[#DC4242] text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-[#b32e2e] transition mt-2 focus:outline-none focus:ring-2 focus:ring-[#DC4242]"
                                     >
                                         Download PDF
                                     </button>
                                 </form>
                             </div>
+                            <style jsx global>{`
+                                @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+                                @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+                                .animate-fadeIn { animation: fadeIn 0.2s; }
+                                .animate-slideUp { animation: slideUp 0.3s cubic-bezier(.22,1.12,.58,1); }
+                            `}</style>
                         </div>
                     )}
                 </div>

@@ -36,18 +36,21 @@ export const MobileSidebar = () => {
                 <div className="w-full flex flex-col items-center justify-start text-base leading-5 gap-10 mt-14 font-semibold flex-grow">
                     <ul className="flex flex-col items-center justify-start gap-8">
                         <li className="hover:text-[#DC4242] transition-colors">
-                            <a href="#about" onClick={e => handleNavClick(e, "about")}>About Us</a>
+                            <a href="#about" onClick={e => handleNavClick(e, "about")} tabIndex={0} className="focus-visible:ring-2 focus-visible:ring-[#DC4242] rounded">About Us</a>
                         </li>
                         <li className="hover:text-[#DC4242] transition-colors">
-                            <a href="#services" onClick={e => handleNavClick(e, "services")}>Services</a>
+                            <a href="#services" onClick={e => handleNavClick(e, "services")} tabIndex={0} className="focus-visible:ring-2 focus-visible:ring-[#DC4242] rounded">Services</a>
                         </li>
                         <li className="hover:text-[#DC4242] transition-colors">
-                            <a href="#work" onClick={e => handleNavClick(e, "work")}>Our Work</a>
+                            <a href="#work" onClick={e => handleNavClick(e, "work")} tabIndex={0} className="focus-visible:ring-2 focus-visible:ring-[#DC4242] rounded">Our Work</a>
+                        </li>
+                        <li className="hover:text-[#DC4242] transition-colors">
+                            <a href="#brochure" onClick={e => handleNavClick(e, "brochure")} tabIndex={0} className="focus-visible:ring-2 focus-visible:ring-[#DC4242] rounded">Our Brochure</a>
                         </li>
                     </ul>
                     <div className="mt-auto w-full flex justify-center">
                         <a href="#book-call" onClick={e => handleNavClick(e, "book-call")} className="w-full max-w-xs">
-                            <button className="bg-transparent border-[2px] border-solid border-[#DC4242] hover:bg-[#DC4242] transition-all duration-300 ease-linear px-[20px] py-[10px] text-lg w-full max-w-xs">
+                            <button className="bg-transparent border-[2px] border-solid border-[#DC4242] hover:bg-[#DC4242] transition-all duration-300 ease-linear px-[20px] py-[10px] text-lg w-full max-w-xs rounded focus-visible:ring-2 focus-visible:ring-[#DC4242]">
                                 Book a Discovery Call
                             </button>
                         </a>

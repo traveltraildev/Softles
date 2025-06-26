@@ -8,6 +8,7 @@ import DesignSystem from "@/public/DesignSystem.png";
 import Prototyping from "@/public/Prototyping.png";
 import AuditingTesting from "@/public/AuditingTesting.png";
 import { useState } from "react";
+import Link from "next/link";
 
 // Tooltip component
 function Tooltip({ text }) {
@@ -99,21 +100,25 @@ export default function ServicesSection1() {
           <Image src={Separator} className="mr-[10px]" alt="separator" />
           What We Do
         </p>
-        <span className="mt-2 lg:mt-5 mb-4 lg:mb-0 font-bold text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">
+        <span className="mt-2 lg:mt-5 mb-2 lg:mb-0 font-bold text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">
           What we do
+        </span>
+        <span className="text-base text-[#BCC1CA] mt-2 max-w-2xl">
+          We blend creativity and technology to deliver impactful digital products. Explore our core services below.
         </span>
       </div>
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service, idx) => (
           <div
             key={idx}
-            className="group bg-gradient-to-br from-[#23263a] to-[#181B23] rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+            className="group bg-gradient-to-br from-[#23263a] to-[#181B23] rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-2 hover:ring-[#DC4242]/40 relative"
+            style={{ minHeight: 370 }}
           >
             <div className="mb-4 transition-transform duration-300 group-hover:rotate-12">
               <Image src={service.image} alt={typeof service.title === "string" ? service.title : "Service"} width={64} height={64} className="rounded-full" />
             </div>
             <h3 className="text-2xl font-bold mb-3 text-center text-white group-hover:text-[#DC4242] transition-colors duration-200">{service.title}</h3>
-            <ul className="w-full flex flex-col gap-3 mt-2">
+            <ul className="w-full flex flex-col gap-3 mt-2 mb-6">
                 {service.bullets.map((b, i) => (
                     <li
                         key={i}
@@ -129,6 +134,12 @@ export default function ServicesSection1() {
                     </li>
                 ))}
             </ul>
+            <Link href="#book-call" className="mt-auto">
+              <button className="px-6 py-2 rounded-lg bg-[#DC4242] text-white font-semibold shadow hover:bg-[#b32e2e] transition-all duration-200 text-base">
+                Learn More
+              </button>
+            </Link>
+            <span className="pointer-events-none absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#DC4242]/10 blur" />
           </div>
         ))}
       </div>

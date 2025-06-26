@@ -30,10 +30,14 @@ export default function ServicesSection4() {
     };
 
     return (
-        <div className="min-h-[30rem] p-[10px] lg:px-[120px] w-full py-[90px] bg-[#111319] bg-grid-white flex flex-col justify-center place-content-between">
+        <div className="min-h-[30rem] p-[10px] lg:px-[120px] w-full py-[90px] bg-[#111319] bg-grid-white flex flex-col justify-center place-content-between relative">
+            <div className="absolute inset-0 bg-gradient-to-b from-[#191C26]/80 to-[#23263a]/90 pointer-events-none -z-10" />
             <div className="flex flex-col">
                 <p className="flex items-center text-base font-normal text-[#FFFFFF]"><Image src={Separator} className="mr-[10px]" alt="separator"/> Testimonials</p>
-                <span className="mt-2 lg:mt-5 mb-4 lg:mb-0 text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">What our Client&apos;s Say</span>
+                <span className="mt-2 lg:mt-5 mb-2 lg:mb-0 text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">What our Client&apos;s Say</span>
+                <span className="text-base text-[#BCC1CA] mt-2 max-w-2xl">
+                    Hear from our clients about their experience working with us and the impact we’ve made.
+                </span>
             </div>
             <div className="mt-9 relative"
                 onMouseEnter={handleMouseEnter}
@@ -74,9 +78,8 @@ export default function ServicesSection4() {
                     className="w-full text-white min-h-[387px] bg-[#191C26] font-normal text-[17.98px] leading-[26.97px]"
                     onSwiper={swiper => { swiperRef.current = swiper; }}
                 >
-                    {/* ...SwiperSlides remain unchanged... */}
                     <SwiperSlide>
-                        <BackgroundBeamsWithCollision className="flex flex-col-reverse lg:flex-row justify-center items-center place-content-between gap-10 p-10">
+                        <BackgroundBeamsWithCollision className="flex flex-col-reverse lg:flex-row justify-center items-center place-content-between gap-10 p-10 animate-fadeIn">
                             <div className="group bg-gradient-to-br from-[#23263a] to-[#181B23] rounded-2xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-10 w-full max-w-4xl mx-auto transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-[#23263a]/60">
                                 <Image src={C1} className="w-[120px] h-[120px] rounded-full object-cover border-4 border-[#191C26] shadow-md mb-6 md:mb-0" alt="Pic" />
                                 <div className="flex-1 flex flex-col gap-4 items-center md:items-start">
@@ -93,7 +96,7 @@ export default function ServicesSection4() {
                         </BackgroundBeamsWithCollision>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <BackgroundBeamsWithCollision className="flex flex-col-reverse lg:flex-row justify-center items-center place-content-between gap-10 p-10">
+                        <BackgroundBeamsWithCollision className="flex flex-col-reverse lg:flex-row justify-center items-center place-content-between gap-10 p-10 animate-fadeIn">
                             <div className="group bg-gradient-to-br from-[#23263a] to-[#181B23] rounded-2xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-10 w-full max-w-4xl mx-auto transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-[#23263a]/60">
                                 <Image src={C2} className="w-[120px] h-[120px] rounded-full object-cover border-4 border-[#191C26] shadow-md mb-6 md:mb-0" alt="Pic" />
                                 <div className="flex-1 flex flex-col gap-4 items-center md:items-start">
@@ -110,7 +113,7 @@ export default function ServicesSection4() {
                         </BackgroundBeamsWithCollision>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <BackgroundBeamsWithCollision className="flex flex-col-reverse lg:flex-row justify-center items-center lg:place-content-between gap-10 p-10">
+                        <BackgroundBeamsWithCollision className="flex flex-col-reverse lg:flex-row justify-center items-center lg:place-content-between gap-10 p-10 animate-fadeIn">
                             <div className="group bg-gradient-to-br from-[#23263a] to-[#181B23] rounded-2xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-10 w-full max-w-4xl mx-auto transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-[#23263a]/60">
                                 <Image src={C3} className="w-[120px] h-[120px] rounded-full object-cover border-4 border-[#191C26] shadow-md mb-6 md:mb-0" alt="Pic" />
                                 <div className="flex-1 flex flex-col gap-4 items-center md:items-start">
@@ -129,6 +132,8 @@ export default function ServicesSection4() {
                 </Swiper>
                 {/* Swiper custom pagination color */}
                 <style jsx global>{`
+                    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+                    .animate-fadeIn { animation: fadeIn 0.5s; }
                     .swiper-pagination-bullet {
                         background:rgb(173, 157, 157) !important;
                         opacity: 1;

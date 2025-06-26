@@ -90,18 +90,24 @@ export default function Hero() {
             />
             {/* Left Content */}
             <div className="flex-1 flex flex-col items-start justify-center z-10">
-                <h1 className="text-4xl lg:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
+                <h1 className="text-4xl lg:text-6xl font-extrabold text-white mb-4 leading-tight drop-shadow-lg">
                     Elevate Your <span className="text-[#DC4242]">Brand</span> <br />
                     with <span className="text-[#DC4242]">Stunning Design</span> <br />
                     &amp; <span className="text-[#DC4242]">Robust Development</span>
                 </h1>
-                <p className="text-lg lg:text-2xl text-gray-200 mb-8 max-w-xl">
+                <span className="text-lg lg:text-2xl text-[#BCC1CA] mb-2 max-w-xl">
+                    We are a full-service digital studio focused on results, creativity, and user experience.
+                </span>
+                <p className="text-base lg:text-xl text-gray-200 mb-8 max-w-xl">
                     We craft beautiful, high-performing digital experiences for ambitious businesses. From branding to full-stack development, our team delivers results that impress and convert.
                 </p>
                 <div className="flex gap-4">
                     <Link href="#book-call">
-                        <button className="bg-[#DC4242] hover:bg-[#b32e2e] text-white font-semibold px-8 py-3 rounded-lg shadow-lg transition-all duration-300 text-lg">
+                        <button className="bg-[#DC4242] hover:bg-[#b32e2e] text-white font-semibold px-8 py-3 rounded-lg shadow-lg transition-all duration-300 text-lg flex items-center gap-2 group">
                             Book a Free Discovery Call
+                            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" className="text-white"><path d="M5 10h10M13 6l4 4-4 4"/></svg>
+                            </span>
                         </button>
                     </Link>
                     <Link href="#work">
