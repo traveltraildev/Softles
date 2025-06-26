@@ -33,60 +33,60 @@ const services = [
     image: UserResearch,
     title: "User Research",
     bullets: [
-      "Stakeholder Interviews",
-      "Persona Development",
-      "Journey Mapping",
-      "Usability Studies",
+      "Stakeholder interviews",
+      "Persona development",
+      "Journey mapping",
+      "Usability studies",
     ],
   },
   {
     image: DesignSystem,
     title: "UX/UI Design System",
     bullets: [
-      "Wireframing & Mockups",
-      "Design System Creation",
-      "Branding & Visual Identity",
-      "Interaction Design",
+      "Wireframing & mockups",
+      "Design systems",
+      "Branding & identity",
+      "Interaction design",
     ],
   },
   {
     image: InterfaceDesign,
     title: "Development",
     bullets: [
-      "Frontend & Backend Engineering",
-      "API Development",
-      "Cloud Integration",
-      "Performance Optimization",
+      "Frontend & backend",
+      "API development",
+      "Cloud integration",
+      "Performance optimization",
     ],
   },
   {
     image: AuditingTesting,
     title: "AI Solutions",
     bullets: [
-      "AI Integrations",
-      "Agentic AI (Autonomous systems)",
-      "Custom Chatbots & Virtual Agents",
-      "Predictive Analytics",
+      "AI integrations",
+      "Agentic AI systems",
+      "Custom chatbots",
+      "Predictive analytics",
     ],
   },
   {
     image: Prototyping,
     title: "Prototyping",
     bullets: [
-      "Interactive Prototypes",
-      "Rapid Iteration",
-      "User Testing",
-      "Feedback Loops",
+      "Interactive prototypes",
+      "Rapid iteration",
+      "User testing",
+      "Feedback loops",
     ],
   },
   {
     image: AuditingTesting,
     title: "QA / Testing",
     bullets: [
-      "Accessibility Audits",
-      "Automated & Manual Testing",
-      "Performance Auditing",
-      "Continuous Improvement",
+      "Accessibility audits",
+      "Automated/manual testing",
+      "Performance audits",
+      "Continuous QA",
     ],
   },
 ];
@@ -113,9 +113,18 @@ export default function ServicesSection1() {
               <Image src={service.image} alt={typeof service.title === "string" ? service.title : "Service"} width={64} height={64} className="rounded-full" />
             </div>
             <h3 className="text-2xl font-bold mb-3 text-center text-white group-hover:text-[#DC4242] transition-colors duration-200">{service.title}</h3>
-            <ul className="text-gray-300 text-sm list-disc pl-4 text-left space-y-1">
+            <ul className="w-full flex flex-col gap-3 mt-2">
                 {service.bullets.map((b, i) => (
-                    <li key={i} className="relative">
+                    <li
+                        key={i}
+                        className="relative pl-10 py-2 bg-[#23263a]/60 rounded-lg text-base text-[#F3F4F6] font-medium shadow-sm border border-[#23263a] hover:border-[#DC4242] transition-all duration-200"
+                    >
+                        <span className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-5 h-5 rounded-full bg-[#DC4242] text-white text-xs font-bold shadow-md">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="10" r="10" fill="#DC4242"/>
+                                <path d="M7 10.5L9 12.5L13 8.5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </span>
                         {b}
                     </li>
                 ))}
