@@ -1,13 +1,19 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import HeroImg from "@/public/Container.png"; // Update the image path as necessary
 import Separator from "@/public/Separator.png";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+// Example client logos (replace with real ones)
+import Logo1 from "@/public/Agritech.png";
+import Logo2 from "@/public/Education.png";
+import Logo3 from "@/public/Travel.png";
+import Logo4 from "@/public/Ameet.png";
 
 export default function Hero() {
     const blobRef = useRef(null);
+    const [showTooltip, setShowTooltip] = useState(false);
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -30,45 +36,9 @@ export default function Hero() {
         return () => window.removeEventListener("mousemove", handleMouseMove);
     }, []);
 
-    const words = [
-        {
-            text: "UX UI Design",
-            className: "lg:leading-[80px]",
-            // cursorClassName: "invisible"
-        },
-    ];
-    const words2 = [
-        {
-            text: "Studio.",
-            className: "text-[#DC4242] lg:leading-[54px]",
-            // cursorClassName: "visible"
-        },
-    ];
-
-
     return (
         <section
-            className="relative min-h-[38rem] w-full pt-[120px] flex flex-col lg:flex-row items-center justify-between px-6 lg:px-32 overflow-hidden"
-            style={{
-                backgroundImage: `
-                    linear-gradient(135deg, #191C26 0%, #23263a 60%, #111319 100%),
-                    repeating-linear-gradient(
-                        to right,
-                        rgba(255,255,255,0.07) 0px,
-                        rgba(255,255,255,0.07) 1px,
-                        transparent 1px,
-                        transparent 40px
-                    ),
-                    repeating-linear-gradient(
-                        to bottom,
-                        rgba(255,255,255,0.07) 0px,
-                        rgba(255,255,255,0.07) 1px,
-                        transparent 1px,
-                        transparent 40px
-                    )
-                `,
-                backgroundBlendMode: "overlay"
-            }}
+            className="relative min-h-[70vh] lg:min-h-[92vh] w-full flex items-center justify-center px-[10px] md:px-8 lg:px-[120px] py-16 lg:py-0 overflow-hidden bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#111319]"
         >
             {/* Animated awe-struck blob */}
             <div
@@ -88,47 +58,104 @@ export default function Hero() {
                 }}
                 aria-hidden="true"
             />
-            {/* Left Content */}
-            <div className="flex-1 flex flex-col items-start justify-center z-10">
-                <h1 className="text-4xl lg:text-6xl font-extrabold text-white mb-4 leading-tight drop-shadow-lg">
-                    Elevate Your <span className="text-[#DC4242]">Brand</span> <br />
-                    with <span className="text-[#DC4242]">Stunning Design</span> <br />
-                    &amp; <span className="text-[#DC4242]">Robust Development</span>
-                </h1>
-                <span className="text-lg lg:text-2xl text-[#BCC1CA] mb-2 max-w-xl">
-                    We are a full-service digital studio focused on results, creativity, and user experience.
-                </span>
-                <p className="text-base lg:text-xl text-gray-200 mb-8 max-w-xl">
-                    We craft beautiful, high-performing digital experiences for ambitious businesses. From branding to full-stack development, our team delivers results that impress and convert.
-                </p>
-                <div className="flex gap-4">
-                    <Link href="#book-call">
-                        <button className="bg-[#DC4242] hover:bg-[#b32e2e] text-white font-semibold px-8 py-3 rounded-lg shadow-lg transition-all duration-300 text-lg flex items-center gap-2 group">
-                            Book a Free Discovery Call
-                            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" className="text-white"><path d="M5 10h10M13 6l4 4-4 4"/></svg>
-                            </span>
-                        </button>
-                    </Link>
-                    <Link href="#work">
-                        <button className="bg-transparent border-2 border-[#DC4242] text-[#DC4242] hover:bg-[#DC4242] hover:text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 text-lg">
-                            See Our Work
-                        </button>
-                    </Link>
+            <div className="relative flex flex-col-reverse lg:flex-row items-center justify-center w-full max-w-7xl mx-auto gap-12 lg:gap-20 z-10">
+                {/* Left Content */}
+                <div className="flex-1 flex flex-col items-center lg:items-start justify-center max-w-2xl text-center lg:text-left">
+                    {/* Creative Ideas Label (updated copy) */}
+                    <div className="flex items-center mb-6">
+                        <span className="block w-12 h-0.5 bg-[#F5F6FA] mr-4" />
+                        <span className="text-base text-[#BCC1CA] font-normal">We're a small agency which</span>
+                    </div>
+                    {/* Main Heading */}
+                    <h1 className="font-extrabold mb-2 leading-tight tracking-tight relative text-[clamp(2.2rem,6vw,4.5rem)] text-[#F5F6FA]">
+                        Craft Design <br className="hidden sm:block" />
+                        Solutions
+                        <span className="text-[#DC4242] align-super text-5xl ml-1">.</span>
+                    </h1>
+                    {/* Supporting Line */}
+                    <p className="text-[#BCC1CA] mt-4 mb-10 max-w-xl block text-base lg:text-lg leading-relaxed" style={{maxWidth: '40ch', lineHeight: 1.5}}>
+                        We create new design for your online business with the support of our wonderful team of professionals.
+                    </p>
+                    {/* CTAs on one line */}
+                    <div className="flex justify-center lg:justify-start w-full mt-2">
+                        <div className="relative">
+                            <button
+                                className="flex items-center bg-[#FF6F61] hover:bg-[#e65c4f] text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 text-lg whitespace-nowrap group relative"
+                                onMouseEnter={() => setShowTooltip(true)}
+                                onMouseLeave={() => setShowTooltip(false)}
+                            >
+                                <span>Book a Free Discovery Call</span>
+                                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" className="text-white"><path d="M5 12h14M15 8l4 4-4 4"/></svg>
+                                </span>
+                            </button>
+                            {showTooltip && (
+                                <span className="absolute left-1/2 -bottom-10 -translate-x-1/2 bg-[#23263a] text-white text-xs px-3 py-2 rounded shadow-lg z-20 whitespace-nowrap animate-fade-in">
+                                    30-minute free strategy session
+                                </span>
+                            )}
+                        </div>
+                    </div>
                 </div>
-            </div>
-            {/* Right Illustration */}
-            <div className="flex-1 flex items-center justify-center mt-12 lg:mt-0 z-10">
-                <Image
-                    src={HeroImg}
-                    alt="Creative design and development illustration"
-                    className="w-full max-w-md lg:max-w-xl drop-shadow-2xl"
-                    priority
-                />
+                {/* Right Illustration with diagonal divider */}
+                <div className="flex-1 flex items-center justify-center w-full max-w-md lg:max-w-lg xl:max-w-xl mt-8 lg:mt-0 relative">
+                    {/* Diagonal divider */}
+                    <svg className="hidden lg:block absolute -left-24 top-0 h-full w-48 z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <polygon points="100,0 100,100 0,100" fill="#23263a" opacity="0.7" />
+                    </svg>
+                    <Image
+                        src={HeroImg}
+                        alt="Creative design and development illustration"
+                        className="w-full h-auto drop-shadow-2xl animate-float relative z-20"
+                        priority
+                    />
+                </div>
             </div>
             {/* Decorative Background Elements */}
             <div className="absolute top-0 left-0 w-72 h-72 bg-[#DC4242]/20 rounded-full blur-3xl -z-10" />
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#DC4242]/10 rounded-full blur-3xl -z-10" />
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#191C26]/40 to-[#DC4242]/10 pointer-events-none -z-10" />
+            {/* Scroll prompt */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center z-20">
+                <span className="text-[#BCC1CA] text-sm animate-bounce">↓ Scroll to explore our services</span>
+            </div>
+            <style jsx global>{`
+                @keyframes pulse-slow {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0.7; }
+                }
+                .animate-pulse-slow {
+                    animation: pulse-slow 2.5s infinite;
+                }
+                @keyframes glow {
+                    0%, 100% { text-shadow: 0 0 16px #DC4242, 0 0 32px #DC4242; }
+                    50% { text-shadow: 0 0 32px #fff, 0 0 64px #DC4242; }
+                }
+                .animate-glow {
+                    animation: glow 2.5s infinite alternate;
+                }
+                @keyframes bounce {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-8px); }
+                }
+                .animate-bounce {
+                    animation: bounce 1.5s infinite;
+                }
+                @keyframes fade-in {
+                    from { opacity: 0; transform: translateY(8px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                .animate-fade-in {
+                    animation: fade-in 0.3s ease;
+                }
+                @keyframes float {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-18px); }
+                }
+                .animate-float {
+                    animation: float 4s ease-in-out infinite;
+                }
+            `}</style>
         </section>
     );
 }

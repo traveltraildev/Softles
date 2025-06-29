@@ -6,11 +6,13 @@ import Separator from "@/public/Separator.png";
 import Travel from "@/public/Travel.png";
 import Agritech from "@/public/Agritech.png";
 import Education from "@/public/Education.png";
-import TravelImg from "@/public/TravelImg.png";
-import AgriTechImg from "@/public/AgriTechImg.png";
-import EducationImg from "@/public/EducationImg.png";
+import CaseStudy1 from "@/public/case_study_1.png";
+import CaseStudy2 from "@/public/case_study_2.png";
+import CaseStudy3 from "@/public/case_study_3.png";
+import CaseStudy4 from "@/public/case_study_4.png";
+import CaseStudy5 from "@/public/case_study_5.png";
 import { useRef, useState as useLocalState } from 'react';
-import jsPDF from "jspdf";
+import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
 
 
 // Data-driven approach for industries
@@ -19,73 +21,49 @@ const industries = [
         key: "Travel",
         label: "Travel",
         icon: Travel,
-        image: TravelImg,
+        image: CaseStudy1,
         description: "Empowering travel businesses with seamless booking, itinerary management, and customer engagement solutions."
     },
     {
         key: "Agritech",
-        label: "Agritech, Oil & Gas, NGO",
+        label: "Agritech",
         icon: Agritech,
-        image: AgriTechImg,
-        description: "Innovative digital solutions for agriculture, oil & gas, and NGOs to optimize operations and maximize impact."
+        image: CaseStudy2,
+        description: "Innovative digital solutions for agriculture to optimize operations and maximize impact."
+    },
+    {
+        key: "Oil & Gas",
+        label: "Oil & Gas",
+        icon: Agritech,
+        image: CaseStudy3,
+        description: "Digital transformation for oil & gas sector, improving efficiency and safety."
+    },
+    {
+        key: "NGO",
+        label: "NGO",
+        icon: Agritech,
+        image: CaseStudy4,
+        description: "Empowering NGOs with technology for greater social impact."
     },
     {
         key: "Education",
         label: "Education",
         icon: Education,
-        image: EducationImg,
+        image: CaseStudy5,
         description: "Transforming education with e-learning platforms, student management, and interactive content delivery."
     }
 ];
 
 export default function ServicesSection2() {
-    const [activeTab, setActiveTab] = useState(industries[0].key);
-    const [showModal, setShowModal] = useLocalState(false);
-    const [form, setForm] = useLocalState({ name: '', company: '', contact: '' });
-    const [formError, setFormError] = useLocalState('');
-    const formRef = useRef();
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const visibleCount = 2;
+    const maxIndex = Math.max(0, industries.length - visibleCount);
 
-    // Keyboard navigation for tabs
-    const handleKeyDown = (e, idx) => {
-        if (e.key === "ArrowDown" || e.key === "ArrowRight") {
-            setActiveTab(industries[(idx + 1) % industries.length].key);
-        } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
-            setActiveTab(industries[(idx - 1 + industries.length) % industries.length].key);
-        }
+    const handlePrev = () => {
+        setCurrentIndex((prev) => (prev - 1 < 0 ? maxIndex : prev - 1));
     };
-
-    const activeIndustry = industries.find(ind => ind.key === activeTab);
-
-    // PDF generation
-    const handleDownload = () => {
-        const doc = new jsPDF();
-        doc.text("Softles Education Brochure", 20, 20);
-        doc.text(`Name: ${form.name}`, 20, 40);
-        doc.text(`Company: ${form.company}`, 20, 50);
-        doc.text(`Contact: ${form.contact}`, 20, 60);
-        doc.text("This is a test PDF for the Education Brochure.", 20, 80);
-        doc.save("Softles-Education-Brochure.pdf");
-    };
-
-    const handleFormChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-        setFormError('');
-    };
-
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-        if (!form.name || !form.company || !form.contact) {
-            setFormError("All fields are required.");
-            return;
-        }
-        setShowModal(false);
-        setTimeout(handleDownload, 300); // Delay to allow modal to close
-        setForm({ name: '', company: '', contact: '' });
-    };
-
-    // Close modal on backdrop click
-    const handleBackdropClick = (e) => {
-        if (e.target === e.currentTarget) setShowModal(false);
+    const handleNext = () => {
+        setCurrentIndex((prev) => (prev + 1 > maxIndex ? 0 : prev + 1));
     };
 
     return (
@@ -102,121 +80,44 @@ export default function ServicesSection2() {
                     We empower businesses across diverse industries with tailored digital solutions. Explore our expertise below.
                 </span>
             </div>
-            <div className="flex flex-col lg:flex-row gap-8">
-                {/* Tabs */}
-                <nav className="bg-[#191C26]/90 rounded-2xl shadow-lg min-h-fit lg:min-h-[387px] w-full lg:w-[357px] p-6 flex flex-col backdrop-blur-md border border-white/10">
-                    <h2 className="font-semibold text-lg leading-[32.22px] mb-6 text-[#DC4242]">Industry or Domain</h2>
-                    <ul className="flex flex-col gap-4 lg:gap-8" role="tablist">
-                        {industries.map((industry, idx) => (
-                            <li
-                                key={industry.key}
-                                role="tab"
-                                aria-selected={activeTab === industry.key}
-                                tabIndex={0}
-                                className={`
-                                    cursor-pointer font-medium text-base flex items-center gap-x-4 px-4 py-3 rounded-xl transition
-                                    ${activeTab === industry.key
-                                        ? "bg-[#23263A]/90 text-[#DC4242] shadow-md scale-105 border border-[#DC4242]"
-                                        : "hover:bg-[#23263A]/70 hover:text-[#DC4242] text-white/80 border border-transparent"}
-                                    outline-none focus:ring-2 focus:ring-[#DC4242]
-                                `}
-                                onClick={() => setActiveTab(industry.key)}
-                                onKeyDown={e => handleKeyDown(e, idx)}
-                            >
-                                <Image src={industry.icon} alt={industry.label} className="w-7 h-7" />
-                                <span>{industry.label}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-                {/* Tab Panel */}
-                <div className="w-full lg:w-[807px] bg-[#191C26]/90 rounded-2xl shadow-lg flex flex-col items-center justify-center p-4 lg:p-10 transition backdrop-blur-md border border-white/10">
-                    <Image
-                        src={activeIndustry.image}
-                        alt={activeIndustry.label}
-                        className="rounded-xl mb-6 shadow-md object-contain"
-                        style={{ maxHeight: 220, width: "auto" }}
-                    />
-                    <h3 className="text-2xl font-bold mb-2 text-[#DC4242]">{activeIndustry.label}</h3>
-                    <p className="text-base text-white/90 mb-6 text-center max-w-xl">{activeIndustry.description}</p>
-                    {/* View Case Study Button for all industries */}
+            <div className="w-full flex flex-col items-center justify-center">
+                <div className="relative w-full max-w-7xl mx-auto flex items-center">
+                    {/* Left Arrow OUTSIDE cards */}
+                </div>
+                <div className="relative w-full max-w-7xl mx-auto flex items-center">
                     <button
-                        className="bg-[#DC4242] text-white px-8 py-3 rounded-lg font-semibold shadow hover:bg-[#b32e2e] transition mb-4 focus:outline-none focus:ring-2 focus:ring-[#DC4242] text-lg"
-                        onClick={() => setShowModal(true)}
+                        aria-label="Previous"
+                        onClick={handlePrev}
+                        className="absolute -left-16 z-20 bg-[#23263a] hover:bg-[#DC4242] text-white rounded-full p-3 shadow-lg transition-all"
+                        style={{ top: '50%', transform: 'translateY(-50%)' }}
                     >
-                        View Case Study
+                        <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 22l-8-8 8-8"/></svg>
                     </button>
-                    {/* Dots */}
-                    <div className="flex justify-center items-center gap-x-2 mt-2">
-                        {industries.map(ind => (
-                            <span
-                                key={ind.key}
-                                className={`rounded-full transition-all duration-200
-                                    ${activeTab === ind.key
-                                        ? "bg-[#DC4242] w-3 h-3"
-                                        : "bg-[#D9D9D9] w-2 h-2"}
-                                `}
-                            />
+                    <div className="flex w-full gap-8 justify-center">
+                        {industries.slice(currentIndex, currentIndex + visibleCount).map((industry, idx) => (
+                            <div key={industry.key} className="bg-[#191C26]/90 rounded-2xl shadow-lg flex flex-col items-center justify-center p-4 lg:p-8 border border-white/10 w-1/2 max-w-full">
+                                <div className="w-full flex-1 flex items-center justify-center">
+                                    <Image
+                                        src={industry.image}
+                                        alt={industry.label}
+                                        className="rounded-xl mb-6 shadow-md object-cover"
+                                        style={{ height: '340px', width: '100%' }}
+                                    />
+                                </div>
+                                <h3 className="text-2xl font-bold mb-2 text-white text-left w-full">{industry.label}</h3>
+                                <p className="text-base text-white/90 mb-2 text-left w-full max-w-xl">{industry.description}</p>
+                            </div>
                         ))}
                     </div>
-                    {/* Modal */}
-                    {showModal && (
-                        <div
-                            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fadeIn"
-                            onClick={handleBackdropClick}
-                            aria-modal="true"
-                            role="dialog"
-                        >
-                            <div className="bg-[#191C26]/95 rounded-2xl p-8 w-[90vw] max-w-md shadow-2xl border border-white/10 relative flex flex-col items-center animate-slideUp">
+                    {/* Right Arrow OUTSIDE cards */}
                                 <button
-                                    className="absolute top-3 right-3 text-white text-2xl hover:text-[#DC4242] transition"
-                                    onClick={() => setShowModal(false)}
-                                    aria-label="Close"
-                                    tabIndex={0}
-                                >&times;</button>
-                                <h4 className="text-xl font-bold mb-4 text-[#DC4242]">Download Brochure</h4>
-                                <form ref={formRef} onSubmit={handleFormSubmit} className="flex flex-col gap-4 w-full">
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        placeholder="Your Name"
-                                        value={form.name}
-                                        onChange={handleFormChange}
-                                        className="px-4 py-2 rounded bg-[#23263A] text-white focus:outline-none focus:ring-2 focus:ring-[#DC4242] border border-white/10"
-                                    />
-                                    <input
-                                        type="text"
-                                        name="company"
-                                        placeholder="Company"
-                                        value={form.company}
-                                        onChange={handleFormChange}
-                                        className="px-4 py-2 rounded bg-[#23263A] text-white focus:outline-none focus:ring-2 focus:ring-[#DC4242] border border-white/10"
-                                    />
-                                    <input
-                                        type="text"
-                                        name="contact"
-                                        placeholder="Contact"
-                                        value={form.contact}
-                                        onChange={handleFormChange}
-                                        className="px-4 py-2 rounded bg-[#23263A] text-white focus:outline-none focus:ring-2 focus:ring-[#DC4242] border border-white/10"
-                                    />
-                                    {formError && <span className="text-red-400 text-sm">{formError}</span>}
-                                    <button
-                                        type="submit"
-                                        className="bg-[#DC4242] text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-[#b32e2e] transition mt-2 focus:outline-none focus:ring-2 focus:ring-[#DC4242]"
-                                    >
-                                        Download PDF
+                        aria-label="Next"
+                        onClick={handleNext}
+                        className="absolute -right-16 z-20 bg-[#23263a] hover:bg-[#DC4242] text-white rounded-full p-3 shadow-lg transition-all"
+                        style={{ top: '50%', transform: 'translateY(-50%)' }}
+                    >
+                        <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 6l8 8-8 8"/></svg>
                                     </button>
-                                </form>
-                            </div>
-                            <style jsx global>{`
-                                @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-                                @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-                                .animate-fadeIn { animation: fadeIn 0.2s; }
-                                .animate-slideUp { animation: slideUp 0.3s cubic-bezier(.22,1.12,.58,1); }
-                            `}</style>
-                        </div>
-                    )}
                 </div>
             </div>
         </section>

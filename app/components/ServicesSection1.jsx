@@ -134,11 +134,6 @@ export default function ServicesSection1() {
                     </li>
                 ))}
             </ul>
-            <Link href="#book-call" className="mt-auto">
-              <button className="px-6 py-2 rounded-lg bg-[#DC4242] text-white font-semibold shadow hover:bg-[#b32e2e] transition-all duration-200 text-base">
-                Learn More
-              </button>
-            </Link>
             <span className="pointer-events-none absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#DC4242]/10 blur" />
           </div>
         ))}
