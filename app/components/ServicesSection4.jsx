@@ -14,6 +14,7 @@ import Logo4 from "@/public/logo_4.png";
 import Logo5 from "@/public/logo_5.png";
 import Logo6 from "@/public/logo_6.png";
 import Logo7 from "@/public/logo_7.png";
+import Logo8 from "@/public/logo_8.png";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -59,7 +60,7 @@ const testimonials = [
   }
 ];
 
-const clientLogos = [Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7];
+const clientLogos = [Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7, Logo8];
 
 export default function ServicesSection4() {
   const [currentIndex, setCurrentIndex] = React.useState(0);
@@ -120,7 +121,7 @@ export default function ServicesSection4() {
         </div>
         {/* Client Logo Rail - now below testimonials, full width, edge-to-edge */}
         <div className="overflow-hidden w-screen fixed left-0 right-0 mt-20" style={{position: 'relative'}}>
-          <div className="flex gap-12 animate-logo-rail whitespace-nowrap" style={{ animation: 'logo-rail 18s linear infinite' }}>
+          <div className="flex gap-20 animate-logo-rail whitespace-nowrap" style={{ animation: 'logo-rail 18s linear infinite' }}>
             {clientLogos.concat(clientLogos).map((logo, idx) => (
               <Image key={idx} src={logo} alt={`Client Logo ${idx + 1}`} className="h-12 w-auto inline-block" />
             ))}
