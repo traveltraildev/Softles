@@ -64,7 +64,7 @@ export default function Hero() {
                     {/* Creative Ideas Label (updated copy) */}
                     <div className="flex items-center mb-6">
                         <span className="block w-12 h-0.5 bg-[#F5F6FA] mr-4" />
-                        <span className="text-base text-[#BCC1CA] font-normal">We're a small agency which</span>
+                        <span className="text-base text-[#BCC1CA] font-normal">We&apos;re a small agency which</span>
                     </div>
                     {/* Main Heading */}
                     <h1 className="font-extrabold mb-2 leading-tight tracking-tight relative text-[clamp(2.2rem,6vw,4.5rem)] text-[#F5F6FA]">

@@ -15,7 +15,7 @@ export default function ServicesSection3() {
                 <p className="flex items-center text-base font-normal text-[#FFFFFF]"><Image src={Separator} className="mr-[10px]" alt="separator"/> Our Approach</p>
                 <span className="mt-2 lg:mt-5 mb-2 lg:mb-0 font-bold text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">Right thing matters to us</span>
                 <span className="text-base text-[#BCC1CA] mt-2 max-w-2xl">
-                    Our process ensures we deliver the right solutions, every time. Here's how we work with you.
+                    Our process ensures we deliver the right solutions, every time. Here&apos;s how we work with you.
                 </span>
             </div>
             <div className="w-full flex flex-col lg:flex-row justify-between items-stretch gap-y-5 lg:gap-y-0 mt-9 px-[10px] lg:px-0">
