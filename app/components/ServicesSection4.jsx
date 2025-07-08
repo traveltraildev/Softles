@@ -81,7 +81,7 @@ export default function ServicesSection4() {
         <p className="flex items-center text-base font-normal text-[#FFFFFF]"><Image src={Separator} className="mr-[10px]" alt="separator"/> Testimonials</p>
         <span className="mt-2 lg:mt-5 mb-2 lg:mb-0 text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">What our Client&apos;s Say</span>
         <span className="text-base text-[#BCC1CA] mt-2 max-w-2xl">
-          Hear from our clients about their experience working with us and the impact we've made.
+          Hear from our clients about their experience working with us and the impact we&apos;ve made.
         </span>
       </div>
       <div className="mt-16 relative w-full flex flex-col items-center justify-center gap-12">
