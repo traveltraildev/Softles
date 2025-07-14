@@ -2,27 +2,53 @@
 
 import Image from "next/image";
 import Separator from "@/public/Separator.png";
-import Ameet from "@/public/Ameet.png";
+import Divy from "@/public/Divy.jpg";
 import React, { useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Send } from "lucide-react";
+import emailjs from '@emailjs/browser';
+
 
 
 export default function ServicesSection5() {
-    const [ userName, setUserName ] = useState('')
-    const [ userMail, setUserMail ] = useState('')
-    const [ loading, setLoading ] = useState(false)
+    const [userName, setUserName] = useState('')
+    const [userMail, setUserMail] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const form = useRef(null);
     const sendEmail = (e) => {
         e.preventDefault();
-        setLoading(true)
+        if (!form.current) return;
+        setLoading(true);
+
+        emailjs
+            .sendForm(
+                'service_db4zwz8',      // ← replace
+                'template_oiu2ped',     // ← replace
+                form.current,
+                'oo80cgXuN0GQTNqFm'       // ← replace
+            )
+            .then(
+                () => {
+                    setLoading(false);
+                    alert('Thanks! We’ll be in touch soon.');
+                    // optional: reset form
+                    form.current?.reset();
+                    setUserName('');
+                    setUserMail('');
+                },
+                (err) => {
+                    console.error(err);
+                    setLoading(false);
+                    alert('Sorry, something went wrong. Try again.');
+                }
+            );
     };
 
     const isFormValid = () => {
-        return(
+        return (
             userName.trim() !== '' &&
             userMail.trim() !== ''
         )
@@ -30,7 +56,7 @@ export default function ServicesSection5() {
     return (
         <div className="min-h-[30rem] p-[10px] lg:px-[120px] w-full py-[90px] bg-[#111319] flex flex-col justify-center place-content-between">
             <div className="flex flex-col">
-                <p className="flex items-center text-base font-normal text-[#FFFFFF]"><Image src={Separator} className="mr-[10px]" alt="separator"/> Get In Touch</p>
+                <p className="flex items-center text-base font-normal text-[#FFFFFF]"><Image src={Separator} className="mr-[10px]" alt="separator" /> Get In Touch</p>
                 <span className="mt-2 lg:mt-5 mb-4 lg:mb-0 text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">Book a Discovery Session</span>
             </div>
             <div className="w-full flex flex-col md:flex-row gap-0 mt-12 justify-center items-stretch">
@@ -38,23 +64,23 @@ export default function ServicesSection5() {
                 <div className="bg-gradient-to-br from-[#191C26] via-[#221429] to-[#191C26] rounded-l-2xl shadow-lg flex flex-col justify-between p-0 border border-[#23263a] w-full md:w-1/3 max-w-none">
                     <div className="flex flex-col items-center pt-8 pb-4 px-6 h-full">
                         <div className="relative">
-                            <Image src={Ameet} alt="Expert Image" className="rounded-xl w-[180px] h-[180px] object-cover border-4 border-[#221429] shadow-md"/>
+                            <Image src={Divy} alt="Expert Image" className="rounded-xl w-[180px] h-[180px] object-cover border-4 border-[#221429] shadow-md" />
                         </div>
                         <div className="mt-4 bg-[#221429] rounded-xl px-5 py-2 shadow-lg flex flex-col items-center">
-                            <p className="text-lg font-semibold text-white">Ameet Palkar</p>
-                            <p className="text-sm font-normal text-[#bdbdbd]">Lead UX/UI Designer</p>
+                            <p className="text-lg font-semibold text-white">Divyansh Veermanya</p>
+                            <p className="text-sm font-normal text-[#bdbdbd]">Product Lead</p>
                         </div>
                         <div className="bg-[#221429] px-8 py-6 flex flex-col items-center gap-3 border-t border-[#23263a] w-full mt-8 rounded-b-2xl">
                             <h2 className="font-bold text-2xl text-white text-center">Book a Discovery Session</h2>
                             <p className="text-base font-medium text-[#bdbdbd] text-center">
-                                Instantly schedule a Google Meet with our expert.<br />
+                                Instantly schedule a call with our expert.<br />
                                 <span className="text-xs text-[#888]">Powered by <span className="font-semibold">Google Meet</span></span>
                             </p>
                             <a
-                                href="mailto:info@softles.in?subject=Discovery%20Session%20Booking&body=Hi%20Softles%2C%20I%20would%20like%20to%20book%20a%20discovery%20session%20via%20Google%20Meet."
-                                className="mt-4 py-2 px-8 rounded-full border border-[#DC4242] text-[#DC4242] text-base font-semibold hover:bg-[#DC4242] hover:text-white transition-colors duration-200 shadow-sm text-center"
+                                href="https://calendar.google.com/calendar/u/0?cid=ZGl2eWFuc2gudmVlcm1hbnlhQGdtYWlsLmNvbQ" // ← put your own public booking URL here
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                className="mt-4 py-2 px-8 rounded-full border border-[#DC4242] text-[#DC4242] text-base font-semibold hover:bg-[#DC4242] hover:text-white transition-colors duration-200 shadow-sm text-center"
                             >
                                 Book via Google Meet
                             </a>
