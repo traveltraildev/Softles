@@ -1,9 +1,4 @@
 import Image from "next/image";
-import Logo from "@/public/SoftLes.png";
-import Facebook from "@/public/FacebookIcon.png";
-import Twitter from "@/public/TwitterIcon.png";
-import LinkedIn from "@/public/LinkedInIcon.png";
-import Instagram from "@/public/InstagramIcon.png";
 import Link from "next/link";
 
 
@@ -12,7 +7,7 @@ export default function Footer() {
         <div className="min-h-[38rem] p-[10px] lg:px-[120px] pt-7 w-full bg-[#212121] overflow-hidden flex flex-col justify-between place-content-center">
             <div className="flex flex-col lg:flex-row justify-between place-content-center gap-y-10">
                 <div className="text-[#FFFFFF] flex flex-col gap-y-6 max-w-[230px]">
-                    <Image src={Logo} alt="Logo"/>
+                    <Image src={"/SoftLes.png"} alt="Logo" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden min-w-min h-[54px]"/>
                     <p className="font-normal text-[14px] leading-[16.8px]">
                         57 Brand House, Coombe Way <br/>Farnborough, Hampshire
                     </p>
@@ -44,7 +39,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="flex flex-col gap-5 lg:gap-[60px]">
-                    <Image src={Logo} alt="Logo"/>
+                    <Image src={"/SoftLes.png"} width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" alt="Logo" className="object-cover overflow-hidden min-w-min h-[54px]"/>
                     <ul className="flex flex-col items-start justify-between font-medium gap-y-4 text-[#FFFFFF] underline decoration-solid text-lg leading-[21.6px]">
                     <li>
                         About Us
@@ -70,10 +65,10 @@ export default function Footer() {
                 </p>
             </div>
             <div className="flex items-center justify-center py-[20px] gap-x-20 border-t-[1px] border-[#7A7A7A]">
-                <Link href="https://www.facebook.com" target="_blank"><Image src={Facebook} alt="Facebook" /></Link>
-                <Link href="https://www.facebook.com" target="_blank"><Image src={Twitter} alt="Twitter" /></Link>
-                <Link href="https://www.facebook.com" target="_blank"><Image src={LinkedIn} alt="LinkedIn" /></Link>
-                <Link href="https://www.facebook.com" target="_blank"><Image src={Instagram} alt="Instagram" /></Link>
+                <Link href="https://www.facebook.com" target="_blank"><Image src={"/FacebookIcon.png"} alt="Facebook" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7"/></Link>
+                <Link href="https://www.facebook.com" target="_blank"><Image src={"/TwitterIcon.png"} alt="Twitter" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7"/></Link>
+                <Link href="https://www.facebook.com" target="_blank"><Image src={"/LinkedInIcon.png"} alt="LinkedIn" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7"/></Link>
+                <Link href="https://www.facebook.com" target="_blank"><Image src={"/InstagramIcon.png"} alt="Instagram" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7"/></Link>
             </div>
         </div>
     )
