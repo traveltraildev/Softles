@@ -4,7 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
 
-const Input = React.forwardRef(({ className, type, ...props }, ref) => {
+const Input = React.forwardRef(({ className, type, "aria-label": ariaLabel, ...props }, ref) => {
   const radius = 100;
   const [visible, setVisible] = React.useState(false);
 
@@ -35,11 +35,12 @@ const Input = React.forwardRef(({ className, type, ...props }, ref) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
-      className="p-[2px] rounded-lg transition duration-300 group/input">
+      className="p-[3px] rounded-lg transition duration-300 group/input">
       <input
         type={type}
+        aria-label={ariaLabel || props.placeholder || "Input"}
         className={cn(
-          `flex h-10 w-full border-none bg-zinc-800 text-white rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder-text-neutral-600 focus-visible:outline-none focus-visible:ring-[2px]  focus-visible:ring-neutral-600 disabled:cursor-not-allowed disabled:opacity-50 shadow-[0px_0px_1px_1px_var(--neutral-700)] group-hover/input:shadow-none transition duration-400`,
+          `flex h-11 w-full border-none bg-zinc-800 text-white rounded-md px-4 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder-text-neutral-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#DC4242] disabled:cursor-not-allowed disabled:opacity-50 shadow-[0px_0px_1px_1px_var(--neutral-700)] group-hover/input:shadow-none transition duration-400`,
           className
         )}
         ref={ref}
