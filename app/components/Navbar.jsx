@@ -38,7 +38,7 @@ export default function Navbar() {
     };
 
     return (
-        <div className={`h-[55px] w-full z-50 fixed top-0 transition-all duration-300 ease-in-out bg-[#191C26] text-[#FFFFFF] flex items-center justify-between lg:justify-normal p-[10px] lg:px-[120px] ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+        <div className={`h-[60px] w-full z-50 fixed top-0 transition-all duration-300 ease-in-out bg-[#191C26] text-[#FFFFFF] flex items-center justify-between lg:justify-normal p-[10px] lg:px-[120px] ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
             <Link href="/">
                 <Image src={"/SoftLes.png"} alt="logo"  width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden min-w-min h-[38px]"/>
             </Link>
@@ -53,11 +53,6 @@ export default function Navbar() {
                     <li>
                         <a href="#services" onClick={e => handleNavClick(e, "services")}>
                             Services
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#work" onClick={e => handleNavClick(e, "work")}>
-                            Our Work
                         </a>
                     </li>
                 </ul>
