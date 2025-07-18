@@ -19,32 +19,52 @@ export default function Footer() {
         <footer className="bg-[#18181B] text-white pt-12 pb-6 px-4 md:px-16">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-[#27272A] pb-10">
                 {/* Logo & Address */}
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-5 w-full">
                     <Link href="/">
                         <Image src={"/SoftLes.png"} alt="Logo" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden min-w-min h-[54px]"/>
                     </Link>
-                    {/* <p className="text-sm text-[#D4D4D8]">
-                        57 Brand House, Coombe Way <br /> Farnborough, Hampshire
-                    </p> */}
-                    <div className="flex flex-col gap-y-5">
-                        <h3 className="font-semibold text-base mb-1">Contact</h3>
-                        <div className="flex flex-col">
+                    <p className="text-sm text-[#D4D4D8]">
+                        At Softles, we craft unique digital experiences by combining design, technology, and strategy. From innovative UI/UX to smart development and automation, our passionate team helps businesses grow online. Book a free discovery call and let’s build something remarkable together. Your vision, our creativity — powered by purpose.
+                    </p>
+                </div>
+                <div className="flex flex-col gap-y-5 w-full">
+                    <h3 className="font-semibold text-base mb-1">Contact</h3>
+                    <div className="flex flex-col gap-y-3 w-full">
+                        <div className="">
                             <h6 className="text-sm text-[#D4D4D8]">Email:</h6>
-                            <a href="mailto:info@softles.com?cc=hr@softles.in" className="text-md font-medium underline hover:text-[#DC4242] transition">
-                                info@softles.in
-                            </a>
-                            <a href="mailto:hr@softles.in?cc=info@softles.in" className="text-md font-medium underline hover:text-[#DC4242] transition">
-                                hr@softles.in
-                            </a>
+                            <div className="flex flex-col items-start">
+                                <a href="mailto:info@softles.com?cc=hr@softles.in" className="text-md font-medium underline hover:text-[#DC4242] transition">
+                                    info@softles.in
+                                </a>
+                                <a href="mailto:hr@softles.in?cc=info@softles.in" className="text-md font-medium underline hover:text-[#DC4242] transition">
+                                    hr@softles.in
+                                </a>
+                            </div>
                         </div>
-                        <div className="flex flex-col">
+                        <div className="">
                             <h6 className="text-sm text-[#D4D4D8]">Phone:</h6>
-                            <a href="tel:+918954000202" className="text-md font-medium underline hover:text-[#DC4242] transition">
-                                +918954000202
-                            </a>
-                            <a href="tel:+919990548795" className="text-md font-medium underline hover:text-[#DC4242] transition">
-                                +919990548795
-                            </a>
+                            <div className="flex flex-col items-start">
+                                <a href="tel:+918954000202" className="text-md font-medium underline hover:text-[#DC4242] transition">
+                                    +918954000202
+                                </a>
+                                <a href="tel:+919990548795" className="text-md font-medium underline hover:text-[#DC4242] transition">
+                                    +919990548795
+                                </a>
+                            </div>
+                        </div>
+                        <div className="flex gap-4 mt-2">
+                            <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                <Image src={"/FacebookIcon.png"} alt="Facebook" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
+                            </Link>
+                            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                                <Image src={"/TwitterIcon.png"} alt="Twitter" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
+                            </Link>
+                            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <Image src={"/LinkedInIcon.png"} alt="LinkedIn" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
+                            </Link>
+                            <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <Image src={"/InstagramIcon.png"} alt="Instagram" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -93,8 +113,8 @@ export default function Footer() {
                         )}
                     </form>
                 </div>
-                {/* Map & Social */}
-                <div className="flex flex-col gap-4">
+                {/* Map */}
+                {/* <div className="flex flex-col gap-4">
                     <div className="rounded-lg overflow-hidden h-32 w-full">
                         <iframe
                             title="Google Maps Location of Softles"
@@ -105,21 +125,7 @@ export default function Footer() {
                             referrerPolicy="no-referrer-when-downgrade"
                         ></iframe>
                     </div>
-                    <div className="flex gap-4 mt-2">
-                        <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <Image src={"/FacebookIcon.png"} alt="Facebook" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
-                        </Link>
-                        <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                        <Image src={"/TwitterIcon.png"} alt="Twitter" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
-                        </Link>
-                        <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <Image src={"/LinkedInIcon.png"} alt="LinkedIn" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
-                        </Link>
-                        <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <Image src={"/InstagramIcon.png"} alt="Instagram" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
-                        </Link>
-                    </div>
-                </div>
+                </div> */}
             </div>
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 pt-6">
                 <p className="text-[#A1A1AA] text-sm text-center md:text-left">

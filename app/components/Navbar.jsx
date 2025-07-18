@@ -62,8 +62,11 @@ export default function Navbar() {
                     </li>
                 </ul>
                 <Link href="#book-call" onClick={e => handleNavClick(e, "book-call")}>
-                    <button className="bg-transparent border-[2px] border-solid border-[#DC4242] hover:bg-[#DC4242] transition-all duration-300 ease-linear px-[20px] py-[5px]">
-                        Book a Discovery Call
+                    <button className="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none ">
+                        <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-[20px] py-[5px] text-sm font-medium text-white backdrop-blur-3xl">
+                            Book a Discovery Call
+                        </span>
                     </button>
                 </Link>
             </div>

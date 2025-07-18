@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 /* ---------- Tooltip for bullets ---------- */
 function BulletTooltip({ children, tip }) {
@@ -66,6 +67,81 @@ const services = [
   },
 ];
 
+function MobileStackCarousel({ services }) {
+  const [active, setActive] = useState(0);
+
+  const handleNext = () => setActive((prev) => (prev + 1) % services.length);
+  const handlePrev = () => setActive((prev) => (prev - 1 + services.length) % services.length);
+
+  // Optional: Auto-play
+  // useEffect(() => {
+  //   const interval = setInterval(handleNext, 5000);
+  //   return () => clearInterval(interval);
+  // }, []);
+
+  return (
+    <div className="sm:hidden w-full flex flex-col items-center py-8">
+      <div className="relative w-full max-w-xs min-h-[460px]">
+        <AnimatePresence initial={false} mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, scale: 0.9, y: 40 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: -40 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="absolute inset-0 bg-gradient-to-br from-[#23263a] to-[#181B23] rounded-2xl shadow-lg p-8 flex flex-col items-start min-h-[320px]"
+          >
+            <div className="mb-6 flex items-center justify-start">
+              <Image
+                src={services[active].image}
+                alt={services[active].title}
+                width={72}
+                height={72}
+                className="rounded-full"
+              />
+            </div>
+            <h3 className="text-2xl font-bold mb-4 text-left text-white">{services[active].title}</h3>
+            <ul className="w-full flex flex-col gap-3 mt-2 mb-6">
+              {services[active].bullets.map((b, i) => (
+                <li
+                  key={i}
+                  className="relative pl-10 py-2 bg-[#23263a]/60 rounded-lg text-base text-[#F3F4F6] font-medium shadow-sm border border-[#23263a] text-left"
+                >
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-5 h-5 rounded-full bg-[#DC4242] text-white text-xs font-bold shadow-md">
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                      <circle cx="10" cy="10" r="10" fill="#DC4242"/>
+                      <path d="M7 10.5L9 12.5L13 8.5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </span>
+                  {b.txt}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      <div className="flex gap-4 mt-6">
+        <button
+          onClick={handlePrev}
+          className="flex h-8 w-8 items-center justify-center rounded-full bg-[#23263a] hover:bg-[#DC4242] text-white"
+        >
+          <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M13 17l-5-5 5-5"/>
+          </svg>
+        </button>
+        <button
+          onClick={handleNext}
+          className="flex h-8 w-8 items-center justify-center rounded-full bg-[#23263a] hover:bg-[#DC4242] text-white"
+        >
+          <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M7 7l5 5-5 5"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export default function ServicesSection1() {
   return (
     <div className="min-h-[30rem] px-[10px] lg:px-[120px] w-full py-[90px] bg-[#191C26] flex flex-col justify-center place-content-between">
@@ -82,7 +158,11 @@ export default function ServicesSection1() {
         </span>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+      {/* Mobile stack card carousel */}
+      <MobileStackCarousel services={services} />
+
+      {/* Desktop grid */}
+      <div className="mt-10 hidden sm:grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
         {services.map((service, idx) => (
           <div
             key={idx}
