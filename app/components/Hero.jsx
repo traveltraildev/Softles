@@ -84,13 +84,13 @@ export default function Hero() {
                         <div className="flex justify-center lg:justify-start w-full mt-2">
                             <div onClick={e => handleClick(e, "book-call")} className="relative">
                                 <button
-                                    className="flex items-center text-lg whitespace-nowrap group relative shadow-[inset_0_0_0_2px_#616467] text-black px-8 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-300"
+                                    className="flex items-center text-lg whitespace-nowrap group relative shadow-[inset_0_0_0_2px_#616467] text-[#DC4242] px-8 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] transition duration-300"
                                     onMouseEnter={() => setShowTooltip(true)}
                                     onMouseLeave={() => setShowTooltip(false)}
                                 >
                                     <span>Book a Free Discovery Call</span>
                                     <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
-                                        <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" className="text-white"><path d="M5 12h14M15 8l4 4-4 4"/></svg>
+                                        <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#DC4242]"><path d="M5 12h14M15 8l4 4-4 4"/></svg>
                                     </span>
                                 </button>
                                 {showTooltip && (

@@ -9,11 +9,13 @@ import ServicesSection5 from "./components/ServicesSection5";
 export default function Home() {
   return (
     <div>
-      <section id="about">
+      <section>
         <Hero/>
       </section>
-      <section id="services">
+      <section id="about">
         <ServicesSection1/>
+      </section>
+      <section id="services">
         {/* <ServicesSection2/> */}
         <ServicesSection3/>
       </section>

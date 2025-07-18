@@ -17,58 +17,103 @@ export default function Footer() {
 
     return (
         <footer className="bg-[#18181B] text-white pt-12 pb-6 px-4 md:px-16">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-[#27272A] pb-10">
-                {/* Logo & Address */}
-                <div className="flex flex-col gap-5 w-full">
-                    <Link href="/">
-                        <Image src={"/SoftLes.png"} alt="Logo" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden min-w-min h-[54px]"/>
-                    </Link>
-                    <p className="text-sm text-[#D4D4D8]">
-                        At Softles, we craft unique digital experiences by combining design, technology, and strategy. From innovative UI/UX to smart development and automation, our passionate team helps businesses grow online. Book a free discovery call and let’s build something remarkable together. Your vision, our creativity — powered by purpose.
-                    </p>
-                </div>
-                <div className="flex flex-col gap-y-5 w-full">
-                    <h3 className="font-semibold text-base mb-1">Contact</h3>
+            <div className="flex flex-col gap-5 w-full max-w-7xl mx-auto border-b border-[#27272A] pb-10">
+                <Link href="/">
+                    <Image src={"/SoftLes.png"} alt="Logo" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden min-w-min h-[54px]"/>
+                </Link>
+                <div className=" grid grid-cols-1 md:grid-cols-3 gap-10">
+                    {/* About */}
                     <div className="flex flex-col gap-y-3 w-full">
-                        <div className="">
-                            <h6 className="text-sm text-[#D4D4D8]">Email:</h6>
-                            <div className="flex flex-col items-start">
-                                <a href="mailto:info@softles.com?cc=hr@softles.in" className="text-md font-medium underline hover:text-[#DC4242] transition">
-                                    info@softles.in
-                                </a>
-                                <a href="mailto:hr@softles.in?cc=info@softles.in" className="text-md font-medium underline hover:text-[#DC4242] transition">
-                                    hr@softles.in
-                                </a>
+                        <h3 className="font-semibold text-base mb-1">About</h3>
+                        <p className="text-sm text-[#D4D4D8]">
+                            At Softles, we craft unique digital experiences by combining design, technology, and strategy. From innovative UI/UX to smart development and automation, our passionate team helps businesses grow online. Book a free discovery call and let’s build something remarkable together. Your vision, our creativity — powered by purpose.
+                        </p>
+                    </div>
+                    <div className="flex flex-col gap-y-3 w-full">
+                        <h3 className="font-semibold text-base mb-1">Contact</h3>
+                        <div className="flex flex-col xl:flex-row items-start xl:items-center gap-5 w-full">
+                            <div className="flex gap-x-2">
+                                <h6 className="text-sm text-[#D4D4D8]">Email:</h6>
+                                <div className="flex flex-col items-start">
+                                    <a href="mailto:info@softles.com?cc=hr@softles.in" className="text-md font-medium underline hover:text-[#DC4242] transition">
+                                        info@softles.in
+                                    </a>
+                                    <a href="mailto:hr@softles.in?cc=info@softles.in" className="text-md font-medium underline hover:text-[#DC4242] transition">
+                                        hr@softles.in
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div className="">
-                            <h6 className="text-sm text-[#D4D4D8]">Phone:</h6>
-                            <div className="flex flex-col items-start">
-                                <a href="tel:+918954000202" className="text-md font-medium underline hover:text-[#DC4242] transition">
-                                    +918954000202
-                                </a>
-                                <a href="tel:+919990548795" className="text-md font-medium underline hover:text-[#DC4242] transition">
-                                    +919990548795
-                                </a>
+                            <div className="flex gap-x-2">
+                                <h6 className="text-sm text-[#D4D4D8]">Phone:</h6>
+                                <div className="flex flex-col items-start">
+                                    <a href="tel:+918954000202" className="text-md font-medium underline hover:text-[#DC4242] transition">
+                                        +918954000202
+                                    </a>
+                                    <a href="tel:+919990548795" className="text-md font-medium underline hover:text-[#DC4242] transition">
+                                        +919990548795
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div className="flex gap-4 mt-2">
-                            <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                                <Image src={"/FacebookIcon.png"} alt="Facebook" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
-                            </Link>
-                            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                                <Image src={"/TwitterIcon.png"} alt="Twitter" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
-                            </Link>
-                            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                                <Image src={"/LinkedInIcon.png"} alt="LinkedIn" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
-                            </Link>
-                            <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                                <Image src={"/InstagramIcon.png"} alt="Instagram" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
-                            </Link>
                         </div>
                     </div>
+                    {/* Newsletter */}
+                    <div>
+                        <h3 className="font-semibold text-base mb-3">Newsletter</h3>
+                        <p className="text-sm text-[#D4D4D8] mb-3">Stay up to date with our latest news and offers.</p>
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+                            <label htmlFor="footer-email" className="sr-only">Email address</label>
+                            <input
+                                id="footer-email"
+                                type="email"
+                                name="email"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
+                                placeholder="Your email address"
+                                className="bg-[#23232A] border border-[#27272A] rounded px-3 py-2 text-white placeholder-[#A1A1AA] focus:outline-none focus:border-[#DC4242] transition"
+                                required
+                            />
+                            <button
+                                type="submit"
+                                className="bg-[#DC4242] hover:bg-[#b32e2e] transition text-white rounded px-4 py-2 font-semibold"
+                            >
+                                Subscribe
+                            </button>
+                            {submitted && (
+                                <span className="text-green-400 text-xs mt-1">Thank you for subscribing!</span>
+                            )}
+                        </form>
+                    </div>
                 </div>
-                {/* Navigation */}
+            </div>
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 pt-6">
+                <p className="text-[#A1A1AA] text-sm text-center md:text-left">
+                    &quot;Do something today that your future self will thank you for.&quot;
+                </p>
+                <div className="flex gap-4 mt-2">
+                    <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <Image src={"/FacebookIcon.png"} alt="Facebook" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
+                    </Link>
+                    <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <Image src={"/TwitterIcon.png"} alt="Twitter" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
+                    </Link>
+                    <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <Image src={"/LinkedInIcon.png"} alt="LinkedIn" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
+                    </Link>
+                    <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <Image src={"/InstagramIcon.png"} alt="Instagram" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
+                    </Link>
+                </div>
+                <p className="text-[#52525B] text-xs text-center md:text-right">
+                    &copy; {new Date().getFullYear()} SoftLes - Web Design Company. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
+    );
+}
+
+
+
+ {/* Navigation */}
                 {/* <div>
                     <h3 className="font-semibold text-base mb-3">Quick Links</h3>
                     <ul className="space-y-2 text-[#D4D4D8]">
@@ -86,34 +131,7 @@ export default function Footer() {
                         </li>
                     </ul>
                 </div> */}
-                {/* Newsletter */}
-                <div>
-                    <h3 className="font-semibold text-base mb-3">Newsletter</h3>
-                    <p className="text-sm text-[#D4D4D8] mb-3">Stay up to date with our latest news and offers.</p>
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-                        <label htmlFor="footer-email" className="sr-only">Email address</label>
-                        <input
-                            id="footer-email"
-                            type="email"
-                            name="email"
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                            placeholder="Your email address"
-                            className="bg-[#23232A] border border-[#27272A] rounded px-3 py-2 text-white placeholder-[#A1A1AA] focus:outline-none focus:border-[#DC4242] transition"
-                            required
-                        />
-                        <button
-                            type="submit"
-                            className="bg-[#DC4242] hover:bg-[#b32e2e] transition text-white rounded px-4 py-2 font-semibold"
-                        >
-                            Subscribe
-                        </button>
-                        {submitted && (
-                            <span className="text-green-400 text-xs mt-1">Thank you for subscribing!</span>
-                        )}
-                    </form>
-                </div>
-                {/* Map */}
+                 {/* Map */}
                 {/* <div className="flex flex-col gap-4">
                     <div className="rounded-lg overflow-hidden h-32 w-full">
                         <iframe
@@ -126,15 +144,3 @@ export default function Footer() {
                         ></iframe>
                     </div>
                 </div> */}
-            </div>
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 pt-6">
-                <p className="text-[#A1A1AA] text-sm text-center md:text-left">
-                    &quot;Do something today that your future self will thank you for.&quot;
-                </p>
-                <p className="text-[#52525B] text-xs text-center md:text-right">
-                    &copy; {new Date().getFullYear()} SoftLes - Web Design Company. All Rights Reserved.
-                </p>
-            </div>
-        </footer>
-    );
-}
