@@ -1,12 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Separator from "@/public/Separator.png";
-import UserResearch from "@/public/UserResearch.png";
-import InterfaceDesign from "@/public/InterfaceDesign.png";
-import DesignSystem from "@/public/DesignSystem.png";
-import Prototyping from "@/public/Prototyping.png";
-import AuditingTesting from "@/public/AuditingTesting.png";
 import { useState } from "react";
 
 /* ---------- Tooltip for bullets ---------- */
@@ -30,7 +24,7 @@ function BulletTooltip({ children, tip }) {
 
 const services = [
   {
-    image: UserResearch,
+    image: "/UserResearch.png",
     title: "Research & Strategy",
     bullets: [
       { txt: "Stakeholder interviews",  tip: "In-depth discussions to align business goals with user needs." },
@@ -40,7 +34,7 @@ const services = [
     ],
   },
   {
-    image: DesignSystem,
+    image: "/DesignSystem.png",
     title: "Design & Prototyping",
     bullets: [
       { txt: "Wireframing & mockups", tip: "Low → high fidelity screens that map every interaction." },
@@ -50,7 +44,7 @@ const services = [
     ],
   },
   {
-    image: InterfaceDesign,
+    image: "/InterfaceDesign.png",
     title: "Development",
     bullets: [
       { txt: "Frontend & backend dev", tip: "Pixel-perfect React / Next.js paired with robust Node or Python APIs." },
@@ -61,7 +55,7 @@ const services = [
   },
   /*  QA card removed, AI card added */
   {
-    image: Prototyping,  // re-use icon
+    image: "/Prototyping.png",  // re-use icon
     title: "AI & Automation",
     bullets: [
       { txt: "LLM integration & fine-tuning", tip: "Custom models that speak your brand voice." },
@@ -77,7 +71,7 @@ export default function ServicesSection1() {
     <div className="min-h-[30rem] px-[10px] lg:px-[120px] w-full py-[90px] bg-[#191C26] flex flex-col justify-center place-content-between">
       <div className="flex flex-col">
         <p className="flex items-center text-base font-normal text-[#FFFFFF]">
-          <Image src={Separator} className="mr-[10px]" alt="separator" />
+          <Image src={"/Separator.png"} alt="separator"  width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden min-w-min h-[2px] mr-[10px]" />
           What We Do
         </p>
         <span className="mt-2 lg:mt-5 mb-2 lg:mb-0 font-bold text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">
@@ -88,7 +82,7 @@ export default function ServicesSection1() {
         </span>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
         {services.map((service, idx) => (
           <div
             key={idx}

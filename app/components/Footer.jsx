@@ -1,11 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Logo from "@/public/SoftLes.png";
-import Facebook from "@/public/FacebookIcon.png";
-import Twitter from "@/public/TwitterIcon.png";
-import LinkedIn from "@/public/LinkedInIcon.png";
-import Instagram from "@/public/InstagramIcon.png";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -22,24 +17,39 @@ export default function Footer() {
 
     return (
         <footer className="bg-[#18181B] text-white pt-12 pb-6 px-4 md:px-16">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-[#27272A] pb-10">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-[#27272A] pb-10">
                 {/* Logo & Address */}
                 <div className="flex flex-col gap-5">
                     <Link href="/">
-                        <Image src={Logo} alt="Softles Logo" className="w-36 h-auto mb-2" />
+                        <Image src={"/SoftLes.png"} alt="Logo" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden min-w-min h-[54px]"/>
                     </Link>
-                    <p className="text-sm text-[#D4D4D8]">
+                    {/* <p className="text-sm text-[#D4D4D8]">
                         57 Brand House, Coombe Way <br /> Farnborough, Hampshire
-                    </p>
-                    <div>
+                    </p> */}
+                    <div className="flex flex-col gap-y-5">
                         <h3 className="font-semibold text-base mb-1">Contact</h3>
-                        <a href="mailto:info@softles.com" className="text-lg font-medium underline hover:text-[#DC4242] transition">
-                            info@softles.com
-                        </a>
+                        <div className="flex flex-col">
+                            <h6 className="text-sm text-[#D4D4D8]">Email:</h6>
+                            <a href="mailto:info@softles.com?cc=hr@softles.in" className="text-md font-medium underline hover:text-[#DC4242] transition">
+                                info@softles.in
+                            </a>
+                            <a href="mailto:hr@softles.in?cc=info@softles.in" className="text-md font-medium underline hover:text-[#DC4242] transition">
+                                hr@softles.in
+                            </a>
+                        </div>
+                        <div className="flex flex-col">
+                            <h6 className="text-sm text-[#D4D4D8]">Phone:</h6>
+                            <a href="tel:+918954000202" className="text-md font-medium underline hover:text-[#DC4242] transition">
+                                +918954000202
+                            </a>
+                            <a href="tel:+919990548795" className="text-md font-medium underline hover:text-[#DC4242] transition">
+                                +919990548795
+                            </a>
+                        </div>
                     </div>
                 </div>
                 {/* Navigation */}
-                <div>
+                {/* <div>
                     <h3 className="font-semibold text-base mb-3">Quick Links</h3>
                     <ul className="space-y-2 text-[#D4D4D8]">
                         <li>
@@ -55,7 +65,7 @@ export default function Footer() {
                             <Link href="/#brochure" className="hover:text-[#DC4242] transition focus-visible:ring-2 focus-visible:ring-[#DC4242] rounded">Our Brochure</Link>
                         </li>
                     </ul>
-                </div>
+                </div> */}
                 {/* Newsletter */}
                 <div>
                     <h3 className="font-semibold text-base mb-3">Newsletter</h3>
@@ -97,16 +107,16 @@ export default function Footer() {
                     </div>
                     <div className="flex gap-4 mt-2">
                         <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <Image src={Facebook} alt="Facebook Icon" className="w-7 h-7 hover:scale-110 transition" />
+                            <Image src={"/FacebookIcon.png"} alt="Facebook" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
                         </Link>
                         <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                            <Image src={Twitter} alt="Twitter Icon" className="w-7 h-7 hover:scale-110 transition" />
+                        <Image src={"/TwitterIcon.png"} alt="Twitter" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
                         </Link>
                         <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <Image src={LinkedIn} alt="LinkedIn Icon" className="w-7 h-7 hover:scale-110 transition" />
+                        <Image src={"/LinkedInIcon.png"} alt="LinkedIn" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
                         </Link>
                         <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <Image src={Instagram} alt="Instagram Icon" className="w-7 h-7 hover:scale-110 transition" />
+                        <Image src={"/InstagramIcon.png"} alt="Instagram" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden w-7 h-7 hover:scale-110 transition"/>
                         </Link>
                     </div>
                 </div>

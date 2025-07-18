@@ -18,7 +18,7 @@ export default function ServicesSection3() {
                     Our process ensures we deliver the right solutions, every time. Here&apos;s how we work with you.
                 </span>
             </div>
-            <div className="w-full flex flex-col lg:flex-row justify-between items-stretch gap-y-5 lg:gap-y-0 mt-9 px-[10px] lg:px-0">
+            <div className="w-full flex flex-col xl:flex-row justify-between items-center gap-y-5 lg:gap-y-0 mt-9 px-[10px] lg:px-0">
                 <ServiceCard2 link="#" bg="lg:bg-[#191C26] hover:ring-2 hover:ring-[#DC4242]/40 hover:scale-105 transition-all duration-200" zIndex="40" source={Empathize} name="Empathize" alt="Empathize process step icon" description="Understand user needs, motivations, and pain points through research and observation."/>
                 <ServiceCard2 link="#" bg="lg:bg-[#111319] hover:ring-2 hover:ring-[#DC4242]/40 hover:scale-105 transition-all duration-200" zIndex="30" source={Define} name="Define" alt="Define process step icon" description="Clearly articulate the core problems identified during the empathize phase."/>
                 <ServiceCard2 link="#" bg="lg:bg-[#191C26] hover:ring-2 hover:ring-[#DC4242]/40 hover:scale-105 transition-all duration-200" zIndex="20" source={Ideate} name="Ideate" alt="Ideate process step icon" description="Brainstorm a wide range of creative solutions and innovative approaches."/>

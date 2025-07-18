@@ -84,7 +84,7 @@ export default function ServicesSection5() {
                             >
                                 Book via Google Meet
                             </a>
-                            <span className="text-xs text-[#bdbdbd] mt-2">Email: info@softles.in</span>
+                            <span className="text-xs text-[#bdbdbd] mt-2">Email: <a href="mailto:info@softles.in?cc=hr@softles.in" className="underline hover:text-[#DC4242] transition">info@softles.in</a>, <a href="mailto:hr@softles.com?cc=info@softles.in" className="underline hover:text-[#DC4242] transition">hr@softles.in</a></span>
                         </div>
                     </div>
                 </div>

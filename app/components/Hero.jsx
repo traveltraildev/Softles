@@ -1,15 +1,9 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import HeroImg from "@/public/Container.png"; // Update the image path as necessary
-import Separator from "@/public/Separator.png";
-import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-// Example client logos (replace with real ones)
-import Logo1 from "@/public/Agritech.png";
-import Logo2 from "@/public/Education.png";
-import Logo3 from "@/public/Travel.png";
-import Logo4 from "@/public/Ameet.png";
+import { Divy } from '@/public/Divy.jpg';
+
+const clientLogos = ["/logo_1.png", "/logo_2.png", "/logo_3.png", "/logo_4.png", "/logo_5.png", "/logo_6.png", "/logo_7.png", "/logo_8.png"];
 
 export default function Hero() {
     const blobRef = useRef(null);
@@ -36,9 +30,18 @@ export default function Hero() {
         return () => window.removeEventListener("mousemove", handleMouseMove);
     }, []);
 
+    // Smooth scroll handler for navbar links
+    const handleClick = (e, sectionId) => {
+        e.preventDefault();
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <section
-            className="relative min-h-[70vh] lg:min-h-[92vh] w-full flex items-center justify-center px-[10px] md:px-8 lg:px-[120px] py-16 lg:py-0 overflow-hidden bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#111319]"
+            className="relative min-h-[70vh] lg:min-h-[92vh] w-full flex items-center justify-center py-16 lg:py-0 overflow-hidden bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#111319]"
         >
             {/* Animated awe-struck blob */}
             <div
@@ -58,57 +61,79 @@ export default function Hero() {
                 }}
                 aria-hidden="true"
             />
-            <div className="relative flex flex-col-reverse lg:flex-row items-center justify-center w-full max-w-7xl mx-auto gap-12 lg:gap-20 z-10">
-                {/* Left Content */}
-                <div className="flex-1 flex flex-col items-center lg:items-start justify-center max-w-2xl text-center lg:text-left">
-                    {/* Creative Ideas Label (updated copy) */}
-                    <div className="flex items-center mb-6">
-                        <span className="block w-12 h-0.5 bg-[#F5F6FA] mr-4" />
-                        <span className="text-base text-[#BCC1CA] font-normal">We&apos;re a small agency which</span>
-                    </div>
-                    {/* Main Heading */}
-                    <h1 className="font-extrabold mb-2 leading-tight tracking-tight relative text-[clamp(2.2rem,6vw,4.5rem)] text-[#F5F6FA]">
-                        Craft Design <br className="hidden sm:block" />
-                        Solutions
-                        <span className="text-[#DC4242] align-super text-5xl ml-1">.</span>
-                    </h1>
-                    {/* Supporting Line */}
-                    <p className="text-[#BCC1CA] mt-4 mb-10 max-w-xl block text-base lg:text-lg leading-relaxed" style={{maxWidth: '40ch', lineHeight: 1.5}}>
-                        We create new design for your online business with the support of our wonderful team of professionals.
-                    </p>
-                    {/* CTAs on one line */}
-                    <div className="flex justify-center lg:justify-start w-full mt-2">
-                        <div className="relative">
-                            <button
-                                className="flex items-center bg-[#FF6F61] hover:bg-[#e65c4f] text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 text-lg whitespace-nowrap group relative"
-                                onMouseEnter={() => setShowTooltip(true)}
-                                onMouseLeave={() => setShowTooltip(false)}
-                            >
-                                <span>Book a Free Discovery Call</span>
-                                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" className="text-white"><path d="M5 12h14M15 8l4 4-4 4"/></svg>
-                                </span>
-                            </button>
-                            {showTooltip && (
-                                <span className="absolute left-1/2 -bottom-10 -translate-x-1/2 bg-[#23263a] text-white text-xs px-3 py-2 rounded shadow-lg z-20 whitespace-nowrap animate-fade-in">
-                                    30-minute free strategy session
-                                </span>
-                            )}
+            <div className="flex flex-col items-center justify-center w-full">
+                <div className="relative flex flex-col-reverse lg:flex-row items-center justify-center w-full max-w-4xl lg:max-w-6xl mx-auto gap-12 lg:gap-20 z-10 px-[10px] md:px-8 lg:px-[120px] xl:px-0">
+                    {/* Left Content */}
+                    <div className="flex-1 flex flex-col items-center lg:items-start justify-center max-w-2xl text-center lg:text-left">
+                        {/* Creative Ideas Label (updated copy) */}
+                        <div className="flex items-center mb-6">
+                            <span className="block w-12 h-0.5 bg-[#F5F6FA] mr-4" />
+                            <span className="text-base text-[#BCC1CA] font-normal">We&apos;re a small agency which</span>
+                        </div>
+                        {/* Main Heading */}
+                        <h1 className="font-extrabold mb-2 leading-tight tracking-tight relative text-[clamp(2.2rem,6vw,4.5rem)] text-[#F5F6FA]">
+                            Craft Design <br className="hidden sm:block" />
+                            Solutions
+                            <span className="text-[#DC4242] align-super text-5xl ml-1">.</span>
+                        </h1>
+                        {/* Supporting Line */}
+                        <p className="text-[#BCC1CA] mt-4 mb-10 max-w-xl block text-base lg:text-lg leading-relaxed" style={{maxWidth: '40ch', lineHeight: 1.5}}>
+                            We create new design for your online business with the support of our wonderful team of professionals.
+                        </p>
+                        {/* CTAs on one line */}
+                        <div className="flex justify-center lg:justify-start w-full mt-2">
+                            <div onClick={e => handleClick(e, "book-call")} className="relative">
+                                <button
+                                    className="flex items-center bg-[#FF6F61] hover:bg-[#e65c4f] text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 text-lg whitespace-nowrap group relative"
+                                    onMouseEnter={() => setShowTooltip(true)}
+                                    onMouseLeave={() => setShowTooltip(false)}
+                                >
+                                    <span>Book a Free Discovery Call</span>
+                                    <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
+                                        <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" className="text-white"><path d="M5 12h14M15 8l4 4-4 4"/></svg>
+                                    </span>
+                                </button>
+                                {showTooltip && (
+                                    <span className="absolute left-1/2 -bottom-10 -translate-x-1/2 bg-[#23263a] text-white text-xs px-3 py-2 rounded shadow-lg z-20 whitespace-nowrap animate-fade-in">
+                                        30-minute free strategy session
+                                    </span>
+                                )}
+                            </div>
                         </div>
                     </div>
+                    {/* Right Illustration with diagonal divider */}
+                    <div className="flex-1 flex items-center justify-center w-full max-w-md lg:max-w-lg xl:max-w-xl mt-8 lg:mt-0 relative">
+                        {/* Diagonal divider */}
+                        <svg className="hidden lg:block absolute -left-24 top-0 h-full w-48 z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <polygon points="100,0 100,100 0,100" fill="#23263a" opacity="0.7" />
+                        </svg>
+                        <Image
+                            src={"/Container.png"}
+                            alt="Creative design and development illustration"
+                            width={0}
+                            height={0}
+                            sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw"
+                            className="w-72 h-[281px] md:w-[414px] md:h-[353px] drop-shadow-2xl animate-float relative z-20"
+                            priority
+                        />
+                    </div>
                 </div>
-                {/* Right Illustration with diagonal divider */}
-                <div className="flex-1 flex items-center justify-center w-full max-w-md lg:max-w-lg xl:max-w-xl mt-8 lg:mt-0 relative">
-                    {/* Diagonal divider */}
-                    <svg className="hidden lg:block absolute -left-24 top-0 h-full w-48 z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <polygon points="100,0 100,100 0,100" fill="#23263a" opacity="0.7" />
-                    </svg>
-                    <Image
-                        src={HeroImg}
-                        alt="Creative design and development illustration"
-                        className="w-full h-auto drop-shadow-2xl animate-float relative z-20"
-                        priority
-                    />
+                {/* Client Logo Rail - responsive */}
+                <div className="w-full mt-10 md:mt-20 z-20">
+                    <div className="block md:hidden overflow-x-auto scrollbar-hide -mx-4 px-4">
+                        <div className="flex gap-10 min-w-max">
+                        {clientLogos.map((logo, idx) => (
+                            <Image key={idx} src={logo} alt={`Client Logo ${idx + 1}`} width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="h-10 w-auto inline-block" />
+                        ))}
+                        </div>
+                    </div>
+                    <div className="hidden md:block overflow-hidden w-screen fixed left-0 right-0" style={{position: 'relative'}}>
+                        <div className="flex gap-20 animate-logo-rail whitespace-nowrap" style={{ animation: 'logo-rail 18s linear infinite' }}>
+                        {clientLogos.concat(clientLogos).map((logo, idx) => (
+                            <Image key={idx} src={logo} alt={`Client Logo ${idx + 1}`} width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="h-12 w-auto inline-block" />
+                        ))}
+                        </div>
+                    </div>
                 </div>
             </div>
             {/* Decorative Background Elements */}
@@ -154,6 +179,20 @@ export default function Hero() {
                 }
                 .animate-float {
                     animation: float 4s ease-in-out infinite;
+                }
+                @keyframes logo-rail {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                .animate-logo-rail {
+                    will-change: transform;
+                }
+                .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                }
+                .scrollbar-hide {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
                 }
             `}</style>
         </section>

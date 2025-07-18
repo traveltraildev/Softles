@@ -3,54 +3,45 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import Separator from "@/public/Separator.png";
-import Travel from "@/public/Travel.png";
-import Agritech from "@/public/Agritech.png";
-import Education from "@/public/Education.png";
-import CaseStudy1 from "@/public/case_study_1.png";
-import CaseStudy2 from "@/public/case_study_2.png";
-import CaseStudy3 from "@/public/case_study_3.png";
-import CaseStudy4 from "@/public/case_study_4.png";
-import CaseStudy5 from "@/public/case_study_5.png";
+import caseStudy1 from "@/public/case_study_1.png";
+import caseStudy2 from "@/public/case_study_2.png";
+import caseStudy3 from "@/public/case_study_3.png";
+import caseStudy4 from "@/public/case_study_4.png";
+import caseStudy5 from "@/public/case_study_5.png";
 
 const industries = [
   {
     key: "Travel",
     label: "Travel",
-    icon: Travel,
-    image: CaseStudy1,
+    image: caseStudy1,
     description: "Empowering travel businesses with seamless booking, itinerary management, and customer engagement solutions.",
     color: "#FF6B6B"
   },
   {
     key: "Agritech",
     label: "Agritech",
-    icon: Agritech,
-    image: CaseStudy2,
+    image: caseStudy2,
     description: "Innovative digital solutions for agriculture to optimize operations and maximize impact.",
     color: "#4CAF50"
   },
   {
     key: "Oil & Gas",
     label: "Oil & Gas",
-    icon: Agritech,
-    image: CaseStudy3,
+    image: caseStudy3,
     description: "Digital transformation for oil & gas sector, improving efficiency and safety.",
     color: "#FF9800"
   },
   {
     key: "NGO",
     label: "NGO",
-    icon: Agritech,
-    image: CaseStudy4,
+    image: caseStudy4,
     description: "Empowering NGOs with technology for greater social impact.",
     color: "#9C27B0"
   },
   {
     key: "Education",
     label: "Education",
-    icon: Education,
-    image: CaseStudy5,
+    image: caseStudy5,
     description: "Transforming education with e-learning platforms, student management, and interactive content delivery.",
     color: "#2196F3"
   }
@@ -160,7 +151,7 @@ export default function ServicesSection2() {
             variants={itemVariants}
           >
             <Image 
-              src={Separator} 
+              src={"/Separator.png"} 
               className="mr-3" 
               alt="separator" 
               width={24}
@@ -243,7 +234,6 @@ export default function ServicesSection2() {
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
-                        placeholder="blur"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#23263a] to-transparent opacity-90"></div>
                       
