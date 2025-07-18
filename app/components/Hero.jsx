@@ -84,7 +84,7 @@ export default function Hero() {
                         <div className="flex justify-center lg:justify-start w-full mt-2">
                             <div onClick={e => handleClick(e, "book-call")} className="relative">
                                 <button
-                                    className="flex items-center bg-[#FF6F61] hover:bg-[#e65c4f] text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 text-lg whitespace-nowrap group relative"
+                                    className="flex items-center text-lg whitespace-nowrap group relative shadow-[inset_0_0_0_2px_#616467] text-black px-8 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-300"
                                     onMouseEnter={() => setShowTooltip(true)}
                                     onMouseLeave={() => setShowTooltip(false)}
                                 >
@@ -120,18 +120,22 @@ export default function Hero() {
                 </div>
                 {/* Client Logo Rail - responsive */}
                 <div className="w-full mt-10 md:mt-20 z-20">
-                    <div className="block md:hidden overflow-x-auto scrollbar-hide -mx-4 px-4">
-                        <div className="flex gap-10 min-w-max">
-                        {clientLogos.map((logo, idx) => (
-                            <Image key={idx} src={logo} alt={`Client Logo ${idx + 1}`} width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="h-10 w-auto inline-block" />
-                        ))}
-                        </div>
-                    </div>
-                    <div className="hidden md:block overflow-hidden w-screen fixed left-0 right-0" style={{position: 'relative'}}>
-                        <div className="flex gap-20 animate-logo-rail whitespace-nowrap" style={{ animation: 'logo-rail 18s linear infinite' }}>
-                        {clientLogos.concat(clientLogos).map((logo, idx) => (
-                            <Image key={idx} src={logo} alt={`Client Logo ${idx + 1}`} width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="h-12 w-auto inline-block" />
-                        ))}
+                    <div className="overflow-hidden w-full relative">
+                        <div
+                            className="flex animate-logo-rail whitespace-nowrap w-max gap-20"
+                            style={{ animation: 'logo-rail 18s linear infinite' }}
+                        >
+                            {clientLogos.concat(clientLogos).map((logo, idx) => (
+                                <Image
+                                    key={idx}
+                                    src={logo}
+                                    alt={`Client Logo ${idx + 1}`}
+                                    width={120}
+                                    height={48}
+                                    className="h-12 w-auto"
+                                    style={{ display: "inline-block" }}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -182,9 +186,10 @@ export default function Hero() {
                 }
                 @keyframes logo-rail {
                     0% { transform: translateX(0); }
-                    100% { transform: translateX(-50%); }
+                    100% { transform: translateX(-51%); }
                 }
                 .animate-logo-rail {
+                    animation: logo-rail 18s linear infinite;
                     will-change: transform;
                 }
                 .scrollbar-hide::-webkit-scrollbar {
