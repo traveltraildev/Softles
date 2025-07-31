@@ -13,11 +13,6 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata = {
-  title: "Softles - Web Design, Development & Automation Agency",
-  description: "SoftLes is a design‑driven digital agency that blends creativity and technology to craft impactful digital products. Our services include research & strategy, UI/UX design and prototyping, full‑stack development, and AI‑powered automation. Book a free discovery session and build something remarkable with us.",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -63,6 +58,12 @@ export default function RootLayout({ children }) {
         />
 
         <link rel="canonical" href="https://softles.in/" />
+
+         {/* Favicon links */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
