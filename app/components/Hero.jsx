@@ -72,7 +72,7 @@ export default function Hero() {
                         </div>
                         {/* Main Heading */}
                         <h1 className="font-extrabold mb-2 leading-tight tracking-tight relative text-[clamp(2.2rem,6vw,4.5rem)] text-[#F5F6FA]">
-                            Craft Design <br className="hidden sm:block" />
+                            Bespoke Business <br className="hidden sm:block" />
                             Solutions
                             <span className="text-[#DC4242] align-super text-5xl ml-1">.</span>
                         </h1>
