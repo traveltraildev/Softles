@@ -41,7 +41,7 @@ export default function Hero() {
 
     return (
         <section
-            className="relative min-h-[70vh] lg:min-h-[92vh] w-full flex items-center justify-center py-16 lg:py-0 overflow-hidden bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#111319]"
+            className="relative min-h-[70vh] lg:min-h-[92vh] w-full flex items-center justify-center py-16 mt-[60px] lg:py-0 overflow-hidden bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#111319]"
         >
             {/* Animated awe-struck blob */}
             <div
@@ -72,7 +72,7 @@ export default function Hero() {
                         </div>
                         {/* Main Heading */}
                         <h1 className="font-extrabold mb-2 leading-tight tracking-tight relative text-[clamp(2.2rem,6vw,4.5rem)] text-[#F5F6FA]">
-                            Craft Design <br className="hidden sm:block" />
+                            Bespoke Business <br className="hidden sm:block" />
                             Solutions
                             <span className="text-[#DC4242] align-super text-5xl ml-1">.</span>
                         </h1>

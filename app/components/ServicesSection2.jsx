@@ -52,11 +52,11 @@ export default function ServicesSection2() {
   const [visibleCount, setVisibleCount] = useState(2);
   const [touchStartX, setTouchStartX] = useState(0);
   const containerRef = useRef(null);
-  
+
   // Calculate max index based on visibleCount
   const maxIndex = Math.max(0, industries.length - visibleCount);
 
-  // Responsive card count 
+  // Responsive card count
   useEffect(() => {
     const updateVisibleCount = () => {
       if (window.innerWidth < 768) {
@@ -65,7 +65,7 @@ export default function ServicesSection2() {
         setVisibleCount(2); // 2 cards on desktop
       }
     };
-    
+
     updateVisibleCount();
     window.addEventListener('resize', updateVisibleCount);
     return () => window.removeEventListener('resize', updateVisibleCount);
@@ -76,7 +76,7 @@ export default function ServicesSection2() {
     const interval = setInterval(() => {
       setCurrentIndex(prev => (prev + 1 > maxIndex ? 0 : prev + 1));
     }, 5000);
-    
+
     return () => clearInterval(interval);
   }, [maxIndex]);
 
@@ -96,7 +96,7 @@ export default function ServicesSection2() {
   const handleTouchEnd = (e) => {
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX - touchEndX;
-    
+
     if (diff > 50) handleNext();
     else if (diff < -50) handlePrev();
   };
@@ -124,8 +124,8 @@ export default function ServicesSection2() {
 
   const cardVariants = {
     initial: { opacity: 0, x: 50 },
-    animate: { 
-      opacity: 1, 
+    animate: {
+      opacity: 1,
       x: 0,
       transition: { duration: 0.5 }
     },
@@ -133,7 +133,7 @@ export default function ServicesSection2() {
   };
 
   return (
-    <motion.section 
+    <motion.section
       ref={containerRef}
       className="min-h-[30rem] px-4 md:px-8 lg:px-16 w-full py-16 bg-[#111319] bg-grid-white text-white flex flex-col justify-center"
       initial="hidden"
@@ -142,18 +142,18 @@ export default function ServicesSection2() {
       variants={containerVariants}
     >
       <div className="max-w-7xl mx-auto w-full">
-        <motion.div 
+        <motion.div
           className="flex flex-col mb-8 md:mb-12"
           variants={itemVariants}
         >
-          <motion.p 
+          <motion.p
             className="flex items-center text-base font-medium tracking-wide"
             variants={itemVariants}
           >
-            <Image 
-              src={"/Separator.png"} 
-              className="mr-3" 
-              alt="separator" 
+            <Image
+              src={"/Separator.png"}
+              className="mr-3"
+              alt="separator"
               width={24}
               height={4}
             />
@@ -161,23 +161,23 @@ export default function ServicesSection2() {
               Industries We Serve
             </span>
           </motion.p>
-          
-          <motion.h2 
+
+          <motion.h2
             className="mt-2 lg:mt-5 mb-2 lg:mb-0 font-bold text-3xl md:text-4xl lg:text-5xl leading-tight"
             variants={itemVariants}
           >
             We are more than our words
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="text-base text-[#BCC1CA] mt-2 max-w-2xl"
             variants={itemVariants}
           >
             We empower businesses across diverse industries with tailored digital solutions. Explore our expertise below.
           </motion.p>
         </motion.div>
-        
-        <div 
+
+        <div
           className="relative w-full max-w-7xl mx-auto"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
@@ -193,7 +193,7 @@ export default function ServicesSection2() {
               <path d="M17 22l-8-8 8-8"/>
             </svg>
           </button>
-          
+
           <button
             aria-label="Next"
             onClick={handleNext}
@@ -204,11 +204,11 @@ export default function ServicesSection2() {
               <path d="M11 6l8 8-8 8"/>
             </svg>
           </button>
-          
+
           {/* Industry Cards */}
           <div className="overflow-hidden relative w-full">
             <AnimatePresence initial={false} mode="wait">
-              <motion.div 
+              <motion.div
                 className="flex w-full gap-6 md:gap-8 justify-center"
                 key={currentIndex}
                 initial={{ opacity: 0 }}
@@ -217,7 +217,7 @@ export default function ServicesSection2() {
                 transition={{ duration: 0.5 }}
               >
                 {industries.slice(currentIndex, currentIndex + visibleCount).map((industry, idx) => (
-                  <motion.div 
+                  <motion.div
                     key={`${industry.key}-${idx}`}
                     className="group bg-gradient-to-br from-[#23263a] to-[#181B23] rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl border border-white/10 w-full max-w-xl flex flex-col"
                     variants={cardVariants}
@@ -236,23 +236,23 @@ export default function ServicesSection2() {
                         className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#23263a] to-transparent opacity-90"></div>
-                      
+
                       {/* Icon badge */}
                       <div className="absolute top-4 right-4 z-20">
-                        <div 
+                        <div
                           className="w-14 h-14 rounded-xl flex items-center justify-center backdrop-blur-sm bg-black/30 border border-white/20"
                           style={{ backgroundColor: `${industry.color}20` }}
                         >
-                          <Image 
-                            src={industry.icon} 
-                            alt={industry.label} 
+                          <Image
+                            src={industry.icon}
+                            alt={industry.label}
                             width={32}
                             height={32}
                             className="filter brightness-125"
                           />
                         </div>
                       </div>
-                      
+
                       {/* Floating title */}
                       <div className="absolute bottom-4 left-4 z-20">
                         <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-[#DC4242] transition-colors duration-200">
@@ -260,7 +260,7 @@ export default function ServicesSection2() {
                         </h3>
                       </div>
                     </div>
-                    
+
                     {/* Content */}
                     <div className="p-6 md:p-7 flex flex-col flex-grow">
                       <div className="flex-grow mb-4">
@@ -268,17 +268,17 @@ export default function ServicesSection2() {
                           {industry.description}
                         </p>
                       </div>
-                      
+
                       <div className="mt-auto">
                         <button className="text-[#DC4242] font-medium flex items-center group-hover:text-white transition-colors">
                           Learn more
-                          <svg 
-                            className="ml-2 transition-transform group-hover:translate-x-1" 
-                            width="16" 
-                            height="16" 
-                            viewBox="0 0 24 24" 
-                            fill="none" 
-                            stroke="currentColor" 
+                          <svg
+                            className="ml-2 transition-transform group-hover:translate-x-1"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
                             strokeWidth="2"
                           >
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -297,7 +297,7 @@ export default function ServicesSection2() {
               </motion.div>
             </AnimatePresence>
           </div>
-          
+
           {/* Single set of mobile navigation arrows */}
           <div className="flex justify-center mt-8 space-x-4 md:hidden">
             <button
@@ -319,7 +319,7 @@ export default function ServicesSection2() {
               </svg>
             </button>
           </div>
-          
+
           {/* Dots Indicator */}
           <div className="flex justify-center mt-8 md:mt-10 space-x-2">
             {Array.from({ length: industries.length }).map((_, idx) => (
@@ -327,8 +327,8 @@ export default function ServicesSection2() {
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
                 className={`w-3 h-3 rounded-full transition-all ${
-                  idx === currentIndex 
-                    ? 'bg-[#DC4242] w-8' 
+                  idx === currentIndex
+                    ? 'bg-[#DC4242] w-8'
                     : 'bg-white/30 hover:bg-white/60'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}

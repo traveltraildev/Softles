@@ -5,10 +5,53 @@ import Ideate from "@/public/Ideate.png";
 import Prototype from "@/public/Prototype.png";
 import Test from "@/public/Test.png";
 import Separator from "@/public/Separator.png";
-import ServiceCard2 from "./_components/ServiceCard2";
-
+import ServiceCard from "./_components/ServiceCard";
 
 export default function ServicesSection3() {
+
+    const processSteps = [
+        {
+            link: "#",
+            image: Empathize,
+            name: "Empathize",
+            zIndex: 40,
+            alt: "Empathize process step icon",
+            description: "Understand user needs, motivations, and pain points through research and observation."
+        },
+        {
+            link: "#",
+            image: Define,
+            name: "Define",
+            zIndex: 30,
+            alt: "Define process step icon",
+            description: "Clearly articulate the core problems identified during the empathize phase."
+        },
+        {
+            link: "#",
+            image: Ideate,
+            name: "Ideate",
+            zIndex: 20,
+            alt: "Ideate process step icon",
+            description: "Brainstorm a wide range of creative solutions and innovative approaches."
+        },
+        {
+            link: "#",
+            image: Prototype,
+            name: "Prototype",
+            zIndex: 10,
+            alt: "Prototype process step icon",
+            description: "Build tangible representations of solutions to test and gather feedback."
+        },
+        {
+            link: "#",
+            image: Test,
+            name: "Test",
+            zIndex: 0,
+            alt: "Test process step icon",
+            description: "Validate solutions with users, gather insights, and iterate on designs."
+        }
+    ]
+
     return (
         <div className="min-h-[30rem] px-[10px] lg:px-[120px] w-full py-[90px] bg-[#191C26] flex flex-col justify-center place-content-between">
             <div className="flex flex-col">
@@ -19,11 +62,11 @@ export default function ServicesSection3() {
                 </span>
             </div>
             <div className="w-full flex flex-wrap xl:flex-row justify-around xl:justify-between items-center gap-5 lg:gap-0 mt-9 px-[10px] lg:px-0">
-                <ServiceCard2 link="#" bg="lg:bg-[#191C26] hover:ring-2 hover:ring-[#DC4242]/40 hover:scale-105 transition-all duration-200" zIndex="40" source={Empathize} name="Empathize" alt="Empathize process step icon" description="Understand user needs, motivations, and pain points through research and observation."/>
-                <ServiceCard2 link="#" bg="lg:bg-[#111319] hover:ring-2 hover:ring-[#DC4242]/40 hover:scale-105 transition-all duration-200" zIndex="30" source={Define} name="Define" alt="Define process step icon" description="Clearly articulate the core problems identified during the empathize phase."/>
-                <ServiceCard2 link="#" bg="lg:bg-[#191C26] hover:ring-2 hover:ring-[#DC4242]/40 hover:scale-105 transition-all duration-200" zIndex="20" source={Ideate} name="Ideate" alt="Ideate process step icon" description="Brainstorm a wide range of creative solutions and innovative approaches."/>
-                <ServiceCard2 link="#" bg="lg:bg-[#111319] hover:ring-2 hover:ring-[#DC4242]/40 hover:scale-105 transition-all duration-200" zIndex="10" source={Prototype} name="Prototype" alt="Prototype process step icon" description="Build tangible representations of solutions to test and gather feedback."/>
-                <ServiceCard2 link="#" bg="lg:bg-[#191C26] hover:ring-2 hover:ring-[#DC4242]/40 hover:scale-105 transition-all duration-200" zIndex="0" source={Test} name="Test" alt="Test process step icon" description="Validate solutions with users, gather insights, and iterate on designs."/>
+               {
+                 processSteps.map((step, index) => (
+                    <ServiceCard key={index} link={step.link} bg={index % 2 === 0 ? "lg:bg-[#191C26]" : "lg:bg-[#111319]"} hover="hover:ring-2 hover:ring-[#DC4242]/40 hover:scale-105 transition-all duration-200" zIndex={step.zIndex} source={step.image} name={step.name} alt={step.alt} description={step.description}/>
+                 ))
+               }
             </div>
         </div>
     )
