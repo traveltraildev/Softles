@@ -8,7 +8,7 @@ import ServicesSection5 from "./components/ServicesSection5";
 
 export default function Home() {
   return (
-    <div>
+    <div className="pt-[60px]">
       <Hero/>
       <section id="about">
         <ServicesSection1/>
