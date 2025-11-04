@@ -9,9 +9,7 @@ import ServicesSection5 from "./components/ServicesSection5";
 export default function Home() {
   return (
     <div>
-      <section>
-        <Hero/>
-      </section>
+      <Hero/>
       <section id="about">
         <ServicesSection1/>
       </section>
