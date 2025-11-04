@@ -61,7 +61,7 @@ export default function Hero() {
                 }}
                 aria-hidden="true"
             />
-            <div className="flex flex-col items-center justify-center w-full">
+            <div className="flex flex-col items-center justify-center w-full mt-[60px]">
                 <div className="relative flex flex-col-reverse lg:flex-row items-center justify-center w-full max-w-4xl lg:max-w-6xl mx-auto gap-12 lg:gap-20 z-10 px-[10px] md:px-8 lg:px-[120px] xl:px-0">
                     {/* Left Content */}
                     <div className="flex-1 flex flex-col items-center lg:items-start justify-center max-w-2xl text-center lg:text-left">
