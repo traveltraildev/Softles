@@ -41,7 +41,7 @@ export default function Hero() {
 
     return (
         <section
-            className="relative min-h-[70vh] lg:min-h-[92vh] w-full flex items-center justify-center py-16 mt-[60px] lg:py-0 overflow-hidden bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#111319]"
+            className="relative min-h-[70vh] lg:min-h-[92vh] w-full flex items-center justify-center py-16 lg:py-0 overflow-hidden bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#111319]"
         >
             {/* Animated awe-struck blob */}
             <div
