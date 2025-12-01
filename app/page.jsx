@@ -10,19 +10,11 @@ export default function Home() {
   return (
     <div className="pt-[60px]">
       <Hero/>
-      <section id="about">
-        <ServicesSection1/>
-      </section>
-      <section id="services">
-        {/* <ServicesSection2/> */}
-        <ServicesSection3/>
-      </section>
-      {/* <section id="work">
-        <ServicesSection4/>
-      </section> */}
-      <section id="book-call">
-        <ServicesSection5/>
-      </section>
+      <ServicesSection1/>
+      {/* <ServicesSection2/> */}
+      <ServicesSection3/>
+      {/* <ServicesSection4/> */}
+      <ServicesSection5/>
       <Footer/>
     </div>
   );

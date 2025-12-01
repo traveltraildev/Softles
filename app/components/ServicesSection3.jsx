@@ -53,7 +53,7 @@ export default function ServicesSection3() {
     ]
 
     return (
-        <div className="min-h-[30rem] px-[10px] lg:px-[120px] w-full py-[90px] bg-[#191C26] flex flex-col justify-center place-content-between">
+        <section id="services" className="min-h-[30rem] px-[10px] lg:px-[120px] w-full py-[90px] bg-[#191C26] flex flex-col justify-center place-content-between">
             <div className="flex flex-col">
                 <p className="flex items-center text-base font-normal text-[#FFFFFF]"><Image src={Separator} className="mr-[10px]" alt="separator"/> Our Approach</p>
                 <span className="mt-2 lg:mt-5 mb-2 lg:mb-0 font-bold text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">Right thing matters to us</span>
@@ -68,6 +68,6 @@ export default function ServicesSection3() {
                  ))
                }
             </div>
-        </div>
+        </section>
     )
 }

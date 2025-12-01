@@ -144,7 +144,7 @@ function MobileStackCarousel({ services }) {
 
 export default function ServicesSection1() {
   return (
-    <div className="min-h-[30rem] px-[10px] lg:px-[120px] w-full py-[90px] bg-[#191C26] flex flex-col justify-center place-content-between">
+    <section id="about" className="min-h-[30rem] px-[10px] lg:px-[120px] w-full py-[90px] bg-[#191C26] flex flex-col justify-center place-content-between">
       <div className="flex flex-col">
         <p className="flex items-center text-base font-normal text-[#FFFFFF]">
           <Image src={"/Separator.png"} alt="separator"  width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden min-w-min h-[2px] mr-[10px]" />
@@ -205,6 +205,6 @@ export default function ServicesSection1() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
