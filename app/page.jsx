@@ -8,23 +8,13 @@ import ServicesSection5 from "./components/ServicesSection5";
 
 export default function Home() {
   return (
-    <div>
-      <section>
-        <Hero/>
-      </section>
-      <section id="about">
-        <ServicesSection1/>
-      </section>
-      <section id="services">
-        {/* <ServicesSection2/> */}
-        <ServicesSection3/>
-      </section>
-      {/* <section id="work">
-        <ServicesSection4/>
-      </section> */}
-      <section id="book-call">
-        <ServicesSection5/>
-      </section>
+    <div className="pt-[60px]">
+      <Hero/>
+      <ServicesSection1/>
+      {/* <ServicesSection2/> */}
+      <ServicesSection3/>
+      {/* <ServicesSection4/> */}
+      <ServicesSection5/>
       <Footer/>
     </div>
   );
