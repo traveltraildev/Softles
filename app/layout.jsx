@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-QHRCQ7XY6Y"
+          src="https://www.googletagmanager.com/gtag/js?id=G-X446Z72C6Z"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -78,7 +78,7 @@ export default function RootLayout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-QHRCQ7XY6Y');
+            gtag('config', 'G-X446Z72C6Z');
           `}
         </Script>
         <Navbar/>
