@@ -125,16 +125,38 @@ function MobileStackCarousel({ services }) {
           onClick={handlePrev}
           className="flex h-8 w-8 items-center justify-center rounded-full bg-[#23263a] hover:bg-[#DC4242] text-white"
         >
-          <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M13 17l-5-5 5-5"/>
+          <svg
+            className="w-4 h-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15 19L8 12L15 5"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </button>
         <button
           onClick={handleNext}
           className="flex h-8 w-8 items-center justify-center rounded-full bg-[#23263a] hover:bg-[#DC4242] text-white"
         >
-          <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M7 7l5 5-5 5"/>
+          <svg
+            className="w-4 h-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 5L16 12L9 19"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </button>
       </div>
