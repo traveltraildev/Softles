@@ -47,7 +47,7 @@ const testimonials = [
 
 const clientLogos = ["/logo_1.png", "/logo_2.png", "/logo_3.png", "/logo_4.png", "/logo_5.png", "/logo_6.png", "/logo_7.png", "/logo_8.png"];
 
-export default function ServicesSection4() {
+export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const visibleCount = 2;
   const maxIndex = Math.max(0, testimonials.length - visibleCount);
@@ -60,12 +60,17 @@ export default function ServicesSection4() {
   };
 
   return (
-    <div className="min-h-[40rem] p-2 sm:p-4 md:px-12 lg:px-[120px] w-full py-20 md:py-[120px] bg-[#111319] bg-grid-white flex flex-col justify-center place-content-between relative">
+    <div className="min-h-screen p-2 sm:p-4 md:px-12 lg:px-[120px] w-full py-20 md:py-[120px] bg-[#191C26] bg-grid-white flex flex-col justify-center place-content-between relative">
       <div className="absolute inset-0 bg-gradient-to-b from-[#191C26]/80 to-[#23263a]/90 pointer-events-none -z-10" />
       <div className="flex flex-col">
-        <p className="flex items-center text-base font-normal text-[#FFFFFF]"> <Image src={"/Separator.png"} alt="separator"  width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden min-w-min h-[2px] mr-[10px]" /> Testimonials</p>
-        <span className="mt-2 lg:mt-5 mb-2 lg:mb-0 text-2xl sm:text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">What our Client&apos;s Say</span>
-        <span className="text-sm sm:text-base text-[#BCC1CA] mt-2 max-w-2xl">
+        <div className="flex items-center text-base font-normal text-[#FFFFFF]">
+            <Image src={"/Separator.png"} alt="separator" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden min-w-min h-[2px] mr-[10px]" />
+            <p className="text-sm uppercase tracking-[0.2em] text-[#BCC1CA]">
+              Testimonials
+            </p>
+        </div>
+        <span className="mt-2 mb-2 lg:mb-0 text-2xl sm:text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">What our Client&apos;s Say</span>
+        <span className="text-base text-[#BCC1CA]/80 mt-2 max-w-2xl">
           Hear from our clients about their experience working with us and the impact we&apos;ve made.
         </span>
       </div>

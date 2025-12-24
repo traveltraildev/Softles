@@ -1,20 +1,22 @@
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import ServicesSection1 from "./components/ServicesSection1";
-// import ServicesSection2 from "./components/ServicesSection2";
-import ServicesSection3 from "./components/ServicesSection3";
-// import ServicesSection4 from "./components/ServicesSection4";
-import ServicesSection5 from "./components/ServicesSection5";
+import OurServicesSection from "./components/OurServicesSection";
+// import IndustriesSection from "./components/IndustriesSection";
+import OurApproachSection from "./components/OurApproachSection";
+// import TestimonialsSection from "./components/TestimonialsSection";
+import ContactSection from "./components/ContactSection";
+import OurTeamSection from './components/OurTeamSection';
 
 export default function Home() {
   return (
-    <div className="pt-[60px]">
+    <div className="pt-[60px] bg-[#191C26]">
       <Hero/>
-      <ServicesSection1/>
-      {/* <ServicesSection2/> */}
-      <ServicesSection3/>
-      {/* <ServicesSection4/> */}
-      <ServicesSection5/>
+      <OurServicesSection/>
+      {/* <IndustriesSection/> */}
+      <OurApproachSection/>
+      {/* <TestimonialsSection/> */}
+      <OurTeamSection/>
+      <ContactSection/>
       <Footer/>
     </div>
   );

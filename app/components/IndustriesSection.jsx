@@ -47,7 +47,7 @@ const industries = [
   }
 ];
 
-export default function ServicesSection2() {
+export default function IndustriesSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(2);
   const [touchStartX, setTouchStartX] = useState(0);
@@ -135,7 +135,7 @@ export default function ServicesSection2() {
   return (
     <motion.section
       ref={containerRef}
-      className="min-h-[30rem] px-4 md:px-8 lg:px-16 w-full py-16 bg-[#111319] bg-grid-white text-white flex flex-col justify-center"
+      className="min-h-screen px-4 md:px-8 lg:px-16 w-full py-16 bg-grid-white text-white flex flex-col justify-center"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
@@ -146,7 +146,7 @@ export default function ServicesSection2() {
           className="flex flex-col mb-8 md:mb-12"
           variants={itemVariants}
         >
-          <motion.p
+          <motion.div
             className="flex items-center text-base font-medium tracking-wide"
             variants={itemVariants}
           >
@@ -157,20 +157,20 @@ export default function ServicesSection2() {
               width={24}
               height={4}
             />
-            <span className="uppercase tracking-widest text-[#DC4242]">
-              Industries We Serve
-            </span>
-          </motion.p>
+            <p className="text-sm uppercase tracking-[0.2em] text-[#BCC1CA]">
+              Industries we serve
+            </p>
+          </motion.div>
 
           <motion.h2
-            className="mt-2 lg:mt-5 mb-2 lg:mb-0 font-bold text-3xl md:text-4xl lg:text-5xl leading-tight"
+            className="mt-2 mb-2 lg:mb-0 font-bold text-3xl md:text-4xl lg:text-5xl leading-tight"
             variants={itemVariants}
           >
             We are more than our words
           </motion.h2>
 
           <motion.p
-            className="text-base text-[#BCC1CA] mt-2 max-w-2xl"
+            className="text-base text-[#BCC1CA]/80 mt-2 max-w-2xl"
             variants={itemVariants}
           >
             We empower businesses across diverse industries with tailored digital solutions. Explore our expertise below.
@@ -286,9 +286,9 @@ export default function ServicesSection2() {
                         </button>
                       </div>
                     </div>
-                    
+
                     {/* Accent bar */}
-                    <div 
+                    <div
                       className="w-full h-1.5"
                       style={{ background: industry.color }}
                     ></div>
