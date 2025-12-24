@@ -9,7 +9,7 @@ import OurTeamSection from './components/OurTeamSection';
 
 export default function Home() {
   return (
-    <div className="xs:pt-[60px] bg-[#191C26]">
+    <div className="sm:pt-[60px] bg-[#191C26]">
       <Hero/>
       <OurServicesSection/>
       {/* <IndustriesSection/> */}
