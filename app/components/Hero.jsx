@@ -41,7 +41,7 @@ export default function Hero() {
 
     return (
         <section
-            className="relative min-h-screen lg:min-h-[92vh] w-full flex items-center justify-center p-5 sm:py-10 lg:py-0 overflow-hidden bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#111319]"
+            className="relative min-h-screen lg:min-h-[92vh] w-full flex items-center justify-center px-5 pb-5 sm:py-10 lg:py-0 overflow-hidden bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#111319]"
         >
             {/* Animated awe-struck blob */}
             <div
@@ -62,9 +62,9 @@ export default function Hero() {
                 aria-hidden="true"
             />
             <div className="flex flex-col items-center justify-center w-full md:my-10">
-                <div className="relative flex flex-col-reverse lg:flex-row items-center justify-center w-full max-w-4xl lg:max-w-6xl mx-auto gap-12 lg:gap-20 z-10 px-[10px] md:px-8 lg:px-[120px] xl:px-0">
+                <div className="relative flex flex-col-reverse lg:flex-row items-center justify-center w-full max-w-4xl lg:max-w-6xl mx-auto gap-2 lg:gap-20 z-10 px-[10px] md:px-8 lg:px-[120px] xl:px-0">
                     {/* Left Content */}
-                    <div className="flex-1 flex flex-col items-center lg:items-start justify-center max-w-2xl text-center lg:text-left max-h-min">
+                    <div className="flex-1 flex flex-col items-center lg:items-start justify-center max-w-2xl text-center lg:text-left max-h-min min-h-10">
                         {/* Creative Ideas Label (updated copy) */}
                         <div className="flex items-center mb-2 md:mb-6">
                             <span className="block w-12 h-0.5 bg-[#F5F6FA] mr-4" />

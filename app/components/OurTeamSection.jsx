@@ -64,7 +64,7 @@ export default function OurTeamSection() {
   useEffect(() => {
     const compute = () => {
       if (window.innerWidth >= 1280) return 3;
-      if (window.innerWidth >= 768) return 2;
+      if (window.innerWidth >= 880) return 2;
       return 1;
     };
     const handleResize = () => setSlidesPerView(compute());
@@ -113,10 +113,10 @@ export default function OurTeamSection() {
         </div>
         {/* Carousel */}
         <div
-          className="relative"
+          className="relative py-10 md:py-0"
         >
           {/* Controls */}
-          <div className="my-2 flex items-center justify-between">
+          <div className="mb-5 flex items-center justify-between">
             <div></div>
             <div className="flex items-center gap-3">
               <div className="flex gap-2">
@@ -152,9 +152,9 @@ export default function OurTeamSection() {
               {team.slice(index, index + slidesPerView).map((member, idx) => (
                 <article
                   key={member.name}
-                  className="group relative max-w-[300px] md:max-w-[385px] shrink-0 transition-transform duration-500"
+                  className="group relative max-w-[300px] sm:max-w-xs md:max-w-[385px] shrink-0 transition-transform duration-500"
                 >
-                  <div className="relative h-full overflow-hidden rounded-md border border-[#242836]/50 bg-gradient-to-br from-[#0F1118]/80 via-[#131623]/60 to-[#0B0C12]/90 p-3 md:p-6 transition-all duration-500 hover:scale-[1.02] hover:border-[#DC4242]/40 hover:shadow-2xl hover:shadow-[#DC4242]/10">
+                  <div className="relative h-full overflow-hidden rounded-md border border-[#242836]/50 bg-gradient-to-br from-[#0F1118]/80 via-[#131623]/60 to-[#0B0C12]/90 p-3 xs:p-6 transition-all duration-500 hover:scale-[1.02] hover:border-[#DC4242]/40 hover:shadow-2xl hover:shadow-[#DC4242]/10">
                     {/* Background Glow */}
                     <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                       <div
@@ -167,7 +167,7 @@ export default function OurTeamSection() {
 
                     {/* Profile Header */}
                     <div className="relative mb-6">
-                      <div className="flex items-center gap-4 max-w-[280px] md:max-w-auto">
+                      <div className="flex items-center gap-4 max-w-[280px] sm:max-w-auto">
                         {/* Avatar */}
                         <div className={`relative h-10 w-10 md:h-16 md:w-16 overflow-hidden rounded-2xl bg-gradient-to-br ${member.tone} ring-2 ring-[#242836] ring-offset-2 ring-offset-[#0F1118]`}>
                           <div className="absolute inset-0 flex items-center justify-center">
