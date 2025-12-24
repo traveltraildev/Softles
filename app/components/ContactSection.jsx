@@ -12,7 +12,7 @@ import emailjs from '@emailjs/browser';
 
 
 
-export default function ServicesSection5() {
+export default function ContactSection() {
     const [userName, setUserName] = useState('')
     const [userMail, setUserMail] = useState('')
     const [loading, setLoading] = useState(false)
@@ -54,10 +54,15 @@ export default function ServicesSection5() {
         )
     }
     return (
-        <section id="book-call" className="min-h-[30rem] p-[10px] lg:px-[120px] w-full py-[90px] bg-[#111319] flex flex-col justify-center place-content-between">
+        <section id="book-call" className="min-h-screen p-5 lg:px-[120px] w-full sm:py-[90px] bg-[#111319] flex flex-col justify-center place-content-between">
             <div className="flex flex-col">
-                <p className="flex items-center text-base font-normal text-[#FFFFFF]"><Image src={Separator} className="mr-[10px]" alt="separator" /> Get In Touch</p>
-                <span className="mt-2 lg:mt-5 mb-4 lg:mb-0 text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">Book a Discovery Session</span>
+                <div className="flex items-center text-base font-normal text-[#FFFFFF]">
+                    <Image src={Separator} className="mr-[10px]" alt="separator" />
+                    <p className="text-sm uppercase tracking-[0.2em] text-[#BCC1CA]">
+                        Get In Touch
+                    </p>
+                </div>
+                <span className="mt-2 mb-4 lg:mb-0 text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">Book a Discovery Session</span>
             </div>
             <div className="w-full flex flex-col md:flex-row gap-0 mt-12 justify-center items-stretch">
                 {/* Book a Discovery Session via Google Meet */}

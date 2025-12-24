@@ -41,7 +41,7 @@ export default function Hero() {
 
     return (
         <section
-            className="relative min-h-[70vh] lg:min-h-[92vh] w-full flex items-center justify-center py-20 lg:py-0 overflow-hidden bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#111319]"
+            className="relative min-h-screen lg:min-h-[92vh] w-full flex items-center justify-center p-5 sm:py-10 lg:py-0 overflow-hidden bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#111319]"
         >
             {/* Animated awe-struck blob */}
             <div
@@ -61,23 +61,23 @@ export default function Hero() {
                 }}
                 aria-hidden="true"
             />
-            <div className="flex flex-col items-center justify-center w-full my-10">
+            <div className="flex flex-col items-center justify-center w-full md:my-10">
                 <div className="relative flex flex-col-reverse lg:flex-row items-center justify-center w-full max-w-4xl lg:max-w-6xl mx-auto gap-12 lg:gap-20 z-10 px-[10px] md:px-8 lg:px-[120px] xl:px-0">
                     {/* Left Content */}
-                    <div className="flex-1 flex flex-col items-center lg:items-start justify-center max-w-2xl text-center lg:text-left">
+                    <div className="flex-1 flex flex-col items-center lg:items-start justify-center max-w-2xl text-center lg:text-left max-h-min">
                         {/* Creative Ideas Label (updated copy) */}
-                        <div className="flex items-center mb-6">
+                        <div className="flex items-center mb-2 md:mb-6">
                             <span className="block w-12 h-0.5 bg-[#F5F6FA] mr-4" />
                             <span className="text-base text-[#BCC1CA] font-normal">We&apos;re a small agency which</span>
                         </div>
                         {/* Main Heading */}
-                        <h1 className="font-extrabold mb-2 leading-tight tracking-tight relative text-[clamp(2.2rem,6vw,4.5rem)] text-[#F5F6FA]">
+                        <h1 className="font-extrabold md:mb-2 leading-3 md:leading-tight tracking-tight relative text-[clamp(2.2rem,6vw,4.5rem)] text-[#F5F6FA]">
                             Bespoke Business <br className="hidden sm:block" />
                             Solutions
                             <span className="text-[#DC4242] align-super text-5xl ml-1">.</span>
                         </h1>
                         {/* Supporting Line */}
-                        <p className="text-[#BCC1CA] mt-4 mb-10 max-w-xl block text-base lg:text-lg leading-relaxed" style={{maxWidth: '40ch', lineHeight: 1.5}}>
+                        <p className="text-[#BCC1CA] mt-4 md:mb-10 max-w-xl block text-base lg:text-lg leading-relaxed" style={{maxWidth: '40ch', lineHeight: 1.5}}>
                             We create new design for your online business with the support of our wonderful team of professionals.
                         </p>
                         {/* CTAs on one line */}
@@ -102,7 +102,7 @@ export default function Hero() {
                         </div>
                     </div>
                     {/* Right Illustration with diagonal divider */}
-                    <div className="flex-1 flex items-center justify-center w-full max-w-md lg:max-w-lg xl:max-w-xl mt-8 lg:mt-0 relative">
+                    <div className="flex-1 flex items-center justify-center w-full max-w-md lg:max-w-lg xl:max-w-xl lg:mt-0 relative">
                         {/* Diagonal divider */}
                         <svg className="hidden lg:block absolute -left-24 top-0 h-full w-48 z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
                             <polygon points="100,0 100,100 0,100" fill="#23263a" opacity="0.7" />
