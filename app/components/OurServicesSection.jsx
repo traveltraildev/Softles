@@ -69,6 +69,7 @@ const services = [
 function MobileStackCarousel({ services }) {
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(0);
   const isPrevDisabled = active === 0;
   const isNextDisabled = active === services.length - 1;
 
@@ -83,9 +84,26 @@ function MobileStackCarousel({ services }) {
     setActive((prev) => Math.max(prev - 1, 0));
   };
 
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+
+    if (diff > 50) handleNext(); // Swipe left -> next
+    else if (diff < -50) handlePrev(); // Swipe right -> prev
+  };
+
   return (
     <div className="xl:hidden w-full flex flex-col items-center py-8 mt-5 relative">
-      <div className="relative w-full max-w-xs min-h-[460px] perspective-1000">
+      <div
+        className="relative w-full max-w-xs min-h-[460px] perspective-1000"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         {/* Stacked background cards */}
         {[1, 2].map((offset) => {
           const index = (active + offset) % services.length;
@@ -170,8 +188,8 @@ function MobileStackCarousel({ services }) {
                 className="rounded-full"
               />
             </div>
-            <h3 className="text-2xl font-bold mb-2 md:mb-4 text-left text-white">{services[active].title}</h3>
-            <ul className="w-full flex flex-col gap-2 md:gap-3">
+            <h3 className="text-2xl font-bold mb-4 text-left text-white">{services[active].title}</h3>
+            <ul className="w-full flex flex-col gap-5">
               {services[active].bullets.map((b, i) => (
                 <li
                   key={i}

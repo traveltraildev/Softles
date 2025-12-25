@@ -61,7 +61,7 @@ export default function Hero() {
                 }}
                 aria-hidden="true"
             />
-            <div className="flex flex-col items-center justify-center w-full md:my-10">
+            <div className="flex flex-col items-center justify-center w-full lg:my-10">
                 <div className="relative flex flex-col-reverse lg:flex-row items-center justify-center w-full max-w-4xl lg:max-w-6xl mx-auto gap-2 lg:gap-20 z-10 px-[10px] md:px-8 lg:px-[120px] xl:px-0">
                     {/* Left Content */}
                     <div className="flex-1 flex flex-col items-center lg:items-start justify-center max-w-2xl text-center lg:text-left max-h-min min-h-10">
@@ -77,11 +77,11 @@ export default function Hero() {
                             <span className="text-[#DC4242] align-super text-5xl ml-1">.</span>
                         </h1>
                         {/* Supporting Line */}
-                        <p className="text-[#BCC1CA] mt-4 md:mb-10 max-w-xl block text-base lg:text-lg leading-relaxed" style={{maxWidth: '40ch', lineHeight: 1.5}}>
+                        <p className="text-[#BCC1CA] mt-4 mb-5 md:mb-12 max-w-xl block text-base lg:text-lg leading-relaxed" style={{maxWidth: '40ch', lineHeight: 1.5}}>
                             We create new design for your online business with the support of our wonderful team of professionals.
                         </p>
                         {/* CTAs on one line */}
-                        <div className="flex justify-center lg:justify-start w-full mt-2 max-w-xs">
+                        <div className="flex justify-center lg:justify-start w-full max-w-xs">
                             <div onClick={e => handleClick(e, "book-call")} className="relative">
                                 <button
                                     className="flex items-center text-lg whitespace-nowrap group relative shadow-[inset_0_0_0_2px_#616467] text-[#DC4242] px-4 md:px-8 py-2 md:py-4 rounded-full uppercase font-bold bg-transparent hover:bg-[#616467] transition duration-300"
@@ -119,7 +119,7 @@ export default function Hero() {
                     </div>
                 </div>
                 {/* Client Logo Rail - responsive */}
-                <div className="w-full mt-10 md:mt-20 z-20">
+                <div className="w-full mt-5 md:mt-20 z-20">
                     <div className="overflow-hidden w-full relative">
                         <div
                             className="flex animate-logo-rail whitespace-nowrap w-max gap-20"

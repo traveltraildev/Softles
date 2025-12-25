@@ -31,8 +31,8 @@ export default function Footer() {
                     </div>
                     <div className="flex flex-col gap-y-3 w-full">
                         <h3 className="font-semibold text-base mb-1">Contact</h3>
-                        <div className="flex flex-col xl:flex-row items-start xl:items-center gap-5 w-full">
-                            <div className="flex gap-x-2">
+                        <div className="grid grid-cols-2 gap-5 w-full">
+                            <div className="flex flex-col gap-x-2">
                                 <h6 className="text-sm text-[#D4D4D8]">Email:</h6>
                                 <div className="flex flex-col items-start">
                                     <a href="mailto:info@softles.com?cc=hr@softles.in" className="text-md font-medium underline hover:text-[#DC4242] transition">
@@ -43,7 +43,7 @@ export default function Footer() {
                                     </a>
                                 </div>
                             </div>
-                            <div className="flex gap-x-2">
+                            <div className="flex flex-col gap-x-2">
                                 <h6 className="text-sm text-[#D4D4D8]">Phone:</h6>
                                 <div className="flex flex-col items-start">
                                     <a href="tel:+918954000202" className="text-md font-medium underline hover:text-[#DC4242] transition">
