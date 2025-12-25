@@ -68,13 +68,14 @@ export default function OurApproachSection() {
             </div>
 
             {/* Mobile & Tablet View - Vertical Stack */}
-            <div className="block xl:hidden w-full mt-4">
-                <div className="grid grid-cols-2 gap-4">
+            <div className="block xl:hidden w-full mt-8">
+                <div className="grid grid-cols-2 gap-8">
                     {processSteps.map((step, index) => (
                         <div
                             key={index}
                             className="flex flex-col text-left"
                         >
+                            <Image src={step.image} alt={`Service icon for ${step.name}`} width={40} height={40} className="mb-2" />
                             {/* Title */}
                             <h3 className="text-lg font-semibold text-white leading-snug">
                                 {step.name}

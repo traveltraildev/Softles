@@ -66,8 +66,8 @@ export default function ContactSection() {
             </div>
             <div className="w-full flex flex-col md:flex-row gap-0 mt-12 justify-center items-stretch">
                 {/* Book a Discovery Session via Google Meet */}
-                <div className="bg-gradient-to-br from-[#191C26] via-[#221429] to-[#191C26] rounded-l-2xl shadow-lg flex flex-col justify-between p-0 border border-[#23263a] w-full md:w-1/3 max-w-none">
-                    <div className="flex flex-col items-center pt-8 pb-4 px-6 h-full">
+                <div className="bg-gradient-to-br from-[#191C26] via-[#221429] to-[#191C26] rounded-2xl md:rounded-r-none md:rounded-l-2xl mb-5 md:mb-0 shadow-lg flex flex-col justify-between p-0 border border-[#23263a] w-full md:w-1/3 max-w-none">
+                    <div className="flex flex-col items-center pt-8 pb-4 px-3 md:px-6 h-full">
                         <div className="relative">
                             <Image src={Divy} alt="Expert Image" className="rounded-xl w-[180px] h-[180px] object-cover border-4 border-[#221429] shadow-md" />
                         </div>
@@ -94,7 +94,7 @@ export default function ContactSection() {
                     </div>
                 </div>
                 {/* Submit details for callback */}
-                <div className="bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#191C26] rounded-r-2xl shadow-lg flex flex-col justify-center p-8 border-t border-b border-r border-[#23263a] w-full md:w-2/3 max-w-none">
+                <div className="bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#191C26] rounded-2xl md:rounded-l-none rounded-r-2xl shadow-lg flex flex-col justify-center p-3 md:p-8 border-t border-b border-r border-[#23263a] w-full md:w-2/3 max-w-none">
                     <form className="w-full" ref={form} onSubmit={sendEmail} autoComplete="off">
                         <h3 className="text-2xl font-bold text-white mb-6 text-center">Let us reach out to you</h3>
                         <LabelInputContainer className="mb-5">

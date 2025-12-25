@@ -41,7 +41,7 @@ const team = [
     accent: "#5A6BFF",
   },
   {
-    name: "Divyansh Chowdhary",
+    name: "Divyansh Veermanya",
     role: "Product Lead",
     bio: "Owns product vision and execution by translating business goals and user insights into clear roadmaps, priorities, and shipped outcomes.",
     hue: "from-[#6B8CFF]/80 via-[#2E356B]/60 to-[#191C26]/80",
@@ -54,6 +54,7 @@ const team = [
 export default function OurTeamSection() {
   const [index, setIndex] = useState(0);
   const [slidesPerView, setSlidesPerView] = useState(1);
+  const [touchStartX, setTouchStartX] = useState(0);
   const maxIndex = useMemo(
     () => Math.max(0, team.length - slidesPerView),
     [slidesPerView]
@@ -76,6 +77,27 @@ export default function OurTeamSection() {
   useEffect(() => {
     setIndex((prev) => Math.min(prev, maxIndex));
   }, [maxIndex]);
+
+  const handleNext = () => {
+    if (!isNextDisabled) setIndex(prev => prev + 1);
+  };
+
+  const handlePrev = () => {
+    if (!isPrevDisabled) setIndex(prev => prev - 1);
+  };
+
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+
+    if (diff > 50) handleNext(); // Swipe left -> next
+    else if (diff < -50) handlePrev(); // Swipe right -> prev
+  };
 
   const maxIndexActual = team.length - slidesPerView;
   const shift = `translateX(-${index * (100 / team.length)}%)`;
@@ -116,14 +138,14 @@ export default function OurTeamSection() {
           className="relative py-10 md:py-0"
         >
           {/* Controls */}
-          <div className="mb-5 flex items-center justify-between">
+          <div className="mb-5 hidden lg:flex items-center justify-between">
             <div></div>
             <div className="flex items-center gap-3">
               <div className="flex gap-2">
                 <button
                   aria-label="Previous"
                   disabled={isPrevDisabled}
-                  onClick={() => { if (!isPrevDisabled) setIndex(prev => prev - 1); }}
+                  onClick={handlePrev}
                   className="group flex h-12 w-12 items-center justify-center rounded-full border border-[#343844] bg-gradient-to-br from-[#0F1118] to-[#131623] text-[#F5F6FA] transition-all hover:border-[#DC4242] hover:scale-105"
                 >
                   <svg className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -133,7 +155,7 @@ export default function OurTeamSection() {
                 <button
                   aria-label="Next"
                   disabled={isNextDisabled}
-                  onClick={() => { if (!isNextDisabled) setIndex(prev => prev + 1); }}
+                  onClick={handleNext}
                   className="group flex h-12 w-12 items-center justify-center rounded-full border border-[#343844] bg-gradient-to-br from-[#0F1118] to-[#131623] text-[#F5F6FA] transition-all hover:border-[#DC4242] hover:scale-105"
                 >
                   <svg className="w-5 h-5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -145,14 +167,18 @@ export default function OurTeamSection() {
           </div>
 
           {/* Carousel Container */}
-          <div className="relative overflow-hidden">
+          <div
+            className="relative overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             <div
               className="flex gap-1 md:gap-6 justify-center items-stretch p-0 md:p-3 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
             >
               {team.slice(index, index + slidesPerView).map((member, idx) => (
                 <article
                   key={member.name}
-                  className="group relative max-w-[300px] sm:max-w-xs md:max-w-[385px] shrink-0 transition-transform duration-500"
+                  className="group relative max-w-[300px] min-h-[350px] sm:max-w-xs md:max-w-[385px] shrink-0 transition-transform duration-500"
                 >
                   <div className="relative h-full overflow-hidden rounded-md border border-[#242836]/50 bg-gradient-to-br from-[#0F1118]/80 via-[#131623]/60 to-[#0B0C12]/90 p-3 xs:p-6 transition-all duration-500 hover:scale-[1.02] hover:border-[#DC4242]/40 hover:shadow-2xl hover:shadow-[#DC4242]/10">
                     {/* Background Glow */}
