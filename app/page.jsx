@@ -5,19 +5,19 @@ import OurServicesSection from "./components/OurServicesSection";
 import OurApproachSection from "./components/OurApproachSection";
 // import TestimonialsSection from "./components/TestimonialsSection";
 import ContactSection from "./components/ContactSection";
-import OurTeamSection from './components/OurTeamSection';
+import OurTeamSection from "./components/OurTeamSection";
 
 export default function Home() {
   return (
-    <div className="pt-[60px] bg-[#191C26]">
-      <Hero/>
-      <OurServicesSection/>
-      {/* <IndustriesSection/> */}
-      <OurApproachSection/>
-      {/* <TestimonialsSection/> */}
-      <OurTeamSection/>
-      <ContactSection/>
-      <Footer/>
-    </div>
+    <main className="bg-[#191C26] sm:pt-[60px]">
+      <Hero />
+      <OurServicesSection />
+      {/* <IndustriesSection /> */}
+      <OurApproachSection />
+      {/* <TestimonialsSection /> */}
+      <OurTeamSection />
+      <ContactSection />
+      <Footer />
+    </main>
   );
 }

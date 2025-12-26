@@ -135,7 +135,8 @@ export default function IndustriesSection() {
   return (
     <motion.section
       ref={containerRef}
-      className="min-h-screen px-4 md:px-8 lg:px-16 w-full py-16 bg-grid-white text-white flex flex-col justify-center"
+      id="industries"
+      className="snap-start min-h-screen w-full pb-20 md:pb-28 px-5 sm:px-6 lg:px-[120px] bg-[#191C26] bg-grid-white text-white flex flex-col justify-center"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}

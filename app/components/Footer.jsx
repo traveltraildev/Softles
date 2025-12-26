@@ -16,7 +16,7 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-[#18181B] text-white pt-5 sm:pt-12 pb-6 px-5 md:px-16">
+        <footer className="snap-start bg-[#18181B] text-white pt-5 sm:pt-12 pb-6 px-5 md:px-16">
             <div className="flex flex-col gap-5 w-full max-w-7xl mx-auto border-b border-[#27272A] pb-10">
                 <Link href="/">
                     <Image src={"/SoftLes.png"} alt="Logo" width={0} height={0} sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw" className="object-cover overflow-hidden min-w-min h-[54px]"/>

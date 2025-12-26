@@ -267,10 +267,10 @@ function MobileStackCarousel({ services }) {
 
 export default function OurServicesSection() {
   return (
-    <section id="about" className="min-h-screen p-5 lg:px-[120px] w-full sm:py-[90px] flex flex-col justify-center place-content-between overflow-hidden">
+    <section id="services" className="snap-start min-h-screen w-full pt-5 pb-20 md:pt-10 md:pb-28 px-5 sm:px-6 lg:px-[120px] flex flex-col justify-center place-content-between overflow-hidden bg-[#191C26]">
 
       <div className="relative z-10 flex flex-col">
-        <p className="flex items-center text-base font-normal text-[#FFFFFF]">
+        <div className="flex items-center text-base font-normal text-[#FFFFFF]">
           <Image
             src={"/Separator.png"}
             alt="separator"
@@ -279,12 +279,14 @@ export default function OurServicesSection() {
             sizes="(max-width: 768px) 40vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover overflow-hidden min-w-min h-[2px] mr-[10px]"
           />
-          What We Do
-        </p>
-        <span className="mt-2 lg:mt-5 mb-2 lg:mb-0 font-bold text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">
+          <p className="text-sm uppercase tracking-[0.2em] text-[#BCC1CA]">
+            What We Do
+          </p>
+        </div>
+        <span className="mt-2 mb-2 lg:mb-0 font-bold text-3xl md:text-[53px] lg:text-[64px] leading-none md:leading-[64px] lg:leading-[76.8px] text-[#FFFFFF]">
           What we do
         </span>
-        <span className="text-base text-[#BCC1CA] mt-2 max-w-2xl">
+        <span className="text-base text-[#BCC1CA]/80 mt-2 max-w-2xl">
           We blend creativity and technology to deliver impactful digital products. Explore our core services below.
         </span>
       </div>
