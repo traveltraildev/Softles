@@ -1,7 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useRef, useState, useEffect, useMemo } from "react";
+import { SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import dynamic from "next/dynamic";
+
+const Swiper = dynamic(
+    () => import("swiper/react").then((mod) => mod.Swiper),
+    { ssr: false }
+);
 
 const team = [
   {
@@ -51,61 +61,145 @@ const team = [
   },
 ];
 
+const moreMembersCard = {
+  isSpecial: true,
+  name: "More members",
+  count: "+3"
+};
+
 export default function OurTeamSection() {
-  const [index, setIndex] = useState(0);
-  const [slidesPerView, setSlidesPerView] = useState(1);
-  const [touchStartX, setTouchStartX] = useState(0);
-  const maxIndex = useMemo(
-    () => Math.max(0, team.length - slidesPerView),
-    [slidesPerView]
-  );
-  const isPrevDisabled = index === 0;
-  const isNextDisabled = index === maxIndex;
+  const swiperRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
-    const compute = () => {
-      if (window.innerWidth >= 1280) return 3;
-      if (window.innerWidth >= 880) return 2;
-      return 1;
+    const updateBreakpoint = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 880);
+      setIsTablet(width >= 880 && width < 1280);
     };
-    const handleResize = () => setSlidesPerView(compute());
-    setSlidesPerView(compute());
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+
+    updateBreakpoint();
+    window.addEventListener('resize', updateBreakpoint);
+    return () => window.removeEventListener('resize', updateBreakpoint);
   }, []);
 
-  useEffect(() => {
-    setIndex((prev) => Math.min(prev, maxIndex));
-  }, [maxIndex]);
+  // Mobile: 6 slides with 1 item each (individual slides)
+  const mobileSlides = [...team, moreMembersCard];
 
-  const handleNext = () => {
-    if (!isNextDisabled) setIndex(prev => prev + 1);
-  };
+  // Tablet: 3 slides with 2 items each
+  const tabletSlideGroups = [
+    team.slice(0, 2),
+    team.slice(2, 4),
+    [...team.slice(4, 5), moreMembersCard]
+  ];
 
-  const handlePrev = () => {
-    if (!isPrevDisabled) setIndex(prev => prev - 1);
-  };
+  // Desktop: 2 slides with 3 items each (current structure)
+  const desktopSlideGroups = [
+    team.slice(0, 3),
+    [...team.slice(3, 5), moreMembersCard]
+  ];
 
-  // Touch handlers for mobile swipe
-  const handleTouchStart = (e) => {
-    setTouchStartX(e.touches[0].clientX);
-  };
+  // Determine which slide groups to use and calculate maxIndex
+  const slideGroups = isMobile ? mobileSlides : (isTablet ? tabletSlideGroups : desktopSlideGroups);
+  const maxIndex = Math.max(0, slideGroups.length - 1);
 
-  const handleTouchEnd = (e) => {
-    const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartX - touchEndX;
+  // Helper function to render a team member card
+  const renderTeamMemberCard = (member, key) => (
+    <article
+      key={key}
+      className="group relative w-full max-w-[300px] min-h-[350px] sm:max-w-xs md:max-w-[385px] shrink-0 transition-transform duration-500 mx-auto"
+    >
+      <div className="relative h-full overflow-hidden rounded-md border border-[#242836]/50 bg-gradient-to-br from-[#0F1118]/80 via-[#131623]/60 to-[#0B0C12]/90 p-3 xs:p-6 transition-all duration-500 hover:scale-[1.02] hover:border-[#DC4242]/40 hover:shadow-2xl hover:shadow-[#DC4242]/10">
+        {/* Background Glow */}
+        <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+          <div
+            className={`absolute -right-8 -top-8 h-40 w-40 rounded-full bg-gradient-to-br ${member.hue} blur-3xl`}
+          />
+        </div>
 
-    if (diff > 50) handleNext(); // Swipe left -> next
-    else if (diff < -50) handlePrev(); // Swipe right -> prev
-  };
+        {/* Top Border Accent */}
+        <div className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-[#DC4242]/30 to-transparent"></div>
 
-  const maxIndexActual = team.length - slidesPerView;
-  const shift = `translateX(-${index * (100 / team.length)}%)`;
+        {/* Profile Header */}
+        <div className="relative mb-6">
+          <div className="flex items-center gap-4 max-w-[280px] sm:max-w-auto">
+            {/* Avatar */}
+            <div className={`relative h-10 w-10 md:h-16 md:w-16 overflow-hidden rounded-2xl bg-gradient-to-br ${member.tone} ring-2 ring-[#242836] ring-offset-2 ring-offset-[#0F1118]`}>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-lg font-bold text-[#F5F6FA]">
+                  {member.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
+                </span>
+              </div>
+              <div
+                className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                style={{ background: `radial-gradient(circle at center, ${member.accent}20, transparent 70%)` }}
+              />
+            </div>
+
+            {/* Name & Role */}
+            <div className="flex-1 min-w-0 max-w-[200px] sm:max-w-auto">
+              <h4 className="text-xl font-bold text-[#F5F6FA] truncate">
+                {member.name}
+              </h4>
+              <p className="text-sm font-semibold tracking-tighter md:tracking-widest text-gray-400 uppercase">
+                {member.role}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bio */}
+        <p className="relative mb-6 text-sm leading-relaxed text-[#D5D8E1]/90">
+          {member.bio}
+        </p>
+
+        {/* Quote */}
+        <div className="relative mb-6 overflow-hidden rounded-xl border border-[#242836]/50 bg-gradient-to-br from-[#0F1118] to-[#131623]/50 p-2 md:p-4">
+          <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#DC4242] to-[#5A6BFF]"></div>
+          <div className="relative pl-1 md:pl-3">
+            <svg className="absolute -top-1 left-0 md:-left-1 h-2 md:h-4 w-2 md:w-4 text-[#DC4242]/50" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p className="text-sm font-medium italic text-[#F5F6FA]/90">
+              {member.quote}
+            </p>
+          </div>
+        </div>
+
+        {/* Hover Effect Line */}
+        <div className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-[#DC4242] to-[#5A6BFF] transition-all duration-500 group-hover:w-full"></div>
+      </div>
+    </article>
+  );
+
+  // Helper function to render the special "More members" card
+  const renderMoreMembersCard = (member, key) => (
+    <article
+      key={key}
+      className="relative min-w-[200px] min-h-[350px] sm:min-w-xs md:min-w-[285px] shrink-0 transition-transform duration-500"
+    >
+      <div className="flex min-h-[350px] items-center justify-center rounded-md transition-all cursor-disabled">
+        <div className="text-center">
+          <p className="text-5xl font-bold text-[#F5F6FA]">
+            {member.count}
+          </p>
+          <p className="mt-2 text-sm uppercase tracking-widest text-[#BCC1CA]">
+            {member.name}
+          </p>
+        </div>
+      </div>
+    </article>
+  );
 
   return (
     <section
       id="our-team"
-      className="min-h-screen relative w-full py-20 md:py-28"
+      className="snap-start min-h-screen relative w-full pb-20 md:pt-10 md:pb-28"
     >
       {/* Background effects */}
       {/* <div className="absolute inset-0 pointer-events-none">
@@ -134,9 +228,7 @@ export default function OurTeamSection() {
           </span>
         </div>
         {/* Carousel */}
-        <div
-          className="relative py-10 md:py-0"
-        >
+        <div className="relative py-10 md:py-0">
           {/* Controls */}
           <div className="mb-5 hidden lg:flex items-center justify-between">
             <div></div>
@@ -144,9 +236,8 @@ export default function OurTeamSection() {
               <div className="flex gap-2">
                 <button
                   aria-label="Previous"
-                  disabled={isPrevDisabled}
-                  onClick={handlePrev}
-                  className="group flex h-12 w-12 items-center justify-center rounded-full border border-[#343844] bg-gradient-to-br from-[#0F1118] to-[#131623] text-[#F5F6FA] transition-all hover:border-[#DC4242] hover:scale-105"
+                  onClick={() => swiperRef.current?.slidePrev()}
+                  className="group flex h-12 w-12 items-center justify-center rounded-full border border-[#343844] bg-gradient-to-br from-[#0F1118] to-[#131623] text-[#F5F6FA] transition-all hover:border-[#DC4242] hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <svg className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -154,9 +245,8 @@ export default function OurTeamSection() {
                 </button>
                 <button
                   aria-label="Next"
-                  disabled={isNextDisabled}
-                  onClick={handleNext}
-                  className="group flex h-12 w-12 items-center justify-center rounded-full border border-[#343844] bg-gradient-to-br from-[#0F1118] to-[#131623] text-[#F5F6FA] transition-all hover:border-[#DC4242] hover:scale-105"
+                  onClick={() => swiperRef.current?.slideNext()}
+                  className="group flex h-12 w-12 items-center justify-center rounded-full border border-[#343844] bg-gradient-to-br from-[#0F1118] to-[#131623] text-[#F5F6FA] transition-all hover:border-[#DC4242] hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <svg className="w-5 h-5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -167,86 +257,55 @@ export default function OurTeamSection() {
           </div>
 
           {/* Carousel Container */}
-          <div
-            className="relative overflow-hidden"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
+          <Swiper
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            onSlideChange={(swiper) => {
+              setActiveIndex(swiper.activeIndex);
+            }}
+            spaceBetween={10}
+            slidesPerView={1.1}
+            breakpoints={{
+              880: {
+                slidesPerView: 1,
+                spaceBetween: 24,
+              },
+              1280: {
+                slidesPerView: 1,
+                spaceBetween: 30,
+              },
+            }}
+            grabCursor={true}
+            modules={[Navigation]}
+            className="relative overflow-visible"
           >
-            <div
-              className="flex gap-1 md:gap-6 justify-center items-stretch p-0 md:p-3 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-            >
-              {team.slice(index, index + slidesPerView).map((member, idx) => (
-                <article
-                  key={member.name}
-                  className="group relative max-w-[300px] min-h-[350px] sm:max-w-xs md:max-w-[385px] shrink-0 transition-transform duration-500"
-                >
-                  <div className="relative h-full overflow-hidden rounded-md border border-[#242836]/50 bg-gradient-to-br from-[#0F1118]/80 via-[#131623]/60 to-[#0B0C12]/90 p-3 xs:p-6 transition-all duration-500 hover:scale-[1.02] hover:border-[#DC4242]/40 hover:shadow-2xl hover:shadow-[#DC4242]/10">
-                    {/* Background Glow */}
-                    <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      <div
-                        className={`absolute -right-8 -top-8 h-40 w-40 rounded-full bg-gradient-to-br ${member.hue} blur-3xl`}
-                      />
-                    </div>
-
-                    {/* Top Border Accent */}
-                    <div className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-[#DC4242]/30 to-transparent"></div>
-
-                    {/* Profile Header */}
-                    <div className="relative mb-6">
-                      <div className="flex items-center gap-4 max-w-[280px] sm:max-w-auto">
-                        {/* Avatar */}
-                        <div className={`relative h-10 w-10 md:h-16 md:w-16 overflow-hidden rounded-2xl bg-gradient-to-br ${member.tone} ring-2 ring-[#242836] ring-offset-2 ring-offset-[#0F1118]`}>
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-lg font-bold text-[#F5F6FA]">
-                              {member.name
-                                .split(" ")
-                                .map((n) => n[0])
-                                .join("")}
-                            </span>
-                          </div>
-                          <div
-                            className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                            style={{ background: `radial-gradient(circle at center, ${member.accent}20, transparent 70%)` }}
-                          />
-                        </div>
-
-                        {/* Name & Role */}
-                        <div className="flex-1 min-w-0 max-w-[200px] sm:max-w-auto">
-                          <h4 className="text-xl font-bold text-[#F5F6FA] truncate">
-                            {member.name}
-                          </h4>
-                          <p className="text-sm font-semibold tracking-tighter md:tracking-widest text-gray-400 uppercase">
-                            {member.role}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Bio */}
-                    <p className="relative mb-6 text-sm leading-relaxed text-[#D5D8E1]/90">
-                      {member.bio}
-                    </p>
-
-                    {/* Quote */}
-                    <div className="relative mb-6 overflow-hidden rounded-xl border border-[#242836]/50 bg-gradient-to-br from-[#0F1118] to-[#131623]/50 p-2 md:p-4">
-                      <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#DC4242] to-[#5A6BFF]"></div>
-                      <div className="relative pl-1 md:pl-3">
-                        <svg className="absolute -top-1 left-0 md:-left-1 h-2 md:h-4 w-2 md:w-4 text-[#DC4242]/50" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                        </svg>
-                        <p className="text-sm font-medium italic text-[#F5F6FA]/90">
-                          {member.quote}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Hover Effect Line */}
-                    <div className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-[#DC4242] to-[#5A6BFF] transition-all duration-500 group-hover:w-full"></div>
+            {isMobile ? (
+              // Mobile: Individual slides (1 item per slide)
+              mobileSlides.map((member, index) => (
+                <SwiperSlide key={member.isSpecial ? `more-${index}` : member.name}>
+                  <div className="flex justify-center items-stretch">
+                    {member.isSpecial
+                      ? renderMoreMembersCard(member, `more-${index}`)
+                      : renderTeamMemberCard(member, member.name)}
                   </div>
-                </article>
-              ))}
+                </SwiperSlide>
+              ))
+            ) : (
+              // Tablet & Desktop: Grouped slides (multiple items per slide)
+              slideGroups.map((group, groupIndex) => (
+                <SwiperSlide key={groupIndex}>
+                  <div className="flex gap-1 md:gap-6 justify-center items-stretch p-0 md:p-3">
+                    {group.map((member, idx) =>
+                      member.isSpecial
+                        ? renderMoreMembersCard(member, `more-${groupIndex}-${idx}`)
+                        : renderTeamMemberCard(member, member.name)
+                    )}
             </div>
-          </div>
+            </SwiperSlide>
+              ))
+            )}
+          </Swiper>
 
           {/* Dots Indicator */}
           <div className="mt-8 flex justify-center">
@@ -254,9 +313,9 @@ export default function OurTeamSection() {
               {Array.from({ length: maxIndex + 1 }).map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => setIndex(i)}
+                  onClick={() => swiperRef.current?.slideTo(i)}
                   className={`h-1.5 rounded-full transition-all duration-500 ${
-                    i === index
+                    i === activeIndex
                       ? "w-8 bg-gradient-to-r from-[#DC4242] to-[#5A6BFF]"
                       : "w-1.5 bg-[#343844] hover:bg-[#5A6BFF]/50"
                   }`}

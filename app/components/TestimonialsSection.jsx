@@ -60,7 +60,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <div className="min-h-screen p-2 sm:p-4 md:px-12 lg:px-[120px] w-full py-20 md:py-[120px] bg-[#191C26] bg-grid-white flex flex-col justify-center place-content-between relative">
+    <div id="testimonials" className="snap-start min-h-screen w-full pb-20 md:pb-28 px-5 sm:px-6 lg:px-[120px] bg-[#191C26] bg-grid-white flex flex-col justify-center place-content-between relative">
       <div className="absolute inset-0 bg-gradient-to-b from-[#191C26]/80 to-[#23263a]/90 pointer-events-none -z-10" />
       <div className="flex flex-col">
         <div className="flex items-center text-base font-normal text-[#FFFFFF]">

@@ -41,7 +41,8 @@ export default function Hero() {
 
     return (
         <section
-            className="relative min-h-screen lg:min-h-[92vh] w-full flex items-center justify-center px-5 pb-5 sm:py-10 lg:py-0 overflow-hidden bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#111319]"
+            id="hero"
+            className="snap-start relative min-h-screen lg:min-h-[92vh] w-full flex items-center justify-center px-5 sm:px-6 lg:px-[120px] pt-20 overflow-hidden bg-gradient-to-br from-[#191C26] via-[#23263a] to-[#111319]"
         >
             {/* Animated awe-struck blob */}
             <div
@@ -119,7 +120,7 @@ export default function Hero() {
                     </div>
                 </div>
                 {/* Client Logo Rail - responsive */}
-                <div className="w-full mt-5 md:mt-20 z-20">
+                <div className="w-full mt-5 md:mt-20 z-20 flex flex-col gap-8 md:gap-12">
                     <div className="overflow-hidden w-full relative">
                         <div
                             className="flex animate-logo-rail whitespace-nowrap w-max gap-20"
@@ -138,16 +139,16 @@ export default function Hero() {
                             ))}
                         </div>
                     </div>
+                                {/* Scroll prompt */}
+            <div className="flex flex-col items-center z-20">
+                <span className="text-[#BCC1CA] text-sm animate-bounce">↓ Scroll to explore our services</span>
+            </div>
                 </div>
             </div>
             {/* Decorative Background Elements */}
             <div className="absolute top-0 left-0 w-72 h-72 bg-[#DC4242]/20 rounded-full blur-3xl -z-10" />
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#DC4242]/10 rounded-full blur-3xl -z-10" />
             <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#191C26]/40 to-[#DC4242]/10 pointer-events-none -z-10" />
-            {/* Scroll prompt */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center z-20">
-                <span className="text-[#BCC1CA] text-sm animate-bounce">↓ Scroll to explore our services</span>
-            </div>
             <style jsx global>{`
                 @keyframes pulse-slow {
                     0%, 100% { opacity: 1; }

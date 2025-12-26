@@ -53,7 +53,7 @@ export default function OurApproachSection() {
     ]
 
     return (
-        <section id="services" className="min-h-screen p-5 lg:px-[120px] w-full md:py-[90px] flex flex-col justify-center place-content-between">
+        <section id="approach" className="snap-start min-h-screen w-full pb-20 md:pb-28 px-5 sm:px-6 lg:px-[120px] flex flex-col justify-center place-content-between bg-[#191C26]">
             <div className="flex flex-col">
                 <div className="flex items-center text-base font-normal text-[#FFFFFF]">
                     <Image src={Separator} className="mr-[10px]" alt="separator"/>

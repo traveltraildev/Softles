@@ -54,7 +54,7 @@ export default function ContactSection() {
         )
     }
     return (
-        <section id="book-call" className="min-h-screen p-5 lg:px-[120px] w-full sm:py-[90px] bg-[#111319] flex flex-col justify-center place-content-between">
+        <section id="contact" className="snap-start min-h-screen w-full pt-5 pb-20 md:pt-10 md:pb-28 px-5 sm:px-6 lg:px-[120px] bg-[#111319] flex flex-col justify-center place-content-between">
             <div className="flex flex-col">
                 <div className="flex items-center text-base font-normal text-[#FFFFFF]">
                     <Image src={Separator} className="mr-[10px]" alt="separator" />

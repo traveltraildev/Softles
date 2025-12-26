@@ -16,6 +16,11 @@ body {
     :root {
         --radius: 0.5rem;
     }
+
+    html {
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+    }
 }
 
 .hide-scrollbar::-webkit-scrollbar {
